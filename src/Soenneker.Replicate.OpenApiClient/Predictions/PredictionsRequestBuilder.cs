@@ -54,34 +54,15 @@ namespace Soenneker.Replicate.OpenApiClient.Predictions
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Replicate.OpenApiClient.Predictions.PredictionsGetResponse?> GetAsPredictionsGetResponseAsync(Action<RequestConfiguration<global::Soenneker.Replicate.OpenApiClient.Predictions.PredictionsRequestBuilder.PredictionsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Replicate.OpenApiClient.Predictions.PredictionsGetResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Replicate.OpenApiClient.Predictions.PredictionsRequestBuilder.PredictionsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Replicate.OpenApiClient.Predictions.PredictionsGetResponse> GetAsPredictionsGetResponseAsync(Action<RequestConfiguration<global::Soenneker.Replicate.OpenApiClient.Predictions.PredictionsRequestBuilder.PredictionsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Replicate.OpenApiClient.Predictions.PredictionsGetResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Replicate.OpenApiClient.Predictions.PredictionsRequestBuilder.PredictionsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             return await RequestAdapter.SendAsync<global::Soenneker.Replicate.OpenApiClient.Predictions.PredictionsGetResponse>(requestInfo, global::Soenneker.Replicate.OpenApiClient.Predictions.PredictionsGetResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
-        }
-        /// <summary>
-        /// Get a paginated list of all predictions created by the user or organization associated with the provided API token.This will include predictions created from the API and the website. It will return 100 records per page.Example cURL request:```consolecurl -s \  -H &quot;Authorization: Bearer $REPLICATE_API_TOKEN&quot; \  https://api.replicate.com/v1/predictions```The response will be a paginated JSON array of prediction objects, sorted with the most recent prediction first:```json{  &quot;next&quot;: null,  &quot;previous&quot;: null,  &quot;results&quot;: [    {      &quot;completed_at&quot;: &quot;2023-09-08T16:19:34.791859Z&quot;,      &quot;created_at&quot;: &quot;2023-09-08T16:19:34.907244Z&quot;,      &quot;data_removed&quot;: false,      &quot;error&quot;: null,      &quot;id&quot;: &quot;gm3qorzdhgbfurvjtvhg6dckhu&quot;,      &quot;input&quot;: {        &quot;text&quot;: &quot;Alice&quot;      },      &quot;metrics&quot;: {        &quot;predict_time&quot;: 0.012683      },      &quot;output&quot;: &quot;hello Alice&quot;,      &quot;started_at&quot;: &quot;2023-09-08T16:19:34.779176Z&quot;,      &quot;source&quot;: &quot;api&quot;,      &quot;status&quot;: &quot;succeeded&quot;,      &quot;urls&quot;: {        &quot;web&quot;: &quot;https://replicate.com/p/gm3qorzdhgbfurvjtvhg6dckhu&quot;,        &quot;get&quot;: &quot;https://api.replicate.com/v1/predictions/gm3qorzdhgbfurvjtvhg6dckhu&quot;,        &quot;cancel&quot;: &quot;https://api.replicate.com/v1/predictions/gm3qorzdhgbfurvjtvhg6dckhu/cancel&quot;      },      &quot;model&quot;: &quot;replicate/hello-world&quot;,      &quot;version&quot;: &quot;5c7d5dc6dd8bf75c1acaa8565735e7986bc5b66206b55cca93cb72c9bf15ccaa&quot;,    }  ]}````id` will be the unique ID of the prediction.`source` will indicate how the prediction was created. Possible values are `web` or `api`.`status` will be the status of the prediction. Refer to [get a single prediction](#predictions.get) for possible values.`urls` will be a convenience object that can be used to construct new API requests for the given prediction. If the requested model version supports streaming, this will have a `stream` entry with an HTTPS URL that you can use to construct an [`EventSource`](https://developer.mozilla.org/en-US/docs/Web/API/EventSource).`model` will be the model identifier string in the format of `{model_owner}/{model_name}`.`version` will be the unique ID of model version used to create the prediction.`data_removed` will be `true` if the input and output data has been deleted.
-        /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Replicate.OpenApiClient.Predictions.PredictionsResponse"/></returns>
-        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        [Obsolete("This method is obsolete. Use GetAsPredictionsGetResponseAsync instead.")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public async Task<global::Soenneker.Replicate.OpenApiClient.Predictions.PredictionsResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Replicate.OpenApiClient.Predictions.PredictionsRequestBuilder.PredictionsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#nullable restore
-#else
-        public async Task<global::Soenneker.Replicate.OpenApiClient.Predictions.PredictionsResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Replicate.OpenApiClient.Predictions.PredictionsRequestBuilder.PredictionsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#endif
-            var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Replicate.OpenApiClient.Predictions.PredictionsResponse>(requestInfo, global::Soenneker.Replicate.OpenApiClient.Predictions.PredictionsResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Create a prediction for the model version and inputs you provide.Example cURL request:```consolecurl -s -X POST -H &apos;Prefer: wait&apos; \  -d &apos;{&quot;version&quot;: &quot;replicate/hello-world:5c7d5dc6dd8bf75c1acaa8565735e7986bc5b66206b55cca93cb72c9bf15ccaa&quot;, &quot;input&quot;: {&quot;text&quot;: &quot;Alice&quot;}}&apos; \  -H &quot;Authorization: Bearer $REPLICATE_API_TOKEN&quot; \  -H &apos;Content-Type: application/json&apos; \  https://api.replicate.com/v1/predictions```The request will wait up to 60 seconds for the model to run. If this time is exceeded the prediction will be returned in a `&quot;starting&quot;` state and need to be retrieved using the `predictions.get` endpoint.For a complete overview of the `predictions.create` API check out our documentation on [creating a prediction](https://replicate.com/docs/topics/predictions/create-a-prediction) which covers a variety of use cases.
@@ -166,35 +147,8 @@ namespace Soenneker.Replicate.OpenApiClient.Predictions
             [QueryParameter("created_before")]
             public DateTimeOffset? CreatedBefore { get; set; }
             /// <summary>Filter predictions by how they were created. Currently only `web` is supported.If no value is set, the API returns predictions from both API and web sources.When filtering by `source=web`, results are limited to predictions created in the last 14 days.</summary>
-            [Obsolete("This property is deprecated, use SourceAsGetSourceQueryParameterType instead")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
             [QueryParameter("source")]
-            public string? Source { get; set; }
-#nullable restore
-#else
-            [QueryParameter("source")]
-            public string Source { get; set; }
-#endif
-            /// <summary>Filter predictions by how they were created. Currently only `web` is supported.If no value is set, the API returns predictions from both API and web sources.When filtering by `source=web`, results are limited to predictions created in the last 14 days.</summary>
-            [QueryParameter("source")]
-            public global::Soenneker.Replicate.OpenApiClient.Predictions.GetSourceQueryParameterType? SourceAsGetSourceQueryParameterType { get; set; }
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class PredictionsRequestBuilderGetRequestConfiguration : RequestConfiguration<global::Soenneker.Replicate.OpenApiClient.Predictions.PredictionsRequestBuilder.PredictionsRequestBuilderGetQueryParameters>
-        {
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class PredictionsRequestBuilderPostRequestConfiguration : RequestConfiguration<DefaultQueryParameters>
-        {
+            public global::Soenneker.Replicate.OpenApiClient.Predictions.GetSourceQueryParameterType? Source { get; set; }
         }
     }
 }

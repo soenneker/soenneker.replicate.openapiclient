@@ -53,34 +53,15 @@ namespace Soenneker.Replicate.OpenApiClient.Trainings
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Replicate.OpenApiClient.Trainings.TrainingsGetResponse?> GetAsTrainingsGetResponseAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Replicate.OpenApiClient.Trainings.TrainingsGetResponse?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Replicate.OpenApiClient.Trainings.TrainingsGetResponse> GetAsTrainingsGetResponseAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Replicate.OpenApiClient.Trainings.TrainingsGetResponse> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             return await RequestAdapter.SendAsync<global::Soenneker.Replicate.OpenApiClient.Trainings.TrainingsGetResponse>(requestInfo, global::Soenneker.Replicate.OpenApiClient.Trainings.TrainingsGetResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
-        }
-        /// <summary>
-        /// Get a paginated list of all trainings created by the user or organization associated with the provided API token.This will include trainings created from the API and the website. It will return 100 records per page.Example cURL request:```consolecurl -s \  -H &quot;Authorization: Bearer $REPLICATE_API_TOKEN&quot; \  https://api.replicate.com/v1/trainings```The response will be a paginated JSON array of training objects, sorted with the most recent training first:```json{  &quot;next&quot;: null,  &quot;previous&quot;: null,  &quot;results&quot;: [    {      &quot;completed_at&quot;: &quot;2023-09-08T16:41:19.826523Z&quot;,      &quot;created_at&quot;: &quot;2023-09-08T16:32:57.018467Z&quot;,      &quot;error&quot;: null,      &quot;id&quot;: &quot;zz4ibbonubfz7carwiefibzgga&quot;,      &quot;input&quot;: {        &quot;input_images&quot;: &quot;https://example.com/my-input-images.zip&quot;      },      &quot;metrics&quot;: {        &quot;predict_time&quot;: 502.713876      },      &quot;output&quot;: {        &quot;version&quot;: &quot;...&quot;,        &quot;weights&quot;: &quot;...&quot;      },      &quot;started_at&quot;: &quot;2023-09-08T16:32:57.112647Z&quot;,      &quot;source&quot;: &quot;api&quot;,      &quot;status&quot;: &quot;succeeded&quot;,      &quot;urls&quot;: {        &quot;web&quot;: &quot;https://replicate.com/p/zz4ibbonubfz7carwiefibzgga&quot;,        &quot;get&quot;: &quot;https://api.replicate.com/v1/trainings/zz4ibbonubfz7carwiefibzgga&quot;,        &quot;cancel&quot;: &quot;https://api.replicate.com/v1/trainings/zz4ibbonubfz7carwiefibzgga/cancel&quot;      },      &quot;model&quot;: &quot;stability-ai/sdxl&quot;,      &quot;version&quot;: &quot;da77bc59ee60423279fd632efb4795ab731d9e3ca9705ef3341091fb989b7eaf&quot;,    }  ]}````id` will be the unique ID of the training.`source` will indicate how the training was created. Possible values are `web` or `api`.`status` will be the status of the training. Refer to [get a single training](#trainings.get) for possible values.`urls` will be a convenience object that can be used to construct new API requests for the given training.`version` will be the unique ID of model version used to create the training.
-        /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Replicate.OpenApiClient.Trainings.TrainingsResponse"/></returns>
-        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        [Obsolete("This method is obsolete. Use GetAsTrainingsGetResponseAsync instead.")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public async Task<global::Soenneker.Replicate.OpenApiClient.Trainings.TrainingsResponse?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#nullable restore
-#else
-        public async Task<global::Soenneker.Replicate.OpenApiClient.Trainings.TrainingsResponse> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#endif
-            var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Replicate.OpenApiClient.Trainings.TrainingsResponse>(requestInfo, global::Soenneker.Replicate.OpenApiClient.Trainings.TrainingsResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Get a paginated list of all trainings created by the user or organization associated with the provided API token.This will include trainings created from the API and the website. It will return 100 records per page.Example cURL request:```consolecurl -s \  -H &quot;Authorization: Bearer $REPLICATE_API_TOKEN&quot; \  https://api.replicate.com/v1/trainings```The response will be a paginated JSON array of training objects, sorted with the most recent training first:```json{  &quot;next&quot;: null,  &quot;previous&quot;: null,  &quot;results&quot;: [    {      &quot;completed_at&quot;: &quot;2023-09-08T16:41:19.826523Z&quot;,      &quot;created_at&quot;: &quot;2023-09-08T16:32:57.018467Z&quot;,      &quot;error&quot;: null,      &quot;id&quot;: &quot;zz4ibbonubfz7carwiefibzgga&quot;,      &quot;input&quot;: {        &quot;input_images&quot;: &quot;https://example.com/my-input-images.zip&quot;      },      &quot;metrics&quot;: {        &quot;predict_time&quot;: 502.713876      },      &quot;output&quot;: {        &quot;version&quot;: &quot;...&quot;,        &quot;weights&quot;: &quot;...&quot;      },      &quot;started_at&quot;: &quot;2023-09-08T16:32:57.112647Z&quot;,      &quot;source&quot;: &quot;api&quot;,      &quot;status&quot;: &quot;succeeded&quot;,      &quot;urls&quot;: {        &quot;web&quot;: &quot;https://replicate.com/p/zz4ibbonubfz7carwiefibzgga&quot;,        &quot;get&quot;: &quot;https://api.replicate.com/v1/trainings/zz4ibbonubfz7carwiefibzgga&quot;,        &quot;cancel&quot;: &quot;https://api.replicate.com/v1/trainings/zz4ibbonubfz7carwiefibzgga/cancel&quot;      },      &quot;model&quot;: &quot;stability-ai/sdxl&quot;,      &quot;version&quot;: &quot;da77bc59ee60423279fd632efb4795ab731d9e3ca9705ef3341091fb989b7eaf&quot;,    }  ]}````id` will be the unique ID of the training.`source` will indicate how the training was created. Possible values are `web` or `api`.`status` will be the status of the training. Refer to [get a single training](#trainings.get) for possible values.`urls` will be a convenience object that can be used to construct new API requests for the given training.`version` will be the unique ID of model version used to create the training.
@@ -109,14 +90,6 @@ namespace Soenneker.Replicate.OpenApiClient.Trainings
         public global::Soenneker.Replicate.OpenApiClient.Trainings.TrainingsRequestBuilder WithUrl(string rawUrl)
         {
             return new global::Soenneker.Replicate.OpenApiClient.Trainings.TrainingsRequestBuilder(rawUrl, RequestAdapter);
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class TrainingsRequestBuilderGetRequestConfiguration : RequestConfiguration<DefaultQueryParameters>
-        {
         }
     }
 }
