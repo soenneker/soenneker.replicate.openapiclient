@@ -2,7 +2,7 @@
   "descriptionHash": "F9283CCAE8AF4D52097C841B82C9F46D632087DB011E13AD2FA5FA93347BB3613C238BC32A8566760F47821096FB27D9FD1DA273EDBF0E66C29B129973E62E5A",
   "descriptionLocation": "../../openapi.json",
   "lockFileVersion": "1.0.0",
-  "kiotaVersion": "1.30.0",
+  "kiotaVersion": "1.31.0",
   "clientClassName": "ReplicateOpenApiClient",
   "typeAccessModifier": "Public",
   "clientNamespaceName": "Soenneker.Replicate.OpenApiClient",
