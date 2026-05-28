@@ -34,10 +34,10 @@ namespace Soenneker.Replicate.OpenApiClient.Predictions
         /// <summary>The results property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Replicate.OpenApiClient.Models.Schemas_prediction_response>? Results { get; set; }
+        public List<global::Soenneker.Replicate.OpenApiClient.Models.SchemasPredictionResponse>? Results { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Replicate.OpenApiClient.Models.Schemas_prediction_response> Results { get; set; }
+        public List<global::Soenneker.Replicate.OpenApiClient.Models.SchemasPredictionResponse> Results { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Replicate.OpenApiClient.Predictions.PredictionsGetResponse"/> and sets the default values.
@@ -66,7 +66,7 @@ namespace Soenneker.Replicate.OpenApiClient.Predictions
             {
                 { "next", n => { Next = n.GetStringValue(); } },
                 { "previous", n => { Previous = n.GetStringValue(); } },
-                { "results", n => { Results = n.GetCollectionOfObjectValues<global::Soenneker.Replicate.OpenApiClient.Models.Schemas_prediction_response>(global::Soenneker.Replicate.OpenApiClient.Models.Schemas_prediction_response.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "results", n => { Results = n.GetCollectionOfObjectValues<global::Soenneker.Replicate.OpenApiClient.Models.SchemasPredictionResponse>(global::Soenneker.Replicate.OpenApiClient.Models.SchemasPredictionResponse.CreateFromDiscriminatorValue)?.AsList(); } },
             };
         }
         /// <summary>
@@ -78,7 +78,7 @@ namespace Soenneker.Replicate.OpenApiClient.Predictions
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("next", Next);
             writer.WriteStringValue("previous", Previous);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Replicate.OpenApiClient.Models.Schemas_prediction_response>("results", Results);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Replicate.OpenApiClient.Models.SchemasPredictionResponse>("results", Results);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

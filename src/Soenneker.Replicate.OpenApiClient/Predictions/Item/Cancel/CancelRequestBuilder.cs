@@ -34,25 +34,25 @@ namespace Soenneker.Replicate.OpenApiClient.Predictions.Item.Cancel
         {
         }
         /// <summary>
-        /// Cancel a prediction that is currently running.Example cURL request that creates a prediction and then cancels it:```console# First, create a predictionPREDICTION_ID=$(curl -s -X POST \  -H &quot;Authorization: Bearer $REPLICATE_API_TOKEN&quot; \  -H &quot;Content-Type: application/json&quot; \  -d &apos;{    &quot;input&quot;: {      &quot;prompt&quot;: &quot;a video that may take a while to generate&quot;    }  }&apos; \  https://api.replicate.com/v1/models/minimax/video-01/predictions | jq -r &apos;.id&apos;)# Echo the prediction IDecho &quot;Created prediction with ID: $PREDICTION_ID&quot;# Cancel the predictioncurl -s -X POST \  -H &quot;Authorization: Bearer $REPLICATE_API_TOKEN&quot; \  https://api.replicate.com/v1/predictions/$PREDICTION_ID/cancel```
+        /// &quot;Cancel a prediction that is currently running.Example cURL request that creates a prediction and then cancels it:```console# First, create a predictionPREDICTION_ID=$(curl -s -X POST \  -H \&quot;Authorization: Bearer $REPLICATE_API_TOKEN\&quot; \  -H \&quot;Content-Type: application/json\&quot; \  -d &apos;{    \&quot;input\&quot;: {      \&quot;prompt\&quot;: \&quot;a video that may take a while to generate\&quot;    }  }&apos; \  https://api.replicate.com/v1/models/minimax/video-01/predictions | jq -r &apos;.id&apos;)# Echo the prediction IDecho \&quot;Created prediction with ID: $PREDICTION_ID\&quot;# Cancel the predictioncurl -s -X POST \  -H \&quot;Authorization: Bearer $REPLICATE_API_TOKEN\&quot; \  https://api.replicate.com/v1/predictions/$PREDICTION_ID/cancel```&quot;
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Replicate.OpenApiClient.Models.Schemas_prediction_response"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Replicate.OpenApiClient.Models.SchemasPredictionResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Replicate.OpenApiClient.Models.Schemas_prediction_response?> PostAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Replicate.OpenApiClient.Models.SchemasPredictionResponse?> PostAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Replicate.OpenApiClient.Models.Schemas_prediction_response> PostAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Replicate.OpenApiClient.Models.SchemasPredictionResponse> PostAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToPostRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Replicate.OpenApiClient.Models.Schemas_prediction_response>(requestInfo, global::Soenneker.Replicate.OpenApiClient.Models.Schemas_prediction_response.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Replicate.OpenApiClient.Models.SchemasPredictionResponse>(requestInfo, global::Soenneker.Replicate.OpenApiClient.Models.SchemasPredictionResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Cancel a prediction that is currently running.Example cURL request that creates a prediction and then cancels it:```console# First, create a predictionPREDICTION_ID=$(curl -s -X POST \  -H &quot;Authorization: Bearer $REPLICATE_API_TOKEN&quot; \  -H &quot;Content-Type: application/json&quot; \  -d &apos;{    &quot;input&quot;: {      &quot;prompt&quot;: &quot;a video that may take a while to generate&quot;    }  }&apos; \  https://api.replicate.com/v1/models/minimax/video-01/predictions | jq -r &apos;.id&apos;)# Echo the prediction IDecho &quot;Created prediction with ID: $PREDICTION_ID&quot;# Cancel the predictioncurl -s -X POST \  -H &quot;Authorization: Bearer $REPLICATE_API_TOKEN&quot; \  https://api.replicate.com/v1/predictions/$PREDICTION_ID/cancel```
+        /// &quot;Cancel a prediction that is currently running.Example cURL request that creates a prediction and then cancels it:```console# First, create a predictionPREDICTION_ID=$(curl -s -X POST \  -H \&quot;Authorization: Bearer $REPLICATE_API_TOKEN\&quot; \  -H \&quot;Content-Type: application/json\&quot; \  -d &apos;{    \&quot;input\&quot;: {      \&quot;prompt\&quot;: \&quot;a video that may take a while to generate\&quot;    }  }&apos; \  https://api.replicate.com/v1/models/minimax/video-01/predictions | jq -r &apos;.id&apos;)# Echo the prediction IDecho \&quot;Created prediction with ID: $PREDICTION_ID\&quot;# Cancel the predictioncurl -s -X POST \  -H \&quot;Authorization: Bearer $REPLICATE_API_TOKEN\&quot; \  https://api.replicate.com/v1/predictions/$PREDICTION_ID/cancel```&quot;
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

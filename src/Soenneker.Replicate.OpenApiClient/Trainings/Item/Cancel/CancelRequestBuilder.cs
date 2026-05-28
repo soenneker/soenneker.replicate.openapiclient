@@ -36,20 +36,20 @@ namespace Soenneker.Replicate.OpenApiClient.Trainings.Item.Cancel
         /// <summary>
         /// Cancel a training
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Replicate.OpenApiClient.Models.Schemas_training_response"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Replicate.OpenApiClient.Models.SchemasTrainingResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Replicate.OpenApiClient.Models.Schemas_training_response?> PostAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Replicate.OpenApiClient.Models.SchemasTrainingResponse?> PostAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Replicate.OpenApiClient.Models.Schemas_training_response> PostAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Replicate.OpenApiClient.Models.SchemasTrainingResponse> PostAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToPostRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Replicate.OpenApiClient.Models.Schemas_training_response>(requestInfo, global::Soenneker.Replicate.OpenApiClient.Models.Schemas_training_response.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Replicate.OpenApiClient.Models.SchemasTrainingResponse>(requestInfo, global::Soenneker.Replicate.OpenApiClient.Models.SchemasTrainingResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Cancel a training

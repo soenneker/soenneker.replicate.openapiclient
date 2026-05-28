@@ -40,52 +40,53 @@ namespace Soenneker.Replicate.OpenApiClient.Files.Item
         {
         }
         /// <summary>
-        /// Delete a file. Once a file has been deleted, subsequent requests to the file resource return 404 Not found.Example cURL request:```consolecurl -X DELETE \  -H &quot;Authorization: Token $REPLICATE_API_TOKEN&quot; \  https://api.replicate.com/v1/files/cneqzikepnug6xezperrr4z55o```
+        /// &quot;Delete a file. Once a file has been deleted, subsequent requests to the file resource return 404 Not found.Example cURL request:```consolecurl -X DELETE \  -H \&quot;Authorization: Token $REPLICATE_API_TOKEN\&quot; \  https://api.replicate.com/v1/files/cneqzikepnug6xezperrr4z55o```&quot;
         /// </summary>
+        /// <returns>A <see cref="Stream"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Replicate.OpenApiClient.Files.Item.WithFile_404Error">When receiving a 404 status code</exception>
+        /// <exception cref="global::Soenneker.Replicate.OpenApiClient.Models.FilesDelete404">When receiving a 404 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<Stream?> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<Stream> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToDeleteRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "404", global::Soenneker.Replicate.OpenApiClient.Files.Item.WithFile_404Error.CreateFromDiscriminatorValue },
+                { "404", global::Soenneker.Replicate.OpenApiClient.Models.FilesDelete404.CreateFromDiscriminatorValue },
             };
-            await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendPrimitiveAsync<Stream>(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Get the details of a file.Example cURL request:```consolecurl -s \  -H &quot;Authorization: Token $REPLICATE_API_TOKEN&quot; \  https://api.replicate.com/v1/files/cneqzikepnug6xezperrr4z55o```
+        /// &quot;Get the details of a file.Example cURL request:```consolecurl -s \  -H \&quot;Authorization: Token $REPLICATE_API_TOKEN\&quot; \  https://api.replicate.com/v1/files/cneqzikepnug6xezperrr4z55o```&quot;
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Replicate.OpenApiClient.Models.Schemas_file_response"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Replicate.OpenApiClient.Models.SchemasFileResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Replicate.OpenApiClient.Files.Item.Schemas_file_response404Error">When receiving a 404 status code</exception>
+        /// <exception cref="global::Soenneker.Replicate.OpenApiClient.Models.FilesGet404">When receiving a 404 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Replicate.OpenApiClient.Models.Schemas_file_response?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Replicate.OpenApiClient.Models.SchemasFileResponse?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Replicate.OpenApiClient.Models.Schemas_file_response> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Replicate.OpenApiClient.Models.SchemasFileResponse> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "404", global::Soenneker.Replicate.OpenApiClient.Files.Item.Schemas_file_response404Error.CreateFromDiscriminatorValue },
+                { "404", global::Soenneker.Replicate.OpenApiClient.Models.FilesGet404.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Replicate.OpenApiClient.Models.Schemas_file_response>(requestInfo, global::Soenneker.Replicate.OpenApiClient.Models.Schemas_file_response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Replicate.OpenApiClient.Models.SchemasFileResponse>(requestInfo, global::Soenneker.Replicate.OpenApiClient.Models.SchemasFileResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Delete a file. Once a file has been deleted, subsequent requests to the file resource return 404 Not found.Example cURL request:```consolecurl -X DELETE \  -H &quot;Authorization: Token $REPLICATE_API_TOKEN&quot; \  https://api.replicate.com/v1/files/cneqzikepnug6xezperrr4z55o```
+        /// &quot;Delete a file. Once a file has been deleted, subsequent requests to the file resource return 404 Not found.Example cURL request:```consolecurl -X DELETE \  -H \&quot;Authorization: Token $REPLICATE_API_TOKEN\&quot; \  https://api.replicate.com/v1/files/cneqzikepnug6xezperrr4z55o```&quot;
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -104,7 +105,7 @@ namespace Soenneker.Replicate.OpenApiClient.Files.Item
             return requestInfo;
         }
         /// <summary>
-        /// Get the details of a file.Example cURL request:```consolecurl -s \  -H &quot;Authorization: Token $REPLICATE_API_TOKEN&quot; \  https://api.replicate.com/v1/files/cneqzikepnug6xezperrr4z55o```
+        /// &quot;Get the details of a file.Example cURL request:```consolecurl -s \  -H \&quot;Authorization: Token $REPLICATE_API_TOKEN\&quot; \  https://api.replicate.com/v1/files/cneqzikepnug6xezperrr4z55o```&quot;
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

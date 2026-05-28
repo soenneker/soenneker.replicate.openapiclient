@@ -34,10 +34,10 @@ namespace Soenneker.Replicate.OpenApiClient.Deployments
         /// <summary>An array containing a page of deployment objects</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Replicate.OpenApiClient.Models.Schemas_deployment_response>? Results { get; set; }
+        public List<global::Soenneker.Replicate.OpenApiClient.Models.SchemasDeploymentResponse>? Results { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Replicate.OpenApiClient.Models.Schemas_deployment_response> Results { get; set; }
+        public List<global::Soenneker.Replicate.OpenApiClient.Models.SchemasDeploymentResponse> Results { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Replicate.OpenApiClient.Deployments.DeploymentsGetResponse"/> and sets the default values.
@@ -66,7 +66,7 @@ namespace Soenneker.Replicate.OpenApiClient.Deployments
             {
                 { "next", n => { Next = n.GetStringValue(); } },
                 { "previous", n => { Previous = n.GetStringValue(); } },
-                { "results", n => { Results = n.GetCollectionOfObjectValues<global::Soenneker.Replicate.OpenApiClient.Models.Schemas_deployment_response>(global::Soenneker.Replicate.OpenApiClient.Models.Schemas_deployment_response.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "results", n => { Results = n.GetCollectionOfObjectValues<global::Soenneker.Replicate.OpenApiClient.Models.SchemasDeploymentResponse>(global::Soenneker.Replicate.OpenApiClient.Models.SchemasDeploymentResponse.CreateFromDiscriminatorValue)?.AsList(); } },
             };
         }
         /// <summary>
@@ -78,7 +78,7 @@ namespace Soenneker.Replicate.OpenApiClient.Deployments
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("next", Next);
             writer.WriteStringValue("previous", Previous);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Replicate.OpenApiClient.Models.Schemas_deployment_response>("results", Results);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Replicate.OpenApiClient.Models.SchemasDeploymentResponse>("results", Results);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

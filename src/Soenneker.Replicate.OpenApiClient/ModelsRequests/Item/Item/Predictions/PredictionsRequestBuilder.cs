@@ -34,38 +34,38 @@ namespace Soenneker.Replicate.OpenApiClient.ModelsRequests.Item.Item.Predictions
         {
         }
         /// <summary>
-        /// Create a prediction using an [official model](https://replicate.com/changelog/2025-01-29-official-models).If you&apos;re _not_ running an official model, use the [`predictions.create`](#predictions.create) operation instead.Example cURL request:```consolecurl -s -X POST -H &apos;Prefer: wait&apos; \  -d &apos;{&quot;input&quot;: {&quot;prompt&quot;: &quot;Write a short poem about the weather.&quot;}}&apos; \  -H &quot;Authorization: Bearer $REPLICATE_API_TOKEN&quot; \  -H &apos;Content-Type: application/json&apos; \  https://api.replicate.com/v1/models/meta/meta-llama-3-70b-instruct/predictions```The request will wait up to 60 seconds for the model to run. If this time is exceeded the prediction will be returned in a `&quot;starting&quot;` state and need to be retrieved using the `predictions.get` endpoint.For a complete overview of the `deployments.predictions.create` API check out our documentation on [creating a prediction](https://replicate.com/docs/topics/predictions/create-a-prediction) which covers a variety of use cases.
+        /// &quot;Create a prediction using an [official model](https://replicate.com/changelog/2025-01-29-official-models).If you&apos;re _not_ running an official model, use the [`predictions.create`](#predictions.create) operation instead.Example cURL request:```consolecurl -s -X POST -H &apos;Prefer: wait&apos; \  -d &apos;{\&quot;input\&quot;: {\&quot;prompt\&quot;: \&quot;Write a short poem about the weather.\&quot;}}&apos; \  -H \&quot;Authorization: Bearer $REPLICATE_API_TOKEN\&quot; \  -H &apos;Content-Type: application/json&apos; \  https://api.replicate.com/v1/models/meta/meta-llama-3-70b-instruct/predictions```The request will wait up to 60 seconds for the model to run. If this time is exceeded the prediction will be returned in a `\&quot;starting\&quot;` state and need to be retrieved using the `predictions.get` endpoint.For a complete overview of the `deployments.predictions.create` API check out our documentation on [creating a prediction](https://replicate.com/docs/topics/predictions/create-a-prediction) which covers a variety of use cases.&quot;
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Replicate.OpenApiClient.Models.Schemas_prediction_response"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Replicate.OpenApiClient.Models.SchemasPredictionResponse"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Replicate.OpenApiClient.Models.Schemas_prediction_response?> PostAsync(global::Soenneker.Replicate.OpenApiClient.Models.Schemas_prediction_request body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Replicate.OpenApiClient.Models.SchemasPredictionResponse?> PostAsync(global::Soenneker.Replicate.OpenApiClient.Models.SchemasPredictionRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Replicate.OpenApiClient.Models.Schemas_prediction_response> PostAsync(global::Soenneker.Replicate.OpenApiClient.Models.Schemas_prediction_request body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Replicate.OpenApiClient.Models.SchemasPredictionResponse> PostAsync(global::Soenneker.Replicate.OpenApiClient.Models.SchemasPredictionRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Replicate.OpenApiClient.Models.Schemas_prediction_response>(requestInfo, global::Soenneker.Replicate.OpenApiClient.Models.Schemas_prediction_response.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Replicate.OpenApiClient.Models.SchemasPredictionResponse>(requestInfo, global::Soenneker.Replicate.OpenApiClient.Models.SchemasPredictionResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Create a prediction using an [official model](https://replicate.com/changelog/2025-01-29-official-models).If you&apos;re _not_ running an official model, use the [`predictions.create`](#predictions.create) operation instead.Example cURL request:```consolecurl -s -X POST -H &apos;Prefer: wait&apos; \  -d &apos;{&quot;input&quot;: {&quot;prompt&quot;: &quot;Write a short poem about the weather.&quot;}}&apos; \  -H &quot;Authorization: Bearer $REPLICATE_API_TOKEN&quot; \  -H &apos;Content-Type: application/json&apos; \  https://api.replicate.com/v1/models/meta/meta-llama-3-70b-instruct/predictions```The request will wait up to 60 seconds for the model to run. If this time is exceeded the prediction will be returned in a `&quot;starting&quot;` state and need to be retrieved using the `predictions.get` endpoint.For a complete overview of the `deployments.predictions.create` API check out our documentation on [creating a prediction](https://replicate.com/docs/topics/predictions/create-a-prediction) which covers a variety of use cases.
+        /// &quot;Create a prediction using an [official model](https://replicate.com/changelog/2025-01-29-official-models).If you&apos;re _not_ running an official model, use the [`predictions.create`](#predictions.create) operation instead.Example cURL request:```consolecurl -s -X POST -H &apos;Prefer: wait&apos; \  -d &apos;{\&quot;input\&quot;: {\&quot;prompt\&quot;: \&quot;Write a short poem about the weather.\&quot;}}&apos; \  -H \&quot;Authorization: Bearer $REPLICATE_API_TOKEN\&quot; \  -H &apos;Content-Type: application/json&apos; \  https://api.replicate.com/v1/models/meta/meta-llama-3-70b-instruct/predictions```The request will wait up to 60 seconds for the model to run. If this time is exceeded the prediction will be returned in a `\&quot;starting\&quot;` state and need to be retrieved using the `predictions.get` endpoint.For a complete overview of the `deployments.predictions.create` API check out our documentation on [creating a prediction](https://replicate.com/docs/topics/predictions/create-a-prediction) which covers a variety of use cases.&quot;
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(global::Soenneker.Replicate.OpenApiClient.Models.Schemas_prediction_request body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Replicate.OpenApiClient.Models.SchemasPredictionRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(global::Soenneker.Replicate.OpenApiClient.Models.Schemas_prediction_request body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Replicate.OpenApiClient.Models.SchemasPredictionRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));

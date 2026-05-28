@@ -34,32 +34,32 @@ namespace Soenneker.Replicate.OpenApiClient.Search
         {
         }
         /// <summary>
-        /// Search for public models, collections, and docs using a text query.For models, the response includes all model data, plus a new `metadata` object with the following fields:- `generated_description`: A longer and more detailed AI-generated description of the model- `tags`: An array of tags for the model- `score`: A score for the model&apos;s relevance to the search queryExample cURL request:```consolecurl -s \  -H &quot;Authorization: Bearer $REPLICATE_API_TOKEN&quot; \  &quot;https://api.replicate.com/v1/search?query=nano+banana&quot;```Note: This search API is currently in beta and may change in future versions.
+        /// &quot;Search for public models, collections, and docs using a text query.For models, the response includes all model data, plus a new `metadata` object with the following fields:- `generated_description`: A longer and more detailed AI-generated description of the model- `tags`: An array of tags for the model- `score`: A score for the model&apos;s relevance to the search queryExample cURL request:```consolecurl -s \  -H \&quot;Authorization: Bearer $REPLICATE_API_TOKEN\&quot; \  \&quot;https://api.replicate.com/v1/search?query=nano+banana\&quot;```Note: This search API is currently in beta and may change in future versions.&quot;
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Replicate.OpenApiClient.Models.Schemas_search_response"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Replicate.OpenApiClient.Models.SchemasSearchResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Replicate.OpenApiClient.Search.Schemas_search_response400Error">When receiving a 400 status code</exception>
-        /// <exception cref="global::Soenneker.Replicate.OpenApiClient.Search.Schemas_search_response500Error">When receiving a 500 status code</exception>
+        /// <exception cref="global::Soenneker.Replicate.OpenApiClient.Models.Search400">When receiving a 400 status code</exception>
+        /// <exception cref="global::Soenneker.Replicate.OpenApiClient.Models.Search500">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Replicate.OpenApiClient.Models.Schemas_search_response?> GetAsync(Action<RequestConfiguration<global::Soenneker.Replicate.OpenApiClient.Search.SearchRequestBuilder.SearchRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Replicate.OpenApiClient.Models.SchemasSearchResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Replicate.OpenApiClient.Search.SearchRequestBuilder.SearchRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Replicate.OpenApiClient.Models.Schemas_search_response> GetAsync(Action<RequestConfiguration<global::Soenneker.Replicate.OpenApiClient.Search.SearchRequestBuilder.SearchRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Replicate.OpenApiClient.Models.SchemasSearchResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Replicate.OpenApiClient.Search.SearchRequestBuilder.SearchRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "400", global::Soenneker.Replicate.OpenApiClient.Search.Schemas_search_response400Error.CreateFromDiscriminatorValue },
-                { "500", global::Soenneker.Replicate.OpenApiClient.Search.Schemas_search_response500Error.CreateFromDiscriminatorValue },
+                { "400", global::Soenneker.Replicate.OpenApiClient.Models.Search400.CreateFromDiscriminatorValue },
+                { "500", global::Soenneker.Replicate.OpenApiClient.Models.Search500.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Replicate.OpenApiClient.Models.Schemas_search_response>(requestInfo, global::Soenneker.Replicate.OpenApiClient.Models.Schemas_search_response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Replicate.OpenApiClient.Models.SchemasSearchResponse>(requestInfo, global::Soenneker.Replicate.OpenApiClient.Models.SchemasSearchResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Search for public models, collections, and docs using a text query.For models, the response includes all model data, plus a new `metadata` object with the following fields:- `generated_description`: A longer and more detailed AI-generated description of the model- `tags`: An array of tags for the model- `score`: A score for the model&apos;s relevance to the search queryExample cURL request:```consolecurl -s \  -H &quot;Authorization: Bearer $REPLICATE_API_TOKEN&quot; \  &quot;https://api.replicate.com/v1/search?query=nano+banana&quot;```Note: This search API is currently in beta and may change in future versions.
+        /// &quot;Search for public models, collections, and docs using a text query.For models, the response includes all model data, plus a new `metadata` object with the following fields:- `generated_description`: A longer and more detailed AI-generated description of the model- `tags`: An array of tags for the model- `score`: A score for the model&apos;s relevance to the search queryExample cURL request:```consolecurl -s \  -H \&quot;Authorization: Bearer $REPLICATE_API_TOKEN\&quot; \  \&quot;https://api.replicate.com/v1/search?query=nano+banana\&quot;```Note: This search API is currently in beta and may change in future versions.&quot;
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -87,7 +87,7 @@ namespace Soenneker.Replicate.OpenApiClient.Search
             return new global::Soenneker.Replicate.OpenApiClient.Search.SearchRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Search for public models, collections, and docs using a text query.For models, the response includes all model data, plus a new `metadata` object with the following fields:- `generated_description`: A longer and more detailed AI-generated description of the model- `tags`: An array of tags for the model- `score`: A score for the model&apos;s relevance to the search queryExample cURL request:```consolecurl -s \  -H &quot;Authorization: Bearer $REPLICATE_API_TOKEN&quot; \  &quot;https://api.replicate.com/v1/search?query=nano+banana&quot;```Note: This search API is currently in beta and may change in future versions.
+        /// &quot;Search for public models, collections, and docs using a text query.For models, the response includes all model data, plus a new `metadata` object with the following fields:- `generated_description`: A longer and more detailed AI-generated description of the model- `tags`: An array of tags for the model- `score`: A score for the model&apos;s relevance to the search queryExample cURL request:```consolecurl -s \  -H \&quot;Authorization: Bearer $REPLICATE_API_TOKEN\&quot; \  \&quot;https://api.replicate.com/v1/search?query=nano+banana\&quot;```Note: This search API is currently in beta and may change in future versions.&quot;
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class SearchRequestBuilderGetQueryParameters 

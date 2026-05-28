@@ -47,25 +47,25 @@ namespace Soenneker.Replicate.OpenApiClient.Collections
         {
         }
         /// <summary>
-        /// Example cURL request:```consolecurl -s \  -H &quot;Authorization: Bearer $REPLICATE_API_TOKEN&quot; \  https://api.replicate.com/v1/collections```The response will be a paginated JSON list of collection objects:```json{  &quot;next&quot;: &quot;null&quot;,  &quot;previous&quot;: null,  &quot;results&quot;: [    {      &quot;name&quot;: &quot;Super resolution&quot;,      &quot;slug&quot;: &quot;super-resolution&quot;,      &quot;description&quot;: &quot;Upscaling models that create high-quality images from low-quality images.&quot;    }  ]}```
+        /// &quot;Example cURL request:```consolecurl -s \  -H \&quot;Authorization: Bearer $REPLICATE_API_TOKEN\&quot; \  https://api.replicate.com/v1/collections```The response will be a paginated JSON list of collection objects:```json{  \&quot;next\&quot;: \&quot;null\&quot;,  \&quot;previous\&quot;: null,  \&quot;results\&quot;: [    {      \&quot;name\&quot;: \&quot;Super resolution\&quot;,      \&quot;slug\&quot;: \&quot;super-resolution\&quot;,      \&quot;description\&quot;: \&quot;Upscaling models that create high-quality images from low-quality images.\&quot;    }  ]}```&quot;
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Replicate.OpenApiClient.Models.Schemas_paginated_collection_response"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Replicate.OpenApiClient.Models.SchemasPaginatedCollectionResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Replicate.OpenApiClient.Models.Schemas_paginated_collection_response?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Replicate.OpenApiClient.Models.SchemasPaginatedCollectionResponse?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Replicate.OpenApiClient.Models.Schemas_paginated_collection_response> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Replicate.OpenApiClient.Models.SchemasPaginatedCollectionResponse> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Replicate.OpenApiClient.Models.Schemas_paginated_collection_response>(requestInfo, global::Soenneker.Replicate.OpenApiClient.Models.Schemas_paginated_collection_response.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Replicate.OpenApiClient.Models.SchemasPaginatedCollectionResponse>(requestInfo, global::Soenneker.Replicate.OpenApiClient.Models.SchemasPaginatedCollectionResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Example cURL request:```consolecurl -s \  -H &quot;Authorization: Bearer $REPLICATE_API_TOKEN&quot; \  https://api.replicate.com/v1/collections```The response will be a paginated JSON list of collection objects:```json{  &quot;next&quot;: &quot;null&quot;,  &quot;previous&quot;: null,  &quot;results&quot;: [    {      &quot;name&quot;: &quot;Super resolution&quot;,      &quot;slug&quot;: &quot;super-resolution&quot;,      &quot;description&quot;: &quot;Upscaling models that create high-quality images from low-quality images.&quot;    }  ]}```
+        /// &quot;Example cURL request:```consolecurl -s \  -H \&quot;Authorization: Bearer $REPLICATE_API_TOKEN\&quot; \  https://api.replicate.com/v1/collections```The response will be a paginated JSON list of collection objects:```json{  \&quot;next\&quot;: \&quot;null\&quot;,  \&quot;previous\&quot;: null,  \&quot;results\&quot;: [    {      \&quot;name\&quot;: \&quot;Super resolution\&quot;,      \&quot;slug\&quot;: \&quot;super-resolution\&quot;,      \&quot;description\&quot;: \&quot;Upscaling models that create high-quality images from low-quality images.\&quot;    }  ]}```&quot;
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

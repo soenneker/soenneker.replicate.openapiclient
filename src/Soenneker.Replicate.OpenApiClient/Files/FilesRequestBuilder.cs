@@ -47,7 +47,7 @@ namespace Soenneker.Replicate.OpenApiClient.Files
         {
         }
         /// <summary>
-        /// Get a paginated list of all files created by the user or organization associated with the provided API token.Example cURL request:```consolecurl -s \  -H &quot;Authorization: Token $REPLICATE_API_TOKEN&quot; \  https://api.replicate.com/v1/files```The response will be a paginated JSON array of file objects, sorted with the most recent file first.
+        /// &quot;Get a paginated list of all files created by the user or organization associated with the provided API token.Example cURL request:```consolecurl -s \  -H \&quot;Authorization: Token $REPLICATE_API_TOKEN\&quot; \  https://api.replicate.com/v1/files```The response will be a paginated JSON array of file objects, sorted with the most recent file first.&quot;
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Replicate.OpenApiClient.Files.FilesGetResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -65,32 +65,32 @@ namespace Soenneker.Replicate.OpenApiClient.Files
             return await RequestAdapter.SendAsync<global::Soenneker.Replicate.OpenApiClient.Files.FilesGetResponse>(requestInfo, global::Soenneker.Replicate.OpenApiClient.Files.FilesGetResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Create a file by uploading its content and optional metadata.Example cURL request:```consolecurl -X POST https://api.replicate.com/v1/files \  -H &quot;Authorization: Token $REPLICATE_API_TOKEN&quot; \  -H &apos;Content-Type: multipart/form-data&apos; \  -F &apos;content=@/path/to/archive.zip;type=application/zip;filename=example.zip&apos; \  -F &apos;metadata={&quot;customer_reference_id&quot;: 123};type=application/json&apos;```The request must include:- `content`: The file content (required)- `type`: The content / MIME type for the file (defaults to `application/octet-stream`)- `filename`: The filename (required, ≤ 255 bytes, valid UTF-8)- `metadata`: User-provided metadata associated with the file (defaults to `{}`, must be valid JSON)
+        /// &quot;Create a file by uploading its content and optional metadata.Example cURL request:```consolecurl -X POST https://api.replicate.com/v1/files \  -H \&quot;Authorization: Token $REPLICATE_API_TOKEN\&quot; \  -H &apos;Content-Type: multipart/form-data&apos; \  -F &apos;content=@/path/to/archive.zip;type=application/zip;filename=example.zip&apos; \  -F &apos;metadata={\&quot;customer_reference_id\&quot;: 123};type=application/json&apos;```The request must include:- `content`: The file content (required)- `type`: The content / MIME type for the file (defaults to `application/octet-stream`)- `filename`: The filename (required, ≤ 255 bytes, valid UTF-8)- `metadata`: User-provided metadata associated with the file (defaults to `{}`, must be valid JSON)&quot;
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Replicate.OpenApiClient.Models.Schemas_file_response"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Replicate.OpenApiClient.Models.SchemasFileResponse"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Replicate.OpenApiClient.Files.Schemas_file_response413Error">When receiving a 413 status code</exception>
+        /// <exception cref="global::Soenneker.Replicate.OpenApiClient.Models.FilesCreate413">When receiving a 413 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Replicate.OpenApiClient.Models.Schemas_file_response?> PostAsync(MultipartBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Replicate.OpenApiClient.Models.SchemasFileResponse?> PostAsync(MultipartBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Replicate.OpenApiClient.Models.Schemas_file_response> PostAsync(MultipartBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Replicate.OpenApiClient.Models.SchemasFileResponse> PostAsync(MultipartBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "413", global::Soenneker.Replicate.OpenApiClient.Files.Schemas_file_response413Error.CreateFromDiscriminatorValue },
+                { "413", global::Soenneker.Replicate.OpenApiClient.Models.FilesCreate413.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Replicate.OpenApiClient.Models.Schemas_file_response>(requestInfo, global::Soenneker.Replicate.OpenApiClient.Models.Schemas_file_response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Replicate.OpenApiClient.Models.SchemasFileResponse>(requestInfo, global::Soenneker.Replicate.OpenApiClient.Models.SchemasFileResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Get a paginated list of all files created by the user or organization associated with the provided API token.Example cURL request:```consolecurl -s \  -H &quot;Authorization: Token $REPLICATE_API_TOKEN&quot; \  https://api.replicate.com/v1/files```The response will be a paginated JSON array of file objects, sorted with the most recent file first.
+        /// &quot;Get a paginated list of all files created by the user or organization associated with the provided API token.Example cURL request:```consolecurl -s \  -H \&quot;Authorization: Token $REPLICATE_API_TOKEN\&quot; \  https://api.replicate.com/v1/files```The response will be a paginated JSON array of file objects, sorted with the most recent file first.&quot;
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -109,7 +109,7 @@ namespace Soenneker.Replicate.OpenApiClient.Files
             return requestInfo;
         }
         /// <summary>
-        /// Create a file by uploading its content and optional metadata.Example cURL request:```consolecurl -X POST https://api.replicate.com/v1/files \  -H &quot;Authorization: Token $REPLICATE_API_TOKEN&quot; \  -H &apos;Content-Type: multipart/form-data&apos; \  -F &apos;content=@/path/to/archive.zip;type=application/zip;filename=example.zip&apos; \  -F &apos;metadata={&quot;customer_reference_id&quot;: 123};type=application/json&apos;```The request must include:- `content`: The file content (required)- `type`: The content / MIME type for the file (defaults to `application/octet-stream`)- `filename`: The filename (required, ≤ 255 bytes, valid UTF-8)- `metadata`: User-provided metadata associated with the file (defaults to `{}`, must be valid JSON)
+        /// &quot;Create a file by uploading its content and optional metadata.Example cURL request:```consolecurl -X POST https://api.replicate.com/v1/files \  -H \&quot;Authorization: Token $REPLICATE_API_TOKEN\&quot; \  -H &apos;Content-Type: multipart/form-data&apos; \  -F &apos;content=@/path/to/archive.zip;type=application/zip;filename=example.zip&apos; \  -F &apos;metadata={\&quot;customer_reference_id\&quot;: 123};type=application/json&apos;```The request must include:- `content`: The file content (required)- `type`: The content / MIME type for the file (defaults to `application/octet-stream`)- `filename`: The filename (required, ≤ 255 bytes, valid UTF-8)- `metadata`: User-provided metadata associated with the file (defaults to `{}`, must be valid JSON)&quot;
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

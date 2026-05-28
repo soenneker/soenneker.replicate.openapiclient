@@ -33,7 +33,7 @@ namespace Soenneker.Replicate.OpenApiClient.ModelsRequests.Item.Item.Readme
         {
         }
         /// <summary>
-        /// Get the README content for a model.Example cURL request:```consolecurl -s \  -H &quot;Authorization: Bearer $REPLICATE_API_TOKEN&quot; \  https://api.replicate.com/v1/models/replicate/hello-world/readme```The response will be the README content as plain text in Markdown format:```# Hello World ModelThis is an example model that...```
+        /// &quot;Get the README content for a model.Example cURL request:```consolecurl -s \  -H \&quot;Authorization: Bearer $REPLICATE_API_TOKEN\&quot; \  https://api.replicate.com/v1/models/replicate/hello-world/readme```The response will be the README content as plain text in Markdown format:```# Hello World ModelThis is an example model that...```&quot;
         /// </summary>
         /// <returns>A <see cref="string"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -51,7 +51,7 @@ namespace Soenneker.Replicate.OpenApiClient.ModelsRequests.Item.Item.Readme
             return await RequestAdapter.SendPrimitiveAsync<string>(requestInfo, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Get the README content for a model.Example cURL request:```consolecurl -s \  -H &quot;Authorization: Bearer $REPLICATE_API_TOKEN&quot; \  https://api.replicate.com/v1/models/replicate/hello-world/readme```The response will be the README content as plain text in Markdown format:```# Hello World ModelThis is an example model that...```
+        /// &quot;Get the README content for a model.Example cURL request:```consolecurl -s \  -H \&quot;Authorization: Bearer $REPLICATE_API_TOKEN\&quot; \  https://api.replicate.com/v1/models/replicate/hello-world/readme```The response will be the README content as plain text in Markdown format:```# Hello World ModelThis is an example model that...```&quot;
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
