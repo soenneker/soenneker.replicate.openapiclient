@@ -98,11 +98,13 @@
                   "properties": {
                     "next": {
                       "type": "string",
-                      "description": "A URL pointing to the next page of deployment objects if any"
+                      "description": "A URL pointing to the next page of deployment objects if any",
+                      "nullable": true
                     },
                     "previous": {
                       "type": "string",
-                      "description": "A URL pointing to the previous page of deployment objects if any"
+                      "description": "A URL pointing to the previous page of deployment objects if any",
+                      "nullable": true
                     },
                     "results": {
                       "type": "array",
@@ -348,11 +350,13 @@
                   "properties": {
                     "next": {
                       "type": "string",
-                      "format": "uri"
+                      "format": "uri",
+                      "nullable": true
                     },
                     "previous": {
                       "type": "string",
-                      "format": "uri"
+                      "format": "uri",
+                      "nullable": true
                     },
                     "results": {
                       "type": "array",
@@ -1156,11 +1160,13 @@
                   "properties": {
                     "next": {
                       "type": "string",
-                      "format": "uri"
+                      "format": "uri",
+                      "nullable": true
                     },
                     "previous": {
                       "type": "string",
-                      "format": "uri"
+                      "format": "uri",
+                      "nullable": true
                     },
                     "results": {
                       "type": "array",
@@ -1411,11 +1417,13 @@
                   "properties": {
                     "next": {
                       "type": "string",
-                      "description": "URL to the next page of results"
+                      "description": "URL to the next page of results",
+                      "nullable": true
                     },
                     "previous": {
                       "type": "string",
-                      "description": "URL to the previous page of results"
+                      "description": "URL to the previous page of results",
+                      "nullable": true
                     },
                     "results": {
                       "type": "array",
@@ -1549,7 +1557,8 @@
           },
           "full_description": {
             "type": "string",
-            "description": "The full description of the collection in markdown format"
+            "description": "The full description of the collection in markdown format",
+            "nullable": true
           },
           "models": {
             "type": "array",
@@ -1646,20 +1655,24 @@
           "cover_image_url": {
             "type": "string",
             "description": "A URL for the model's cover image",
-            "format": "uri"
+            "format": "uri",
+            "nullable": true
           },
           "default_example": {
             "type": "object",
-            "description": "The model's default example prediction"
+            "description": "The model's default example prediction",
+            "nullable": true
           },
           "description": {
             "type": "string",
-            "description": "A description of the model"
+            "description": "A description of the model",
+            "nullable": true
           },
           "github_url": {
             "type": "string",
             "description": "A URL for the model's source code on GitHub",
-            "format": "uri"
+            "format": "uri",
+            "nullable": true
           },
           "is_official": {
             "type": "boolean",
@@ -1667,12 +1680,14 @@
           },
           "latest_version": {
             "type": "object",
-            "description": "The model's latest version"
+            "description": "The model's latest version",
+            "nullable": true
           },
           "license_url": {
             "type": "string",
             "description": "A URL for the model's license",
-            "format": "uri"
+            "format": "uri",
+            "nullable": true
           },
           "name": {
             "type": "string",
@@ -1685,7 +1700,8 @@
           "paper_url": {
             "type": "string",
             "description": "A URL for the model's paper",
-            "format": "uri"
+            "format": "uri",
+            "nullable": true
           },
           "run_count": {
             "type": "integer",
@@ -1729,11 +1745,13 @@
         "properties": {
           "next": {
             "type": "string",
-            "description": "A URL pointing to the next page of collection objects, if any"
+            "description": "A URL pointing to the next page of collection objects, if any",
+            "nullable": true
           },
           "previous": {
             "type": "string",
-            "description": "A URL pointing to the previous page of collection objects, if any"
+            "description": "A URL pointing to the previous page of collection objects, if any",
+            "nullable": true
           },
           "results": {
             "type": "array",
@@ -1749,11 +1767,13 @@
         "properties": {
           "next": {
             "type": "string",
-            "description": "A URL pointing to the next page of model objects, if any"
+            "description": "A URL pointing to the next page of model objects, if any",
+            "nullable": true
           },
           "previous": {
             "type": "string",
-            "description": "A URL pointing to the previous page of model objects, if any"
+            "description": "A URL pointing to the previous page of model objects, if any",
+            "nullable": true
           },
           "results": {
             "type": "array",
@@ -1769,11 +1789,13 @@
         "properties": {
           "next": {
             "type": "string",
-            "description": "A URL pointing to the next page of prediction objects, if any"
+            "description": "A URL pointing to the next page of prediction objects, if any",
+            "nullable": true
           },
           "previous": {
             "type": "string",
-            "description": "A URL pointing to the previous page of prediction objects, if any"
+            "description": "A URL pointing to the previous page of prediction objects, if any",
+            "nullable": true
           },
           "results": {
             "type": "array",
@@ -1789,11 +1811,13 @@
         "properties": {
           "next": {
             "type": "string",
-            "description": "A URL pointing to the next page of version objects, if any"
+            "description": "A URL pointing to the next page of version objects, if any",
+            "nullable": true
           },
           "previous": {
             "type": "string",
-            "description": "A URL pointing to the previous page of version objects, if any"
+            "description": "A URL pointing to the previous page of version objects, if any",
+            "nullable": true
           },
           "results": {
             "type": "array",
@@ -1884,7 +1908,8 @@
           },
           "error": {
             "type": "string",
-            "description": "An error string if the model status is `\"failed\"`"
+            "description": "An error string if the model status is `\"failed\"`",
+            "nullable": true
           },
           "id": {
             "type": "string"
@@ -1966,7 +1991,8 @@
               "type": "string",
               "description": "Model name in owner/name format"
             },
-            "description": "Array of model names in the collection"
+            "description": "Array of model names in the collection",
+            "nullable": true
           },
           "name": {
             "type": "string",
@@ -1983,11 +2009,13 @@
         "properties": {
           "generated_description": {
             "type": "string",
-            "description": "AI-generated detailed description of the model"
+            "description": "AI-generated detailed description of the model",
+            "nullable": true
           },
           "score": {
             "type": "number",
-            "description": "Search relevance score"
+            "description": "Search relevance score",
+            "nullable": true
           },
           "tags": {
             "type": "array",
@@ -2096,7 +2124,8 @@
           },
           "error": {
             "type": "string",
-            "description": "Error message if the training failed"
+            "description": "Error message if the training failed",
+            "nullable": true
           },
           "id": {
             "type": "string",
@@ -2206,7 +2235,8 @@
         "properties": {
           "cog_version": {
             "type": "string",
-            "description": "The version of Cog used to create this version"
+            "description": "The version of Cog used to create this version",
+            "nullable": true
           },
           "created_at": {
             "type": "string",
@@ -2219,7 +2249,8 @@
           },
           "openapi_schema": {
             "type": "object",
-            "description": "The OpenAPI schema for the model's inputs and outputs"
+            "description": "The OpenAPI schema for the model's inputs and outputs",
+            "nullable": true
           }
         }
       },
