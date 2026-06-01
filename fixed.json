@@ -1967,7 +1967,16 @@
             "type": "object",
             "oneOf": [
               {
-                "$ref": "#/components/schemas/UnionBranch"
+                "type": "string",
+                "description": "The ID of the model version that created the prediction"
+              },
+              {
+                "enum": [
+                  "hidden"
+                ],
+                "type": "string",
+                "additionalProperties": false,
+                "description": "The model does not support versions, used by official models."
               }
             ]
           }
@@ -2755,18 +2764,6 @@
       "ExamplePayload": {
         "type": "object",
         "description": "Placeholder schema for path example refs"
-      },
-      "UnionBranch": {
-        "required": [
-          "value"
-        ],
-        "type": "object",
-        "properties": {
-          "value": {
-            "type": "string",
-            "description": "The ID of the model version that created the prediction"
-          }
-        }
       }
     },
     "parameters": {
