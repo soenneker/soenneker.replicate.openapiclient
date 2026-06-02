@@ -20,14 +20,14 @@ namespace Soenneker.Replicate.OpenApiClient.ModelsRequests
     {
         /// <summary>Gets an item from the Soenneker.Replicate.OpenApiClient.modelsRequests.item collection</summary>
         /// <param name="position">The name of the user or organization that owns the model.</param>
-        /// <returns>A <see cref="global::Soenneker.Replicate.OpenApiClient.ModelsRequests.Item.WithModel_ownerItemRequestBuilder"/></returns>
-        public global::Soenneker.Replicate.OpenApiClient.ModelsRequests.Item.WithModel_ownerItemRequestBuilder this[string position]
+        /// <returns>A <see cref="global::Soenneker.Replicate.OpenApiClient.ModelsRequests.Item.WithModelOwnerItemRequestBuilder"/></returns>
+        public global::Soenneker.Replicate.OpenApiClient.ModelsRequests.Item.WithModelOwnerItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("model_owner", position);
-                return new global::Soenneker.Replicate.OpenApiClient.ModelsRequests.Item.WithModel_ownerItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("modelOwner", position);
+                return new global::Soenneker.Replicate.OpenApiClient.ModelsRequests.Item.WithModelOwnerItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>
@@ -73,11 +73,11 @@ namespace Soenneker.Replicate.OpenApiClient.ModelsRequests
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Replicate.OpenApiClient.Models.SchemasModelResponse?> PostAsync(global::Soenneker.Replicate.OpenApiClient.Models.ModelsCreate body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Replicate.OpenApiClient.Models.SchemasModelResponse?> PostAsync(global::Soenneker.Replicate.OpenApiClient.Models.ModelsCreateRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Replicate.OpenApiClient.Models.SchemasModelResponse> PostAsync(global::Soenneker.Replicate.OpenApiClient.Models.ModelsCreate body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Replicate.OpenApiClient.Models.SchemasModelResponse> PostAsync(global::Soenneker.Replicate.OpenApiClient.Models.ModelsCreateRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -111,11 +111,11 @@ namespace Soenneker.Replicate.OpenApiClient.ModelsRequests
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(global::Soenneker.Replicate.OpenApiClient.Models.ModelsCreate body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Replicate.OpenApiClient.Models.ModelsCreateRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(global::Soenneker.Replicate.OpenApiClient.Models.ModelsCreate body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Replicate.OpenApiClient.Models.ModelsCreateRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -142,10 +142,10 @@ namespace Soenneker.Replicate.OpenApiClient.ModelsRequests
         {
             /// <summary>Field to sort models by. Defaults to `latest_version_created_at`.</summary>
             [QueryParameter("sort_by")]
-            public global::Soenneker.Replicate.OpenApiClient.ModelsRequests.GetSort_byQueryParameterType? SortBy { get; set; }
+            public global::Soenneker.Replicate.OpenApiClient.Models.ModelsListSortByParameter? SortBy { get; set; }
             /// <summary>Sort direction. Defaults to `desc` (descending, newest first).</summary>
             [QueryParameter("sort_direction")]
-            public global::Soenneker.Replicate.OpenApiClient.ModelsRequests.GetSort_directionQueryParameterType? SortDirection { get; set; }
+            public global::Soenneker.Replicate.OpenApiClient.Models.ModelsListSortDirectionParameter? SortDirection { get; set; }
         }
     }
 }

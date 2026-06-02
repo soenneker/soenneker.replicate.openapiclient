@@ -25,10 +25,10 @@ namespace Soenneker.Replicate.OpenApiClient.Models
         /// <summary>The model&apos;s default example prediction</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Replicate.OpenApiClient.Models.SchemasModelResponse_default_example? DefaultExample { get; set; }
+        public global::Soenneker.Replicate.OpenApiClient.Models.SchemasModelResponseDefaultExample? DefaultExample { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Replicate.OpenApiClient.Models.SchemasModelResponse_default_example DefaultExample { get; set; }
+        public global::Soenneker.Replicate.OpenApiClient.Models.SchemasModelResponseDefaultExample DefaultExample { get; set; }
 #endif
         /// <summary>A description of the model</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -51,10 +51,10 @@ namespace Soenneker.Replicate.OpenApiClient.Models
         /// <summary>The model&apos;s latest version</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Replicate.OpenApiClient.Models.SchemasModelResponse_latest_version? LatestVersion { get; set; }
+        public global::Soenneker.Replicate.OpenApiClient.Models.SchemasModelResponseLatestVersion? LatestVersion { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Replicate.OpenApiClient.Models.SchemasModelResponse_latest_version LatestVersion { get; set; }
+        public global::Soenneker.Replicate.OpenApiClient.Models.SchemasModelResponseLatestVersion LatestVersion { get; set; }
 #endif
         /// <summary>A URL for the model&apos;s license</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -99,7 +99,7 @@ namespace Soenneker.Replicate.OpenApiClient.Models
         public string Url { get; set; }
 #endif
         /// <summary>Whether the model is public or private</summary>
-        public global::Soenneker.Replicate.OpenApiClient.Models.SchemasModelResponse_visibility? Visibility { get; set; }
+        public global::Soenneker.Replicate.OpenApiClient.Models.SchemasModelResponseVisibility? Visibility { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Replicate.OpenApiClient.Models.SchemasModelResponse"/> and sets the default values.
         /// </summary>
@@ -126,18 +126,18 @@ namespace Soenneker.Replicate.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "cover_image_url", n => { CoverImageUrl = n.GetStringValue(); } },
-                { "default_example", n => { DefaultExample = n.GetObjectValue<global::Soenneker.Replicate.OpenApiClient.Models.SchemasModelResponse_default_example>(global::Soenneker.Replicate.OpenApiClient.Models.SchemasModelResponse_default_example.CreateFromDiscriminatorValue); } },
+                { "default_example", n => { DefaultExample = n.GetObjectValue<global::Soenneker.Replicate.OpenApiClient.Models.SchemasModelResponseDefaultExample>(global::Soenneker.Replicate.OpenApiClient.Models.SchemasModelResponseDefaultExample.CreateFromDiscriminatorValue); } },
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "github_url", n => { GithubUrl = n.GetStringValue(); } },
                 { "is_official", n => { IsOfficial = n.GetBoolValue(); } },
-                { "latest_version", n => { LatestVersion = n.GetObjectValue<global::Soenneker.Replicate.OpenApiClient.Models.SchemasModelResponse_latest_version>(global::Soenneker.Replicate.OpenApiClient.Models.SchemasModelResponse_latest_version.CreateFromDiscriminatorValue); } },
+                { "latest_version", n => { LatestVersion = n.GetObjectValue<global::Soenneker.Replicate.OpenApiClient.Models.SchemasModelResponseLatestVersion>(global::Soenneker.Replicate.OpenApiClient.Models.SchemasModelResponseLatestVersion.CreateFromDiscriminatorValue); } },
                 { "license_url", n => { LicenseUrl = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "owner", n => { Owner = n.GetStringValue(); } },
                 { "paper_url", n => { PaperUrl = n.GetStringValue(); } },
                 { "run_count", n => { RunCount = n.GetIntValue(); } },
                 { "url", n => { Url = n.GetStringValue(); } },
-                { "visibility", n => { Visibility = n.GetEnumValue<global::Soenneker.Replicate.OpenApiClient.Models.SchemasModelResponse_visibility>(); } },
+                { "visibility", n => { Visibility = n.GetEnumValue<global::Soenneker.Replicate.OpenApiClient.Models.SchemasModelResponseVisibility>(); } },
             };
         }
         /// <summary>
@@ -148,18 +148,18 @@ namespace Soenneker.Replicate.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("cover_image_url", CoverImageUrl);
-            writer.WriteObjectValue<global::Soenneker.Replicate.OpenApiClient.Models.SchemasModelResponse_default_example>("default_example", DefaultExample);
+            writer.WriteObjectValue<global::Soenneker.Replicate.OpenApiClient.Models.SchemasModelResponseDefaultExample>("default_example", DefaultExample);
             writer.WriteStringValue("description", Description);
             writer.WriteStringValue("github_url", GithubUrl);
             writer.WriteBoolValue("is_official", IsOfficial);
-            writer.WriteObjectValue<global::Soenneker.Replicate.OpenApiClient.Models.SchemasModelResponse_latest_version>("latest_version", LatestVersion);
+            writer.WriteObjectValue<global::Soenneker.Replicate.OpenApiClient.Models.SchemasModelResponseLatestVersion>("latest_version", LatestVersion);
             writer.WriteStringValue("license_url", LicenseUrl);
             writer.WriteStringValue("name", Name);
             writer.WriteStringValue("owner", Owner);
             writer.WriteStringValue("paper_url", PaperUrl);
             writer.WriteIntValue("run_count", RunCount);
             writer.WriteStringValue("url", Url);
-            writer.WriteEnumValue<global::Soenneker.Replicate.OpenApiClient.Models.SchemasModelResponse_visibility>("visibility", Visibility);
+            writer.WriteEnumValue<global::Soenneker.Replicate.OpenApiClient.Models.SchemasModelResponseVisibility>("visibility", Visibility);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

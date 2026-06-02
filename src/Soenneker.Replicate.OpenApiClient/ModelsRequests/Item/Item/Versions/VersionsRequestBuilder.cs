@@ -13,21 +13,21 @@ using System;
 namespace Soenneker.Replicate.OpenApiClient.ModelsRequests.Item.Item.Versions
 {
     /// <summary>
-    /// Builds and executes requests for operations under \models\{model_owner}\{model_name}\versions
+    /// Builds and executes requests for operations under \models\{modelOwner}\{modelName}\versions
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class VersionsRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.Replicate.OpenApiClient.modelsRequests.item.item.versions.item collection</summary>
         /// <param name="position">The ID of the version.</param>
-        /// <returns>A <see cref="global::Soenneker.Replicate.OpenApiClient.ModelsRequests.Item.Item.Versions.Item.WithVersion_ItemRequestBuilder"/></returns>
-        public global::Soenneker.Replicate.OpenApiClient.ModelsRequests.Item.Item.Versions.Item.WithVersion_ItemRequestBuilder this[string position]
+        /// <returns>A <see cref="global::Soenneker.Replicate.OpenApiClient.ModelsRequests.Item.Item.Versions.Item.WithVersionItemRequestBuilder"/></returns>
+        public global::Soenneker.Replicate.OpenApiClient.ModelsRequests.Item.Item.Versions.Item.WithVersionItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("version_id", position);
-                return new global::Soenneker.Replicate.OpenApiClient.ModelsRequests.Item.Item.Versions.Item.WithVersion_ItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("versionId", position);
+                return new global::Soenneker.Replicate.OpenApiClient.ModelsRequests.Item.Item.Versions.Item.WithVersionItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>
@@ -35,7 +35,7 @@ namespace Soenneker.Replicate.OpenApiClient.ModelsRequests.Item.Item.Versions
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public VersionsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/models/{model_owner}/{model_name}/versions", pathParameters)
+        public VersionsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/models/{modelOwner}/{modelName}/versions", pathParameters)
         {
         }
         /// <summary>
@@ -43,7 +43,7 @@ namespace Soenneker.Replicate.OpenApiClient.ModelsRequests.Item.Item.Versions
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public VersionsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/models/{model_owner}/{model_name}/versions", rawUrl)
+        public VersionsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/models/{modelOwner}/{modelName}/versions", rawUrl)
         {
         }
         /// <summary>

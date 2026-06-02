@@ -20,14 +20,14 @@ namespace Soenneker.Replicate.OpenApiClient.Collections
     {
         /// <summary>Gets an item from the Soenneker.Replicate.OpenApiClient.collections.item collection</summary>
         /// <param name="position">The slug of the collection, like `super-resolution` or `image-restoration`. See [replicate.com/collections](https://replicate.com/collections).</param>
-        /// <returns>A <see cref="global::Soenneker.Replicate.OpenApiClient.Collections.Item.WithCollection_slugItemRequestBuilder"/></returns>
-        public global::Soenneker.Replicate.OpenApiClient.Collections.Item.WithCollection_slugItemRequestBuilder this[string position]
+        /// <returns>A <see cref="global::Soenneker.Replicate.OpenApiClient.Collections.Item.WithCollectionSlugItemRequestBuilder"/></returns>
+        public global::Soenneker.Replicate.OpenApiClient.Collections.Item.WithCollectionSlugItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("collection_slug", position);
-                return new global::Soenneker.Replicate.OpenApiClient.Collections.Item.WithCollection_slugItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("collectionSlug", position);
+                return new global::Soenneker.Replicate.OpenApiClient.Collections.Item.WithCollectionSlugItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>

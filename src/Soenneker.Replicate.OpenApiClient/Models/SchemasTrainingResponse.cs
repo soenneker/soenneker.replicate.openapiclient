@@ -37,10 +37,10 @@ namespace Soenneker.Replicate.OpenApiClient.Models
         /// <summary>The input parameters used for the training</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Replicate.OpenApiClient.Models.SchemasTrainingResponse_input? Input { get; set; }
+        public global::Soenneker.Replicate.OpenApiClient.Models.SchemasTrainingResponseInputProperty? Input { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Replicate.OpenApiClient.Models.SchemasTrainingResponse_input Input { get; set; }
+        public global::Soenneker.Replicate.OpenApiClient.Models.SchemasTrainingResponseInputProperty Input { get; set; }
 #endif
         /// <summary>The logs from the training process</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -75,11 +75,11 @@ namespace Soenneker.Replicate.OpenApiClient.Models
         public global::Soenneker.Replicate.OpenApiClient.Models.SchemasTrainingResponseOutput Output { get; set; }
 #endif
         /// <summary>How the training was created</summary>
-        public global::Soenneker.Replicate.OpenApiClient.Models.SchemasTrainingResponse_source? Source { get; set; }
+        public global::Soenneker.Replicate.OpenApiClient.Models.SchemasTrainingResponseSource? Source { get; set; }
         /// <summary>The time when the training started</summary>
         public DateTimeOffset? StartedAt { get; set; }
         /// <summary>The current status of the training. `canceled` means the training was canceled (either by the user or because it reached its deadline while running). `aborted` means the training was terminated before it started running (for example, when a deadline is reached before the training starts).</summary>
-        public global::Soenneker.Replicate.OpenApiClient.Models.SchemasTrainingResponse_status? Status { get; set; }
+        public global::Soenneker.Replicate.OpenApiClient.Models.SchemasTrainingResponseStatus? Status { get; set; }
         /// <summary>URLs for interacting with the training</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -125,14 +125,14 @@ namespace Soenneker.Replicate.OpenApiClient.Models
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "error", n => { Error = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
-                { "input", n => { Input = n.GetObjectValue<global::Soenneker.Replicate.OpenApiClient.Models.SchemasTrainingResponse_input>(global::Soenneker.Replicate.OpenApiClient.Models.SchemasTrainingResponse_input.CreateFromDiscriminatorValue); } },
+                { "input", n => { Input = n.GetObjectValue<global::Soenneker.Replicate.OpenApiClient.Models.SchemasTrainingResponseInputProperty>(global::Soenneker.Replicate.OpenApiClient.Models.SchemasTrainingResponseInputProperty.CreateFromDiscriminatorValue); } },
                 { "logs", n => { Logs = n.GetStringValue(); } },
                 { "metrics", n => { Metrics = n.GetObjectValue<global::Soenneker.Replicate.OpenApiClient.Models.SchemasTrainingResponseMetrics>(global::Soenneker.Replicate.OpenApiClient.Models.SchemasTrainingResponseMetrics.CreateFromDiscriminatorValue); } },
                 { "model", n => { Model = n.GetStringValue(); } },
                 { "output", n => { Output = n.GetObjectValue<global::Soenneker.Replicate.OpenApiClient.Models.SchemasTrainingResponseOutput>(global::Soenneker.Replicate.OpenApiClient.Models.SchemasTrainingResponseOutput.CreateFromDiscriminatorValue); } },
-                { "source", n => { Source = n.GetEnumValue<global::Soenneker.Replicate.OpenApiClient.Models.SchemasTrainingResponse_source>(); } },
+                { "source", n => { Source = n.GetEnumValue<global::Soenneker.Replicate.OpenApiClient.Models.SchemasTrainingResponseSource>(); } },
                 { "started_at", n => { StartedAt = n.GetDateTimeOffsetValue(); } },
-                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Replicate.OpenApiClient.Models.SchemasTrainingResponse_status>(); } },
+                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Replicate.OpenApiClient.Models.SchemasTrainingResponseStatus>(); } },
                 { "urls", n => { Urls = n.GetObjectValue<global::Soenneker.Replicate.OpenApiClient.Models.SchemasTrainingResponseUrls>(global::Soenneker.Replicate.OpenApiClient.Models.SchemasTrainingResponseUrls.CreateFromDiscriminatorValue); } },
                 { "version", n => { Version = n.GetStringValue(); } },
             };
@@ -148,14 +148,14 @@ namespace Soenneker.Replicate.OpenApiClient.Models
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
             writer.WriteStringValue("error", Error);
             writer.WriteStringValue("id", Id);
-            writer.WriteObjectValue<global::Soenneker.Replicate.OpenApiClient.Models.SchemasTrainingResponse_input>("input", Input);
+            writer.WriteObjectValue<global::Soenneker.Replicate.OpenApiClient.Models.SchemasTrainingResponseInputProperty>("input", Input);
             writer.WriteStringValue("logs", Logs);
             writer.WriteObjectValue<global::Soenneker.Replicate.OpenApiClient.Models.SchemasTrainingResponseMetrics>("metrics", Metrics);
             writer.WriteStringValue("model", Model);
             writer.WriteObjectValue<global::Soenneker.Replicate.OpenApiClient.Models.SchemasTrainingResponseOutput>("output", Output);
-            writer.WriteEnumValue<global::Soenneker.Replicate.OpenApiClient.Models.SchemasTrainingResponse_source>("source", Source);
+            writer.WriteEnumValue<global::Soenneker.Replicate.OpenApiClient.Models.SchemasTrainingResponseSource>("source", Source);
             writer.WriteDateTimeOffsetValue("started_at", StartedAt);
-            writer.WriteEnumValue<global::Soenneker.Replicate.OpenApiClient.Models.SchemasTrainingResponse_status>("status", Status);
+            writer.WriteEnumValue<global::Soenneker.Replicate.OpenApiClient.Models.SchemasTrainingResponseStatus>("status", Status);
             writer.WriteObjectValue<global::Soenneker.Replicate.OpenApiClient.Models.SchemasTrainingResponseUrls>("urls", Urls);
             writer.WriteStringValue("version", Version);
             writer.WriteAdditionalData(AdditionalData);

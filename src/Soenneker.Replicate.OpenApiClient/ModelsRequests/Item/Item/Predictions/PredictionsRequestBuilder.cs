@@ -12,7 +12,7 @@ using System;
 namespace Soenneker.Replicate.OpenApiClient.ModelsRequests.Item.Item.Predictions
 {
     /// <summary>
-    /// Builds and executes requests for operations under \models\{model_owner}\{model_name}\predictions
+    /// Builds and executes requests for operations under \models\{modelOwner}\{modelName}\predictions
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class PredictionsRequestBuilder : BaseRequestBuilder
@@ -22,7 +22,7 @@ namespace Soenneker.Replicate.OpenApiClient.ModelsRequests.Item.Item.Predictions
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public PredictionsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/models/{model_owner}/{model_name}/predictions", pathParameters)
+        public PredictionsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/models/{modelOwner}/{modelName}/predictions", pathParameters)
         {
         }
         /// <summary>
@@ -30,7 +30,7 @@ namespace Soenneker.Replicate.OpenApiClient.ModelsRequests.Item.Item.Predictions
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public PredictionsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/models/{model_owner}/{model_name}/predictions", rawUrl)
+        public PredictionsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/models/{modelOwner}/{modelName}/predictions", rawUrl)
         {
         }
         /// <summary>

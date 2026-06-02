@@ -20,14 +20,14 @@ namespace Soenneker.Replicate.OpenApiClient.Deployments
     {
         /// <summary>Gets an item from the Soenneker.Replicate.OpenApiClient.deployments.item collection</summary>
         /// <param name="position">The name of the user or organization that owns the deployment.</param>
-        /// <returns>A <see cref="global::Soenneker.Replicate.OpenApiClient.Deployments.Item.WithDeployment_ownerItemRequestBuilder"/></returns>
-        public global::Soenneker.Replicate.OpenApiClient.Deployments.Item.WithDeployment_ownerItemRequestBuilder this[string position]
+        /// <returns>A <see cref="global::Soenneker.Replicate.OpenApiClient.Deployments.Item.WithDeploymentOwnerItemRequestBuilder"/></returns>
+        public global::Soenneker.Replicate.OpenApiClient.Deployments.Item.WithDeploymentOwnerItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("deployment_owner", position);
-                return new global::Soenneker.Replicate.OpenApiClient.Deployments.Item.WithDeployment_ownerItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("deploymentOwner", position);
+                return new global::Soenneker.Replicate.OpenApiClient.Deployments.Item.WithDeploymentOwnerItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>
@@ -49,20 +49,20 @@ namespace Soenneker.Replicate.OpenApiClient.Deployments
         /// <summary>
         /// &quot;Get a list of deployments associated with the current account, including the latest release configuration for each deployment.Example cURL request:```consolecurl -s \  -H \&quot;Authorization: Bearer $REPLICATE_API_TOKEN\&quot; \  https://api.replicate.com/v1/deployments```The response will be a paginated JSON array of deployment objects, sorted with the most recent deployment first:```json{  \&quot;next\&quot;: \&quot;http://api.replicate.com/v1/deployments?cursor=cD0yMDIzLTA2LTA2KzIzJTNBNDAlM0EwOC45NjMwMDAlMkIwMCUzQTAw\&quot;,  \&quot;previous\&quot;: null,  \&quot;results\&quot;: [    {      \&quot;owner\&quot;: \&quot;replicate\&quot;,      \&quot;name\&quot;: \&quot;my-app-image-generator\&quot;,      \&quot;current_release\&quot;: {        \&quot;number\&quot;: 1,        \&quot;model\&quot;: \&quot;stability-ai/sdxl\&quot;,        \&quot;version\&quot;: \&quot;da77bc59ee60423279fd632efb4795ab731d9e3ca9705ef3341091fb989b7eaf\&quot;,        \&quot;created_at\&quot;: \&quot;2024-02-15T16:32:57.018467Z\&quot;,        \&quot;created_by\&quot;: {          \&quot;type\&quot;: \&quot;organization\&quot;,          \&quot;username\&quot;: \&quot;acme\&quot;,          \&quot;name\&quot;: \&quot;Acme Corp, Inc.\&quot;,          \&quot;avatar_url\&quot;: \&quot;https://cdn.replicate.com/avatars/acme.png\&quot;,          \&quot;github_url\&quot;: \&quot;https://github.com/acme\&quot;        },        \&quot;configuration\&quot;: {          \&quot;hardware\&quot;: \&quot;gpu-t4\&quot;,          \&quot;min_instances\&quot;: 1,          \&quot;max_instances\&quot;: 5        }      }    }  ]}```&quot;
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Replicate.OpenApiClient.Deployments.DeploymentsGetResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Replicate.OpenApiClient.Models.DeploymentsList200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Replicate.OpenApiClient.Deployments.DeploymentsGetResponse?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Replicate.OpenApiClient.Models.DeploymentsList200Response?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Replicate.OpenApiClient.Deployments.DeploymentsGetResponse> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Replicate.OpenApiClient.Models.DeploymentsList200Response> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Replicate.OpenApiClient.Deployments.DeploymentsGetResponse>(requestInfo, global::Soenneker.Replicate.OpenApiClient.Deployments.DeploymentsGetResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Replicate.OpenApiClient.Models.DeploymentsList200Response>(requestInfo, global::Soenneker.Replicate.OpenApiClient.Models.DeploymentsList200Response.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// &quot;Create a new deployment:Example cURL request:```consolecurl -s \  -X POST \  -H \&quot;Authorization: Bearer $REPLICATE_API_TOKEN\&quot; \  -H \&quot;Content-Type: application/json\&quot; \  -d &apos;{        \&quot;name\&quot;: \&quot;my-app-image-generator\&quot;,        \&quot;model\&quot;: \&quot;stability-ai/sdxl\&quot;,        \&quot;version\&quot;: \&quot;da77bc59ee60423279fd632efb4795ab731d9e3ca9705ef3341091fb989b7eaf\&quot;,        \&quot;hardware\&quot;: \&quot;gpu-t4\&quot;,        \&quot;min_instances\&quot;: 0,        \&quot;max_instances\&quot;: 3      }&apos; \  https://api.replicate.com/v1/deployments```The response will be a JSON object describing the deployment:```json{  \&quot;owner\&quot;: \&quot;acme\&quot;,  \&quot;name\&quot;: \&quot;my-app-image-generator\&quot;,  \&quot;current_release\&quot;: {    \&quot;number\&quot;: 1,    \&quot;model\&quot;: \&quot;stability-ai/sdxl\&quot;,    \&quot;version\&quot;: \&quot;da77bc59ee60423279fd632efb4795ab731d9e3ca9705ef3341091fb989b7eaf\&quot;,    \&quot;created_at\&quot;: \&quot;2024-02-15T16:32:57.018467Z\&quot;,    \&quot;created_by\&quot;: {      \&quot;type\&quot;: \&quot;organization\&quot;,      \&quot;username\&quot;: \&quot;acme\&quot;,      \&quot;name\&quot;: \&quot;Acme Corp, Inc.\&quot;,      \&quot;avatar_url\&quot;: \&quot;https://cdn.replicate.com/avatars/acme.png\&quot;,      \&quot;github_url\&quot;: \&quot;https://github.com/acme\&quot;    },    \&quot;configuration\&quot;: {      \&quot;hardware\&quot;: \&quot;gpu-t4\&quot;,      \&quot;min_instances\&quot;: 1,      \&quot;max_instances\&quot;: 5    }  }}```&quot;
@@ -73,11 +73,11 @@ namespace Soenneker.Replicate.OpenApiClient.Deployments
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Replicate.OpenApiClient.Models.SchemasDeploymentResponse?> PostAsync(global::Soenneker.Replicate.OpenApiClient.Models.DeploymentsCreate body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Replicate.OpenApiClient.Models.SchemasDeploymentResponse?> PostAsync(global::Soenneker.Replicate.OpenApiClient.Models.DeploymentsCreateRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Replicate.OpenApiClient.Models.SchemasDeploymentResponse> PostAsync(global::Soenneker.Replicate.OpenApiClient.Models.DeploymentsCreate body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Replicate.OpenApiClient.Models.SchemasDeploymentResponse> PostAsync(global::Soenneker.Replicate.OpenApiClient.Models.DeploymentsCreateRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -111,11 +111,11 @@ namespace Soenneker.Replicate.OpenApiClient.Deployments
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(global::Soenneker.Replicate.OpenApiClient.Models.DeploymentsCreate body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Replicate.OpenApiClient.Models.DeploymentsCreateRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(global::Soenneker.Replicate.OpenApiClient.Models.DeploymentsCreate body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Replicate.OpenApiClient.Models.DeploymentsCreateRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));

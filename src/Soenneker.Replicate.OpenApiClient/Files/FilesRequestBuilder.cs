@@ -20,14 +20,14 @@ namespace Soenneker.Replicate.OpenApiClient.Files
     {
         /// <summary>Gets an item from the Soenneker.Replicate.OpenApiClient.files.item collection</summary>
         /// <param name="position">The ID of the file to delete</param>
-        /// <returns>A <see cref="global::Soenneker.Replicate.OpenApiClient.Files.Item.WithFile_ItemRequestBuilder"/></returns>
-        public global::Soenneker.Replicate.OpenApiClient.Files.Item.WithFile_ItemRequestBuilder this[string position]
+        /// <returns>A <see cref="global::Soenneker.Replicate.OpenApiClient.Files.Item.WithFileItemRequestBuilder"/></returns>
+        public global::Soenneker.Replicate.OpenApiClient.Files.Item.WithFileItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("file_id", position);
-                return new global::Soenneker.Replicate.OpenApiClient.Files.Item.WithFile_ItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("fileId", position);
+                return new global::Soenneker.Replicate.OpenApiClient.Files.Item.WithFileItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>
@@ -49,20 +49,20 @@ namespace Soenneker.Replicate.OpenApiClient.Files
         /// <summary>
         /// &quot;Get a paginated list of all files created by the user or organization associated with the provided API token.Example cURL request:```consolecurl -s \  -H \&quot;Authorization: Token $REPLICATE_API_TOKEN\&quot; \  https://api.replicate.com/v1/files```The response will be a paginated JSON array of file objects, sorted with the most recent file first.&quot;
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Replicate.OpenApiClient.Files.FilesGetResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Replicate.OpenApiClient.Models.FilesList200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Replicate.OpenApiClient.Files.FilesGetResponse?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Replicate.OpenApiClient.Models.FilesList200Response?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Replicate.OpenApiClient.Files.FilesGetResponse> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Replicate.OpenApiClient.Models.FilesList200Response> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Replicate.OpenApiClient.Files.FilesGetResponse>(requestInfo, global::Soenneker.Replicate.OpenApiClient.Files.FilesGetResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Replicate.OpenApiClient.Models.FilesList200Response>(requestInfo, global::Soenneker.Replicate.OpenApiClient.Models.FilesList200Response.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// &quot;Create a file by uploading its content and optional metadata.Example cURL request:```consolecurl -X POST https://api.replicate.com/v1/files \  -H \&quot;Authorization: Token $REPLICATE_API_TOKEN\&quot; \  -H &apos;Content-Type: multipart/form-data&apos; \  -F &apos;content=@/path/to/archive.zip;type=application/zip;filename=example.zip&apos; \  -F &apos;metadata={\&quot;customer_reference_id\&quot;: 123};type=application/json&apos;```The request must include:- `content`: The file content (required)- `type`: The content / MIME type for the file (defaults to `application/octet-stream`)- `filename`: The filename (required, ≤ 255 bytes, valid UTF-8)- `metadata`: User-provided metadata associated with the file (defaults to `{}`, must be valid JSON)&quot;
@@ -71,7 +71,7 @@ namespace Soenneker.Replicate.OpenApiClient.Files
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Replicate.OpenApiClient.Models.FilesCreate413">When receiving a 413 status code</exception>
+        /// <exception cref="global::Soenneker.Replicate.OpenApiClient.Models.FilesCreate413Response">When receiving a 413 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.Replicate.OpenApiClient.Models.SchemasFileResponse?> PostAsync(MultipartBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -85,7 +85,7 @@ namespace Soenneker.Replicate.OpenApiClient.Files
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "413", global::Soenneker.Replicate.OpenApiClient.Models.FilesCreate413.CreateFromDiscriminatorValue },
+                { "413", global::Soenneker.Replicate.OpenApiClient.Models.FilesCreate413Response.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Replicate.OpenApiClient.Models.SchemasFileResponse>(requestInfo, global::Soenneker.Replicate.OpenApiClient.Models.SchemasFileResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

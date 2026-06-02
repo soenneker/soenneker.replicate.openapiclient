@@ -39,7 +39,7 @@ namespace Soenneker.Replicate.OpenApiClient.Models
         public string Name { get; set; }
 #endif
         /// <summary>The account type of the creator. Can be a user or an organization.</summary>
-        public global::Soenneker.Replicate.OpenApiClient.Models.SchemasDeploymentResponseCurrentReleaseCreatedBy_type? Type { get; set; }
+        public global::Soenneker.Replicate.OpenApiClient.Models.SchemasDeploymentResponseCurrentReleaseCreatedByType? Type { get; set; }
         /// <summary>The username of the account that created the release.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -76,7 +76,7 @@ namespace Soenneker.Replicate.OpenApiClient.Models
                 { "avatar_url", n => { AvatarUrl = n.GetStringValue(); } },
                 { "github_url", n => { GithubUrl = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Replicate.OpenApiClient.Models.SchemasDeploymentResponseCurrentReleaseCreatedBy_type>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Replicate.OpenApiClient.Models.SchemasDeploymentResponseCurrentReleaseCreatedByType>(); } },
                 { "username", n => { Username = n.GetStringValue(); } },
             };
         }
@@ -90,7 +90,7 @@ namespace Soenneker.Replicate.OpenApiClient.Models
             writer.WriteStringValue("avatar_url", AvatarUrl);
             writer.WriteStringValue("github_url", GithubUrl);
             writer.WriteStringValue("name", Name);
-            writer.WriteEnumValue<global::Soenneker.Replicate.OpenApiClient.Models.SchemasDeploymentResponseCurrentReleaseCreatedBy_type>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.Replicate.OpenApiClient.Models.SchemasDeploymentResponseCurrentReleaseCreatedByType>("type", Type);
             writer.WriteStringValue("username", Username);
             writer.WriteAdditionalData(AdditionalData);
         }

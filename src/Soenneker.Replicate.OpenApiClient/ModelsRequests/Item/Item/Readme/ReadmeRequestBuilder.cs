@@ -11,7 +11,7 @@ using System;
 namespace Soenneker.Replicate.OpenApiClient.ModelsRequests.Item.Item.Readme
 {
     /// <summary>
-    /// Builds and executes requests for operations under \models\{model_owner}\{model_name}\readme
+    /// Builds and executes requests for operations under \models\{modelOwner}\{modelName}\readme
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ReadmeRequestBuilder : BaseRequestBuilder
@@ -21,7 +21,7 @@ namespace Soenneker.Replicate.OpenApiClient.ModelsRequests.Item.Item.Readme
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ReadmeRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/models/{model_owner}/{model_name}/readme", pathParameters)
+        public ReadmeRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/models/{modelOwner}/{modelName}/readme", pathParameters)
         {
         }
         /// <summary>
@@ -29,7 +29,7 @@ namespace Soenneker.Replicate.OpenApiClient.ModelsRequests.Item.Item.Readme
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ReadmeRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/models/{model_owner}/{model_name}/readme", rawUrl)
+        public ReadmeRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/models/{modelOwner}/{modelName}/readme", rawUrl)
         {
         }
         /// <summary>

@@ -18,15 +18,15 @@
     "/account": {
       "get": {
         "summary": "Get the authenticated account",
-        "description": "\"Returns information about the user or organization associated with the provided API token.\n\nExample cURL request:\n\n```console\ncurl -s \\\n  -H \\\"Authorization: Bearer $REPLICATE_API_TOKEN\\\" \\\n  https://api.replicate.com/v1/account\n```\n\nThe response will be a JSON object describing the account:\n\n```json\n{\n  \\\"type\\\": \\\"organization\\\",\n  \\\"username\\\": \\\"acme\\\",\n  \\\"name\\\": \\\"Acme Corp, Inc.\\\",\n  \\\"github_url\\\": \\\"https://github.com/acme\\\",\n}\n```\n\"",
-        "operationId": "account-get",
+        "description": "\u0022Returns information about the user or organization associated with the provided API token.\n\nExample cURL request:\n\n\u0060\u0060\u0060console\ncurl -s \\\n  -H \\\u0022Authorization: Bearer $REPLICATE_API_TOKEN\\\u0022 \\\n  https://api.replicate.com/v1/account\n\u0060\u0060\u0060\n\nThe response will be a JSON object describing the account:\n\n\u0060\u0060\u0060json\n{\n  \\\u0022type\\\u0022: \\\u0022organization\\\u0022,\n  \\\u0022username\\\u0022: \\\u0022acme\\\u0022,\n  \\\u0022name\\\u0022: \\\u0022Acme Corp, Inc.\\\u0022,\n  \\\u0022github_url\\\u0022: \\\u0022https://github.com/acme\\\u0022,\n}\n\u0060\u0060\u0060\n\u0022",
+        "operationId": "AccountGet",
         "responses": {
           "200": {
             "description": "Success",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/AccountGet200"
+                  "$ref": "#/components/schemas/AccountGet200Response"
                 }
               }
             }
@@ -37,8 +37,8 @@
     "/collections": {
       "get": {
         "summary": "List collections of models",
-        "description": "\"Example cURL request:\n\n```console\ncurl -s \\\n  -H \\\"Authorization: Bearer $REPLICATE_API_TOKEN\\\" \\\n  https://api.replicate.com/v1/collections\n```\n\nThe response will be a paginated JSON list of collection objects:\n\n```json\n{\n  \\\"next\\\": \\\"null\\\",\n  \\\"previous\\\": null,\n  \\\"results\\\": [\n    {\n      \\\"name\\\": \\\"Super resolution\\\",\n      \\\"slug\\\": \\\"super-resolution\\\",\n      \\\"description\\\": \\\"Upscaling models that create high-quality images from low-quality images.\\\"\n    }\n  ]\n}\n```\n\"",
-        "operationId": "collections-list",
+        "description": "\u0022Example cURL request:\n\n\u0060\u0060\u0060console\ncurl -s \\\n  -H \\\u0022Authorization: Bearer $REPLICATE_API_TOKEN\\\u0022 \\\n  https://api.replicate.com/v1/collections\n\u0060\u0060\u0060\n\nThe response will be a paginated JSON list of collection objects:\n\n\u0060\u0060\u0060json\n{\n  \\\u0022next\\\u0022: \\\u0022null\\\u0022,\n  \\\u0022previous\\\u0022: null,\n  \\\u0022results\\\u0022: [\n    {\n      \\\u0022name\\\u0022: \\\u0022Super resolution\\\u0022,\n      \\\u0022slug\\\u0022: \\\u0022super-resolution\\\u0022,\n      \\\u0022description\\\u0022: \\\u0022Upscaling models that create high-quality images from low-quality images.\\\u0022\n    }\n  ]\n}\n\u0060\u0060\u0060\n\u0022",
+        "operationId": "CollectionsList",
         "responses": {
           "200": {
             "description": "Success",
@@ -53,16 +53,16 @@
         }
       }
     },
-    "/collections/{collection_slug}": {
+    "/collections/{collectionSlug}": {
       "get": {
         "summary": "Get a collection of models",
-        "description": "\"Example cURL request:\n\n```console\ncurl -s \\\n  -H \\\"Authorization: Bearer $REPLICATE_API_TOKEN\\\" \\\n  https://api.replicate.com/v1/collections/super-resolution\n```\n\nThe response will be a collection object with a nested list of the models in that collection:\n\n```json\n{\n  \\\"name\\\": \\\"Super resolution\\\",\n  \\\"slug\\\": \\\"super-resolution\\\",\n  \\\"description\\\": \\\"Upscaling models that create high-quality images from low-quality images.\\\",\n  \\\"full_description\\\": \\\"## Overview\\n\\nThese models generate high-quality images from low-quality images. Many of these models are based on **advanced upscaling techniques**.\\n\\n### Key Features\\n\\n- Enhance image resolution\\n- Restore fine details\\n- Improve overall image quality\\\",\n  \\\"models\\\": [...]\n}\n```\n\"",
-        "operationId": "collections-get",
+        "description": "\u0022Example cURL request:\n\n\u0060\u0060\u0060console\ncurl -s \\\n  -H \\\u0022Authorization: Bearer $REPLICATE_API_TOKEN\\\u0022 \\\n  https://api.replicate.com/v1/collections/super-resolution\n\u0060\u0060\u0060\n\nThe response will be a collection object with a nested list of the models in that collection:\n\n\u0060\u0060\u0060json\n{\n  \\\u0022name\\\u0022: \\\u0022Super resolution\\\u0022,\n  \\\u0022slug\\\u0022: \\\u0022super-resolution\\\u0022,\n  \\\u0022description\\\u0022: \\\u0022Upscaling models that create high-quality images from low-quality images.\\\u0022,\n  \\\u0022full_description\\\u0022: \\\u0022## Overview\\n\\nThese models generate high-quality images from low-quality images. Many of these models are based on **advanced upscaling techniques**.\\n\\n### Key Features\\n\\n- Enhance image resolution\\n- Restore fine details\\n- Improve overall image quality\\\u0022,\n  \\\u0022models\\\u0022: [...]\n}\n\u0060\u0060\u0060\n\u0022",
+        "operationId": "CollectionsGet",
         "parameters": [
           {
-            "name": "collection_slug",
+            "name": "collectionSlug",
             "in": "path",
-            "description": "The slug of the collection, like `super-resolution` or `image-restoration`. See [replicate.com/collections](https://replicate.com/collections).\n",
+            "description": "The slug of the collection, like \u0060super-resolution\u0060 or \u0060image-restoration\u0060. See [replicate.com/collections](https://replicate.com/collections).\n",
             "required": true,
             "schema": {
               "type": "string"
@@ -86,34 +86,15 @@
     "/deployments": {
       "get": {
         "summary": "List deployments",
-        "description": "\"Get a list of deployments associated with the current account, including the latest release configuration for each deployment.\n\nExample cURL request:\n\n```console\ncurl -s \\\n  -H \\\"Authorization: Bearer $REPLICATE_API_TOKEN\\\" \\\n  https://api.replicate.com/v1/deployments\n```\n\nThe response will be a paginated JSON array of deployment objects, sorted with the most recent deployment first:\n\n```json\n{\n  \\\"next\\\": \\\"http://api.replicate.com/v1/deployments?cursor=cD0yMDIzLTA2LTA2KzIzJTNBNDAlM0EwOC45NjMwMDAlMkIwMCUzQTAw\\\",\n  \\\"previous\\\": null,\n  \\\"results\\\": [\n    {\n      \\\"owner\\\": \\\"replicate\\\",\n      \\\"name\\\": \\\"my-app-image-generator\\\",\n      \\\"current_release\\\": {\n        \\\"number\\\": 1,\n        \\\"model\\\": \\\"stability-ai/sdxl\\\",\n        \\\"version\\\": \\\"da77bc59ee60423279fd632efb4795ab731d9e3ca9705ef3341091fb989b7eaf\\\",\n        \\\"created_at\\\": \\\"2024-02-15T16:32:57.018467Z\\\",\n        \\\"created_by\\\": {\n          \\\"type\\\": \\\"organization\\\",\n          \\\"username\\\": \\\"acme\\\",\n          \\\"name\\\": \\\"Acme Corp, Inc.\\\",\n          \\\"avatar_url\\\": \\\"https://cdn.replicate.com/avatars/acme.png\\\",\n          \\\"github_url\\\": \\\"https://github.com/acme\\\"\n        },\n        \\\"configuration\\\": {\n          \\\"hardware\\\": \\\"gpu-t4\\\",\n          \\\"min_instances\\\": 1,\n          \\\"max_instances\\\": 5\n        }\n      }\n    }\n  ]\n}\n```\n\"",
-        "operationId": "deployments-list",
+        "description": "\u0022Get a list of deployments associated with the current account, including the latest release configuration for each deployment.\n\nExample cURL request:\n\n\u0060\u0060\u0060console\ncurl -s \\\n  -H \\\u0022Authorization: Bearer $REPLICATE_API_TOKEN\\\u0022 \\\n  https://api.replicate.com/v1/deployments\n\u0060\u0060\u0060\n\nThe response will be a paginated JSON array of deployment objects, sorted with the most recent deployment first:\n\n\u0060\u0060\u0060json\n{\n  \\\u0022next\\\u0022: \\\u0022http://api.replicate.com/v1/deployments?cursor=cD0yMDIzLTA2LTA2KzIzJTNBNDAlM0EwOC45NjMwMDAlMkIwMCUzQTAw\\\u0022,\n  \\\u0022previous\\\u0022: null,\n  \\\u0022results\\\u0022: [\n    {\n      \\\u0022owner\\\u0022: \\\u0022replicate\\\u0022,\n      \\\u0022name\\\u0022: \\\u0022my-app-image-generator\\\u0022,\n      \\\u0022current_release\\\u0022: {\n        \\\u0022number\\\u0022: 1,\n        \\\u0022model\\\u0022: \\\u0022stability-ai/sdxl\\\u0022,\n        \\\u0022version\\\u0022: \\\u0022da77bc59ee60423279fd632efb4795ab731d9e3ca9705ef3341091fb989b7eaf\\\u0022,\n        \\\u0022created_at\\\u0022: \\\u00222024-02-15T16:32:57.018467Z\\\u0022,\n        \\\u0022created_by\\\u0022: {\n          \\\u0022type\\\u0022: \\\u0022organization\\\u0022,\n          \\\u0022username\\\u0022: \\\u0022acme\\\u0022,\n          \\\u0022name\\\u0022: \\\u0022Acme Corp, Inc.\\\u0022,\n          \\\u0022avatar_url\\\u0022: \\\u0022https://cdn.replicate.com/avatars/acme.png\\\u0022,\n          \\\u0022github_url\\\u0022: \\\u0022https://github.com/acme\\\u0022\n        },\n        \\\u0022configuration\\\u0022: {\n          \\\u0022hardware\\\u0022: \\\u0022gpu-t4\\\u0022,\n          \\\u0022min_instances\\\u0022: 1,\n          \\\u0022max_instances\\\u0022: 5\n        }\n      }\n    }\n  ]\n}\n\u0060\u0060\u0060\n\u0022",
+        "operationId": "DeploymentsList",
         "responses": {
           "200": {
             "description": "Success",
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
-                  "properties": {
-                    "next": {
-                      "type": "string",
-                      "description": "A URL pointing to the next page of deployment objects if any",
-                      "nullable": true
-                    },
-                    "previous": {
-                      "type": "string",
-                      "description": "A URL pointing to the previous page of deployment objects if any",
-                      "nullable": true
-                    },
-                    "results": {
-                      "type": "array",
-                      "items": {
-                        "$ref": "#/components/schemas/SchemasDeploymentResponse"
-                      },
-                      "description": "An array containing a page of deployment objects"
-                    }
-                  }
+                  "$ref": "#/components/schemas/DeploymentsList200Response"
                 }
               }
             }
@@ -122,13 +103,13 @@
       },
       "post": {
         "summary": "Create a deployment",
-        "description": "\"Create a new deployment:\n\nExample cURL request:\n\n```console\ncurl -s \\\n  -X POST \\\n  -H \\\"Authorization: Bearer $REPLICATE_API_TOKEN\\\" \\\n  -H \\\"Content-Type: application/json\\\" \\\n  -d '{\n        \\\"name\\\": \\\"my-app-image-generator\\\",\n        \\\"model\\\": \\\"stability-ai/sdxl\\\",\n        \\\"version\\\": \\\"da77bc59ee60423279fd632efb4795ab731d9e3ca9705ef3341091fb989b7eaf\\\",\n        \\\"hardware\\\": \\\"gpu-t4\\\",\n        \\\"min_instances\\\": 0,\n        \\\"max_instances\\\": 3\n      }' \\\n  https://api.replicate.com/v1/deployments\n```\n\nThe response will be a JSON object describing the deployment:\n\n```json\n{\n  \\\"owner\\\": \\\"acme\\\",\n  \\\"name\\\": \\\"my-app-image-generator\\\",\n  \\\"current_release\\\": {\n    \\\"number\\\": 1,\n    \\\"model\\\": \\\"stability-ai/sdxl\\\",\n    \\\"version\\\": \\\"da77bc59ee60423279fd632efb4795ab731d9e3ca9705ef3341091fb989b7eaf\\\",\n    \\\"created_at\\\": \\\"2024-02-15T16:32:57.018467Z\\\",\n    \\\"created_by\\\": {\n      \\\"type\\\": \\\"organization\\\",\n      \\\"username\\\": \\\"acme\\\",\n      \\\"name\\\": \\\"Acme Corp, Inc.\\\",\n      \\\"avatar_url\\\": \\\"https://cdn.replicate.com/avatars/acme.png\\\",\n      \\\"github_url\\\": \\\"https://github.com/acme\\\"\n    },\n    \\\"configuration\\\": {\n      \\\"hardware\\\": \\\"gpu-t4\\\",\n      \\\"min_instances\\\": 1,\n      \\\"max_instances\\\": 5\n    }\n  }\n}\n```\n\"",
-        "operationId": "deployments-create",
+        "description": "\u0022Create a new deployment:\n\nExample cURL request:\n\n\u0060\u0060\u0060console\ncurl -s \\\n  -X POST \\\n  -H \\\u0022Authorization: Bearer $REPLICATE_API_TOKEN\\\u0022 \\\n  -H \\\u0022Content-Type: application/json\\\u0022 \\\n  -d \u0027{\n        \\\u0022name\\\u0022: \\\u0022my-app-image-generator\\\u0022,\n        \\\u0022model\\\u0022: \\\u0022stability-ai/sdxl\\\u0022,\n        \\\u0022version\\\u0022: \\\u0022da77bc59ee60423279fd632efb4795ab731d9e3ca9705ef3341091fb989b7eaf\\\u0022,\n        \\\u0022hardware\\\u0022: \\\u0022gpu-t4\\\u0022,\n        \\\u0022min_instances\\\u0022: 0,\n        \\\u0022max_instances\\\u0022: 3\n      }\u0027 \\\n  https://api.replicate.com/v1/deployments\n\u0060\u0060\u0060\n\nThe response will be a JSON object describing the deployment:\n\n\u0060\u0060\u0060json\n{\n  \\\u0022owner\\\u0022: \\\u0022acme\\\u0022,\n  \\\u0022name\\\u0022: \\\u0022my-app-image-generator\\\u0022,\n  \\\u0022current_release\\\u0022: {\n    \\\u0022number\\\u0022: 1,\n    \\\u0022model\\\u0022: \\\u0022stability-ai/sdxl\\\u0022,\n    \\\u0022version\\\u0022: \\\u0022da77bc59ee60423279fd632efb4795ab731d9e3ca9705ef3341091fb989b7eaf\\\u0022,\n    \\\u0022created_at\\\u0022: \\\u00222024-02-15T16:32:57.018467Z\\\u0022,\n    \\\u0022created_by\\\u0022: {\n      \\\u0022type\\\u0022: \\\u0022organization\\\u0022,\n      \\\u0022username\\\u0022: \\\u0022acme\\\u0022,\n      \\\u0022name\\\u0022: \\\u0022Acme Corp, Inc.\\\u0022,\n      \\\u0022avatar_url\\\u0022: \\\u0022https://cdn.replicate.com/avatars/acme.png\\\u0022,\n      \\\u0022github_url\\\u0022: \\\u0022https://github.com/acme\\\u0022\n    },\n    \\\u0022configuration\\\u0022: {\n      \\\u0022hardware\\\u0022: \\\u0022gpu-t4\\\u0022,\n      \\\u0022min_instances\\\u0022: 1,\n      \\\u0022max_instances\\\u0022: 5\n    }\n  }\n}\n\u0060\u0060\u0060\n\u0022",
+        "operationId": "DeploymentsCreate",
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/DeploymentsCreate"
+                "$ref": "#/components/schemas/DeploymentsCreateRequest"
               }
             }
           }
@@ -147,14 +128,14 @@
         }
       }
     },
-    "/deployments/{deployment_owner}/{deployment_name}": {
+    "/deployments/{deploymentOwner}/{deploymentName}": {
       "delete": {
         "summary": "Delete a deployment",
-        "description": "\"Delete a deployment\n\nDeployment deletion has some restrictions:\n\n- You can only delete deployments that have been offline and unused for at least 15 minutes.\n\nExample cURL request:\n\n```command\ncurl -s -X DELETE \\\n  -H \\\"Authorization: Bearer $REPLICATE_API_TOKEN\\\" \\\n  https://api.replicate.com/v1/deployments/acme/my-app-image-generator\n```\n\nThe response will be an empty 204, indicating the deployment has been deleted.\n\"",
-        "operationId": "deployments-delete",
+        "description": "\u0022Delete a deployment\n\nDeployment deletion has some restrictions:\n\n- You can only delete deployments that have been offline and unused for at least 15 minutes.\n\nExample cURL request:\n\n\u0060\u0060\u0060command\ncurl -s -X DELETE \\\n  -H \\\u0022Authorization: Bearer $REPLICATE_API_TOKEN\\\u0022 \\\n  https://api.replicate.com/v1/deployments/acme/my-app-image-generator\n\u0060\u0060\u0060\n\nThe response will be an empty 204, indicating the deployment has been deleted.\n\u0022",
+        "operationId": "DeploymentsDelete",
         "parameters": [
           {
-            "name": "deployment_owner",
+            "name": "deploymentOwner",
             "in": "path",
             "description": "The name of the user or organization that owns the deployment.\n",
             "required": true,
@@ -163,7 +144,7 @@
             }
           },
           {
-            "name": "deployment_name",
+            "name": "deploymentName",
             "in": "path",
             "description": "The name of the deployment.\n",
             "required": true,
@@ -178,9 +159,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "DefaultResponse",
-                  "type": "object",
-                  "description": "Default response schema"
+                  "$ref": "#/components/schemas/DefaultResponse"
                 }
               }
             }
@@ -189,11 +168,11 @@
       },
       "get": {
         "summary": "Get a deployment",
-        "description": "\"Get information about a deployment by name including the current release.\n\nExample cURL request:\n\n```console\ncurl -s \\\n  -H \\\"Authorization: Bearer $REPLICATE_API_TOKEN\\\" \\\n  https://api.replicate.com/v1/deployments/replicate/my-app-image-generator\n```\n\nThe response will be a JSON object describing the deployment:\n\n```json\n{\n  \\\"owner\\\": \\\"acme\\\",\n  \\\"name\\\": \\\"my-app-image-generator\\\",\n  \\\"current_release\\\": {\n    \\\"number\\\": 1,\n    \\\"model\\\": \\\"stability-ai/sdxl\\\",\n    \\\"version\\\": \\\"da77bc59ee60423279fd632efb4795ab731d9e3ca9705ef3341091fb989b7eaf\\\",\n    \\\"created_at\\\": \\\"2024-02-15T16:32:57.018467Z\\\",\n    \\\"created_by\\\": {\n      \\\"type\\\": \\\"organization\\\",\n      \\\"username\\\": \\\"acme\\\",\n      \\\"name\\\": \\\"Acme Corp, Inc.\\\",\n      \\\"avatar_url\\\": \\\"https://cdn.replicate.com/avatars/acme.png\\\",\n      \\\"github_url\\\": \\\"https://github.com/acme\\\"\n    },\n    \\\"configuration\\\": {\n      \\\"hardware\\\": \\\"gpu-t4\\\",\n      \\\"min_instances\\\": 1,\n      \\\"max_instances\\\": 5\n    }\n  }\n}\n```\n\"",
-        "operationId": "deployments-get",
+        "description": "\u0022Get information about a deployment by name including the current release.\n\nExample cURL request:\n\n\u0060\u0060\u0060console\ncurl -s \\\n  -H \\\u0022Authorization: Bearer $REPLICATE_API_TOKEN\\\u0022 \\\n  https://api.replicate.com/v1/deployments/replicate/my-app-image-generator\n\u0060\u0060\u0060\n\nThe response will be a JSON object describing the deployment:\n\n\u0060\u0060\u0060json\n{\n  \\\u0022owner\\\u0022: \\\u0022acme\\\u0022,\n  \\\u0022name\\\u0022: \\\u0022my-app-image-generator\\\u0022,\n  \\\u0022current_release\\\u0022: {\n    \\\u0022number\\\u0022: 1,\n    \\\u0022model\\\u0022: \\\u0022stability-ai/sdxl\\\u0022,\n    \\\u0022version\\\u0022: \\\u0022da77bc59ee60423279fd632efb4795ab731d9e3ca9705ef3341091fb989b7eaf\\\u0022,\n    \\\u0022created_at\\\u0022: \\\u00222024-02-15T16:32:57.018467Z\\\u0022,\n    \\\u0022created_by\\\u0022: {\n      \\\u0022type\\\u0022: \\\u0022organization\\\u0022,\n      \\\u0022username\\\u0022: \\\u0022acme\\\u0022,\n      \\\u0022name\\\u0022: \\\u0022Acme Corp, Inc.\\\u0022,\n      \\\u0022avatar_url\\\u0022: \\\u0022https://cdn.replicate.com/avatars/acme.png\\\u0022,\n      \\\u0022github_url\\\u0022: \\\u0022https://github.com/acme\\\u0022\n    },\n    \\\u0022configuration\\\u0022: {\n      \\\u0022hardware\\\u0022: \\\u0022gpu-t4\\\u0022,\n      \\\u0022min_instances\\\u0022: 1,\n      \\\u0022max_instances\\\u0022: 5\n    }\n  }\n}\n\u0060\u0060\u0060\n\u0022",
+        "operationId": "DeploymentsGet",
         "parameters": [
           {
-            "name": "deployment_owner",
+            "name": "deploymentOwner",
             "in": "path",
             "description": "The name of the user or organization that owns the deployment.\n",
             "required": true,
@@ -202,7 +181,7 @@
             }
           },
           {
-            "name": "deployment_name",
+            "name": "deploymentName",
             "in": "path",
             "description": "The name of the deployment.\n",
             "required": true,
@@ -226,11 +205,11 @@
       },
       "patch": {
         "summary": "Update a deployment",
-        "description": "\"Update properties of an existing deployment, including hardware, min/max instances, and the deployment's underlying model [version](https://replicate.com/docs/how-does-replicate-work#versions).\n\nExample cURL request:\n\n```console\ncurl -s \\\n  -X PATCH \\\n  -H \\\"Authorization: Bearer $REPLICATE_API_TOKEN\\\" \\\n  -H \\\"Content-Type: application/json\\\" \\\n  -d '{\\\"min_instances\\\": 3, \\\"max_instances\\\": 10}' \\\n  https://api.replicate.com/v1/deployments/acme/my-app-image-generator\n```\n\nThe response will be a JSON object describing the deployment:\n\n```json\n{\n  \\\"owner\\\": \\\"acme\\\",\n  \\\"name\\\": \\\"my-app-image-generator\\\",\n  \\\"current_release\\\": {\n    \\\"number\\\": 2,\n    \\\"model\\\": \\\"stability-ai/sdxl\\\",\n    \\\"version\\\": \\\"da77bc59ee60423279fd632efb4795ab731d9e3ca9705ef3341091fb989b7eaf\\\",\n    \\\"created_at\\\": \\\"2024-02-15T16:32:57.018467Z\\\",\n    \\\"created_by\\\": {\n      \\\"type\\\": \\\"organization\\\",\n      \\\"username\\\": \\\"acme\\\",\n      \\\"name\\\": \\\"Acme Corp, Inc.\\\",\n      \\\"avatar_url\\\": \\\"https://cdn.replicate.com/avatars/acme.png\\\",\n      \\\"github_url\\\": \\\"https://github.com/acme\\\"\n    },\n    \\\"configuration\\\": {\n      \\\"hardware\\\": \\\"gpu-t4\\\",\n      \\\"min_instances\\\": 3,\n      \\\"max_instances\\\": 10\n    }\n  }\n}\n```\n\nUpdating any deployment properties will increment the `number` field of the `current_release`.\n\"",
-        "operationId": "deployments-update",
+        "description": "\u0022Update properties of an existing deployment, including hardware, min/max instances, and the deployment\u0027s underlying model [version](https://replicate.com/docs/how-does-replicate-work#versions).\n\nExample cURL request:\n\n\u0060\u0060\u0060console\ncurl -s \\\n  -X PATCH \\\n  -H \\\u0022Authorization: Bearer $REPLICATE_API_TOKEN\\\u0022 \\\n  -H \\\u0022Content-Type: application/json\\\u0022 \\\n  -d \u0027{\\\u0022min_instances\\\u0022: 3, \\\u0022max_instances\\\u0022: 10}\u0027 \\\n  https://api.replicate.com/v1/deployments/acme/my-app-image-generator\n\u0060\u0060\u0060\n\nThe response will be a JSON object describing the deployment:\n\n\u0060\u0060\u0060json\n{\n  \\\u0022owner\\\u0022: \\\u0022acme\\\u0022,\n  \\\u0022name\\\u0022: \\\u0022my-app-image-generator\\\u0022,\n  \\\u0022current_release\\\u0022: {\n    \\\u0022number\\\u0022: 2,\n    \\\u0022model\\\u0022: \\\u0022stability-ai/sdxl\\\u0022,\n    \\\u0022version\\\u0022: \\\u0022da77bc59ee60423279fd632efb4795ab731d9e3ca9705ef3341091fb989b7eaf\\\u0022,\n    \\\u0022created_at\\\u0022: \\\u00222024-02-15T16:32:57.018467Z\\\u0022,\n    \\\u0022created_by\\\u0022: {\n      \\\u0022type\\\u0022: \\\u0022organization\\\u0022,\n      \\\u0022username\\\u0022: \\\u0022acme\\\u0022,\n      \\\u0022name\\\u0022: \\\u0022Acme Corp, Inc.\\\u0022,\n      \\\u0022avatar_url\\\u0022: \\\u0022https://cdn.replicate.com/avatars/acme.png\\\u0022,\n      \\\u0022github_url\\\u0022: \\\u0022https://github.com/acme\\\u0022\n    },\n    \\\u0022configuration\\\u0022: {\n      \\\u0022hardware\\\u0022: \\\u0022gpu-t4\\\u0022,\n      \\\u0022min_instances\\\u0022: 3,\n      \\\u0022max_instances\\\u0022: 10\n    }\n  }\n}\n\u0060\u0060\u0060\n\nUpdating any deployment properties will increment the \u0060number\u0060 field of the \u0060current_release\u0060.\n\u0022",
+        "operationId": "DeploymentsUpdate",
         "parameters": [
           {
-            "name": "deployment_owner",
+            "name": "deploymentOwner",
             "in": "path",
             "description": "The name of the user or organization that owns the deployment.\n",
             "required": true,
@@ -239,7 +218,7 @@
             }
           },
           {
-            "name": "deployment_name",
+            "name": "deploymentName",
             "in": "path",
             "description": "The name of the deployment.\n",
             "required": true,
@@ -252,7 +231,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/DeploymentsUpdate"
+                "$ref": "#/components/schemas/DeploymentsUpdateRequest"
               }
             }
           }
@@ -271,14 +250,14 @@
         }
       }
     },
-    "/deployments/{deployment_owner}/{deployment_name}/predictions": {
+    "/deployments/{deploymentOwner}/{deploymentName}/predictions": {
       "post": {
         "summary": "Create a prediction using a deployment",
-        "description": "\"Create a prediction for the deployment and inputs you provide.\n\nExample cURL request:\n\n```console\ncurl -s -X POST -H 'Prefer: wait' \\\n  -d '{\\\"input\\\": {\\\"prompt\\\": \\\"A photo of a bear riding a bicycle over the moon\\\"}}' \\\n  -H \\\"Authorization: Bearer $REPLICATE_API_TOKEN\\\" \\\n  -H 'Content-Type: application/json' \\\n  https://api.replicate.com/v1/deployments/acme/my-app-image-generator/predictions\n```\n\nThe request will wait up to 60 seconds for the model to run. If this time is exceeded the prediction will be returned in a `\\\"starting\\\"` state and need to be retrieved using the `predictions.get` endpoint.\n\nFor a complete overview of the `deployments.predictions.create` API check out our documentation on [creating a prediction](https://replicate.com/docs/topics/predictions/create-a-prediction) which covers a variety of use cases.\n\"",
-        "operationId": "deployments-predictions-create",
+        "description": "\u0022Create a prediction for the deployment and inputs you provide.\n\nExample cURL request:\n\n\u0060\u0060\u0060console\ncurl -s -X POST -H \u0027Prefer: wait\u0027 \\\n  -d \u0027{\\\u0022input\\\u0022: {\\\u0022prompt\\\u0022: \\\u0022A photo of a bear riding a bicycle over the moon\\\u0022}}\u0027 \\\n  -H \\\u0022Authorization: Bearer $REPLICATE_API_TOKEN\\\u0022 \\\n  -H \u0027Content-Type: application/json\u0027 \\\n  https://api.replicate.com/v1/deployments/acme/my-app-image-generator/predictions\n\u0060\u0060\u0060\n\nThe request will wait up to 60 seconds for the model to run. If this time is exceeded the prediction will be returned in a \u0060\\\u0022starting\\\u0022\u0060 state and need to be retrieved using the \u0060predictions.get\u0060 endpoint.\n\nFor a complete overview of the \u0060deployments.predictions.create\u0060 API check out our documentation on [creating a prediction](https://replicate.com/docs/topics/predictions/create-a-prediction) which covers a variety of use cases.\n\u0022",
+        "operationId": "DeploymentsPredictionsCreate",
         "parameters": [
           {
-            "name": "deployment_owner",
+            "name": "deploymentOwner",
             "in": "path",
             "description": "The name of the user or organization that owns the deployment.\n",
             "required": true,
@@ -287,7 +266,7 @@
             }
           },
           {
-            "name": "deployment_name",
+            "name": "deploymentName",
             "in": "path",
             "description": "The name of the deployment.\n",
             "required": true,
@@ -313,7 +292,7 @@
         },
         "responses": {
           "201": {
-            "description": "\"Prediction has been created. If the `Prefer: wait` header is provided it will contain the final output.\"",
+            "description": "\u0022Prediction has been created. If the \u0060Prefer: wait\u0060 header is provided it will contain the final output.\u0022",
             "content": {
               "application/json": {
                 "schema": {
@@ -338,33 +317,15 @@
     "/files": {
       "get": {
         "summary": "List files",
-        "description": "\"Get a paginated list of all files created by the user or organization associated with the provided API token.\n\nExample cURL request:\n\n```console\ncurl -s \\\n  -H \\\"Authorization: Token $REPLICATE_API_TOKEN\\\" \\\n  https://api.replicate.com/v1/files\n```\n\nThe response will be a paginated JSON array of file objects, sorted with the most recent file first.\n\"",
-        "operationId": "files-list",
+        "description": "\u0022Get a paginated list of all files created by the user or organization associated with the provided API token.\n\nExample cURL request:\n\n\u0060\u0060\u0060console\ncurl -s \\\n  -H \\\u0022Authorization: Token $REPLICATE_API_TOKEN\\\u0022 \\\n  https://api.replicate.com/v1/files\n\u0060\u0060\u0060\n\nThe response will be a paginated JSON array of file objects, sorted with the most recent file first.\n\u0022",
+        "operationId": "FilesList",
         "responses": {
           "200": {
             "description": "Success",
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
-                  "properties": {
-                    "next": {
-                      "type": "string",
-                      "format": "uri",
-                      "nullable": true
-                    },
-                    "previous": {
-                      "type": "string",
-                      "format": "uri",
-                      "nullable": true
-                    },
-                    "results": {
-                      "type": "array",
-                      "items": {
-                        "$ref": "#/components/schemas/SchemasFileResponse"
-                      }
-                    }
-                  }
+                  "$ref": "#/components/schemas/FilesList200Response"
                 }
               }
             }
@@ -373,13 +334,13 @@
       },
       "post": {
         "summary": "Create a file",
-        "description": "\"Create a file by uploading its content and optional metadata.\n\nExample cURL request:\n\n```console\ncurl -X POST https://api.replicate.com/v1/files \\\n  -H \\\"Authorization: Token $REPLICATE_API_TOKEN\\\" \\\n  -H 'Content-Type: multipart/form-data' \\\n  -F 'content=@/path/to/archive.zip;type=application/zip;filename=example.zip' \\\n  -F 'metadata={\\\"customer_reference_id\\\": 123};type=application/json'\n```\n\nThe request must include:\n- `content`: The file content (required)\n- `type`: The content / MIME type for the file (defaults to `application/octet-stream`)\n- `filename`: The filename (required, ≤ 255 bytes, valid UTF-8)\n- `metadata`: User-provided metadata associated with the file (defaults to `{}`, must be valid JSON)\n\"",
-        "operationId": "files-create",
+        "description": "\u0022Create a file by uploading its content and optional metadata.\n\nExample cURL request:\n\n\u0060\u0060\u0060console\ncurl -X POST https://api.replicate.com/v1/files \\\n  -H \\\u0022Authorization: Token $REPLICATE_API_TOKEN\\\u0022 \\\n  -H \u0027Content-Type: multipart/form-data\u0027 \\\n  -F \u0027content=@/path/to/archive.zip;type=application/zip;filename=example.zip\u0027 \\\n  -F \u0027metadata={\\\u0022customer_reference_id\\\u0022: 123};type=application/json\u0027\n\u0060\u0060\u0060\n\nThe request must include:\n- \u0060content\u0060: The file content (required)\n- \u0060type\u0060: The content / MIME type for the file (defaults to \u0060application/octet-stream\u0060)\n- \u0060filename\u0060: The filename (required, \u2264 255 bytes, valid UTF-8)\n- \u0060metadata\u0060: User-provided metadata associated with the file (defaults to \u0060{}\u0060, must be valid JSON)\n\u0022",
+        "operationId": "FilesCreate",
         "requestBody": {
           "content": {
             "multipart/form-data": {
               "schema": {
-                "$ref": "#/components/schemas/FilesCreate"
+                "$ref": "#/components/schemas/FilesCreateFormDataRequest"
               }
             }
           }
@@ -398,9 +359,9 @@
           "413": {
             "description": "Content Too Large",
             "content": {
-              "application/problem+json": {
+              "application/problem\u002Bjson": {
                 "schema": {
-                  "$ref": "#/components/schemas/FilesCreate413"
+                  "$ref": "#/components/schemas/FilesCreate413Response"
                 }
               }
             }
@@ -408,14 +369,14 @@
         }
       }
     },
-    "/files/{file_id}": {
+    "/files/{fileId}": {
       "delete": {
         "summary": "Delete a file",
-        "description": "\"Delete a file. Once a file has been deleted, subsequent requests to the file resource return 404 Not found.\n\nExample cURL request:\n\n```console\ncurl -X DELETE \\\n  -H \\\"Authorization: Token $REPLICATE_API_TOKEN\\\" \\\n  https://api.replicate.com/v1/files/cneqzikepnug6xezperrr4z55o\n```\n\"",
-        "operationId": "files-delete",
+        "description": "\u0022Delete a file. Once a file has been deleted, subsequent requests to the file resource return 404 Not found.\n\nExample cURL request:\n\n\u0060\u0060\u0060console\ncurl -X DELETE \\\n  -H \\\u0022Authorization: Token $REPLICATE_API_TOKEN\\\u0022 \\\n  https://api.replicate.com/v1/files/cneqzikepnug6xezperrr4z55o\n\u0060\u0060\u0060\n\u0022",
+        "operationId": "FilesDelete",
         "parameters": [
           {
-            "name": "file_id",
+            "name": "fileId",
             "in": "path",
             "description": "The ID of the file to delete",
             "required": true,
@@ -428,9 +389,9 @@
           "404": {
             "description": "File not found",
             "content": {
-              "application/problem+json": {
+              "application/problem\u002Bjson": {
                 "schema": {
-                  "$ref": "#/components/schemas/FilesDelete404"
+                  "$ref": "#/components/schemas/FilesDelete404Response"
                 }
               }
             }
@@ -439,11 +400,11 @@
       },
       "get": {
         "summary": "Get a file",
-        "description": "\"Get the details of a file.\n\nExample cURL request:\n\n```console\ncurl -s \\\n  -H \\\"Authorization: Token $REPLICATE_API_TOKEN\\\" \\\n  https://api.replicate.com/v1/files/cneqzikepnug6xezperrr4z55o\n```\n\"",
-        "operationId": "files-get",
+        "description": "\u0022Get the details of a file.\n\nExample cURL request:\n\n\u0060\u0060\u0060console\ncurl -s \\\n  -H \\\u0022Authorization: Token $REPLICATE_API_TOKEN\\\u0022 \\\n  https://api.replicate.com/v1/files/cneqzikepnug6xezperrr4z55o\n\u0060\u0060\u0060\n\u0022",
+        "operationId": "FilesGet",
         "parameters": [
           {
-            "name": "file_id",
+            "name": "fileId",
             "in": "path",
             "description": "The ID of the file to get",
             "required": true,
@@ -466,9 +427,9 @@
           "404": {
             "description": "File not found",
             "content": {
-              "application/problem+json": {
+              "application/problem\u002Bjson": {
                 "schema": {
-                  "$ref": "#/components/schemas/FilesGet404"
+                  "$ref": "#/components/schemas/FilesGet404Response"
                 }
               }
             }
@@ -476,14 +437,14 @@
         }
       }
     },
-    "/files/{file_id}/download": {
+    "/files/{fileId}/download": {
       "get": {
         "summary": "Download a file",
-        "description": "Download a file by providing the file owner, access expiry, and a valid signature.\n\nExample cURL request:\n\n```console\ncurl -X GET \"https://api.replicate.com/v1/files/cneqzikepnug6xezperrr4z55o/download?expiry=1708515345&owner=mattt&signature=zuoghqlrcnw8YHywkpaXQlHsVhWen%2FDZ4aal76dLiOo%3D\"\n```\n",
-        "operationId": "files-download",
+        "description": "Download a file by providing the file owner, access expiry, and a valid signature.\n\nExample cURL request:\n\n\u0060\u0060\u0060console\ncurl -X GET \u0022https://api.replicate.com/v1/files/cneqzikepnug6xezperrr4z55o/download?expiry=1708515345\u0026owner=mattt\u0026signature=zuoghqlrcnw8YHywkpaXQlHsVhWen%2FDZ4aal76dLiOo%3D\u0022\n\u0060\u0060\u0060\n",
+        "operationId": "FilesDownload",
         "parameters": [
           {
-            "name": "file_id",
+            "name": "fileId",
             "in": "path",
             "description": "The ID of the file to download",
             "required": true,
@@ -513,7 +474,7 @@
           {
             "name": "signature",
             "in": "query",
-            "description": "A base64-encoded HMAC-SHA256 checksum of the string '{owner} {id} {expiry}' generated with the Files API signing secret",
+            "description": "A base64-encoded HMAC-SHA256 checksum of the string \u0027{owner} {id} {expiry}\u0027 generated with the Files API signing secret",
             "required": true,
             "schema": {
               "type": "string"
@@ -526,8 +487,7 @@
             "content": {
               "application/octet-stream": {
                 "schema": {
-                  "type": "string",
-                  "format": "binary"
+                  "$ref": "#/components/schemas/FilesDownload200ResponseResponseOctetStream"
                 }
               }
             }
@@ -535,9 +495,9 @@
           "404": {
             "description": "File not found",
             "content": {
-              "application/problem+json": {
+              "application/problem\u002Bjson": {
                 "schema": {
-                  "$ref": "#/components/schemas/FilesDownload404"
+                  "$ref": "#/components/schemas/FilesDownload404Response"
                 }
               }
             }
@@ -548,28 +508,15 @@
     "/hardware": {
       "get": {
         "summary": "List available hardware for models",
-        "description": "\"Example cURL request:\n\n```console\ncurl -s \\\n  -H \\\"Authorization: Bearer $REPLICATE_API_TOKEN\\\" \\\n  https://api.replicate.com/v1/hardware\n```\n\nThe response will be a JSON array of hardware objects:\n\n```json\n[\n    {\\\"name\\\": \\\"CPU\\\", \\\"sku\\\": \\\"cpu\\\"},\n    {\\\"name\\\": \\\"Nvidia T4 GPU\\\", \\\"sku\\\": \\\"gpu-t4\\\"},\n    {\\\"name\\\": \\\"Nvidia A40 GPU\\\", \\\"sku\\\": \\\"gpu-a40-small\\\"},\n    {\\\"name\\\": \\\"Nvidia A40 (Large) GPU\\\", \\\"sku\\\": \\\"gpu-a40-large\\\"},\n]\n```\n\"",
-        "operationId": "hardware-list",
+        "description": "\u0022Example cURL request:\n\n\u0060\u0060\u0060console\ncurl -s \\\n  -H \\\u0022Authorization: Bearer $REPLICATE_API_TOKEN\\\u0022 \\\n  https://api.replicate.com/v1/hardware\n\u0060\u0060\u0060\n\nThe response will be a JSON array of hardware objects:\n\n\u0060\u0060\u0060json\n[\n    {\\\u0022name\\\u0022: \\\u0022CPU\\\u0022, \\\u0022sku\\\u0022: \\\u0022cpu\\\u0022},\n    {\\\u0022name\\\u0022: \\\u0022Nvidia T4 GPU\\\u0022, \\\u0022sku\\\u0022: \\\u0022gpu-t4\\\u0022},\n    {\\\u0022name\\\u0022: \\\u0022Nvidia A40 GPU\\\u0022, \\\u0022sku\\\u0022: \\\u0022gpu-a40-small\\\u0022},\n    {\\\u0022name\\\u0022: \\\u0022Nvidia A40 (Large) GPU\\\u0022, \\\u0022sku\\\u0022: \\\u0022gpu-a40-large\\\u0022},\n]\n\u0060\u0060\u0060\n\u0022",
+        "operationId": "HardwareList",
         "responses": {
           "200": {
             "description": "Success",
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "name": {
-                        "type": "string",
-                        "description": "The name of the hardware."
-                      },
-                      "sku": {
-                        "type": "string",
-                        "description": "The SKU of the hardware."
-                      }
-                    }
-                  }
+                  "$ref": "#/components/schemas/HardwareList200ResponseResponseJson"
                 }
               }
             }
@@ -580,35 +527,23 @@
     "/models": {
       "get": {
         "summary": "List public models",
-        "description": "\"Get a paginated list of public models.\n\nExample cURL request:\n\n```console\ncurl -s \\\n  -H \\\"Authorization: Bearer $REPLICATE_API_TOKEN\\\" \\\n  https://api.replicate.com/v1/models\n```\n\nThe response will be a pagination object containing a list of model objects.\n\nSee the [`models.get`](#models.get) docs for more details about the model object.\n\n## Sorting\n\nYou can sort the results using the `sort_by` and `sort_direction` query parameters.\n\nFor example, to get the most recently created models:\n\n```console\ncurl -s \\\n  -H \\\"Authorization: Bearer $REPLICATE_API_TOKEN\\\" \\\n  \\\"https://api.replicate.com/v1/models?sort_by=model_created_at&sort_direction=desc\\\"\n```\n\nAvailable sorting options:\n- `model_created_at`: Sort by when the model was first created\n- `latest_version_created_at`: Sort by when the model's latest version was created (default)\n\nSort direction can be `asc` (ascending) or `desc` (descending, default).\n\"",
-        "operationId": "models-list",
+        "description": "\u0022Get a paginated list of public models.\n\nExample cURL request:\n\n\u0060\u0060\u0060console\ncurl -s \\\n  -H \\\u0022Authorization: Bearer $REPLICATE_API_TOKEN\\\u0022 \\\n  https://api.replicate.com/v1/models\n\u0060\u0060\u0060\n\nThe response will be a pagination object containing a list of model objects.\n\nSee the [\u0060models.get\u0060](#models.get) docs for more details about the model object.\n\n## Sorting\n\nYou can sort the results using the \u0060sort_by\u0060 and \u0060sort_direction\u0060 query parameters.\n\nFor example, to get the most recently created models:\n\n\u0060\u0060\u0060console\ncurl -s \\\n  -H \\\u0022Authorization: Bearer $REPLICATE_API_TOKEN\\\u0022 \\\n  \\\u0022https://api.replicate.com/v1/models?sort_by=model_created_at\u0026sort_direction=desc\\\u0022\n\u0060\u0060\u0060\n\nAvailable sorting options:\n- \u0060model_created_at\u0060: Sort by when the model was first created\n- \u0060latest_version_created_at\u0060: Sort by when the model\u0027s latest version was created (default)\n\nSort direction can be \u0060asc\u0060 (ascending) or \u0060desc\u0060 (descending, default).\n\u0022",
+        "operationId": "ModelsList",
         "parameters": [
           {
             "name": "sort_by",
             "in": "query",
-            "description": "Field to sort models by. Defaults to `latest_version_created_at`.\n",
+            "description": "Field to sort models by. Defaults to \u0060latest_version_created_at\u0060.\n",
             "schema": {
-              "enum": [
-                "model_created_at",
-                "latest_version_created_at"
-              ],
-              "type": "string",
-              "additionalProperties": false,
-              "default": "latest_version_created_at"
+              "$ref": "#/components/schemas/ModelsListSortByParameter"
             }
           },
           {
             "name": "sort_direction",
             "in": "query",
-            "description": "Sort direction. Defaults to `desc` (descending, newest first).\n",
+            "description": "Sort direction. Defaults to \u0060desc\u0060 (descending, newest first).\n",
             "schema": {
-              "enum": [
-                "asc",
-                "desc"
-              ],
-              "type": "string",
-              "additionalProperties": false,
-              "default": "desc"
+              "$ref": "#/components/schemas/ModelsListSortDirectionParameter"
             }
           }
         ],
@@ -627,13 +562,13 @@
       },
       "post": {
         "summary": "Create a model",
-        "description": "\"Create a model.\n\nExample cURL request:\n\n```console\ncurl -s -X POST \\\n  -H \\\"Authorization: Bearer $REPLICATE_API_TOKEN\\\" \\\n  -H 'Content-Type: application/json' \\\n  -d '{\\\"owner\\\": \\\"alice\\\", \\\"name\\\": \\\"hot-dog-detector\\\", \\\"description\\\": \\\"Detect hot dogs in images\\\", \\\"visibility\\\": \\\"public\\\", \\\"hardware\\\": \\\"cpu\\\"}' \\\n  https://api.replicate.com/v1/models\n```\n\nThe response will be a model object in the following format:\n\n```json\n{\n  \\\"url\\\": \\\"https://replicate.com/alice/hot-dog-detector\\\",\n  \\\"owner\\\": \\\"alice\\\",\n  \\\"name\\\": \\\"hot-dog-detector\\\",\n  \\\"description\\\": \\\"Detect hot dogs in images\\\",\n  \\\"visibility\\\": \\\"public\\\",\n  \\\"github_url\\\": null,\n  \\\"paper_url\\\": null,\n  \\\"license_url\\\": null,\n  \\\"run_count\\\": 0,\n  \\\"cover_image_url\\\": null,\n  \\\"default_example\\\": null,\n  \\\"latest_version\\\": null,\n}\n```\n\nNote that there is a limit of 1,000 models per account. For most purposes, we recommend using a single model and pushing new [versions](https://replicate.com/docs/how-does-replicate-work#versions) of the model as you make changes to it.\n\"",
-        "operationId": "models-create",
+        "description": "\u0022Create a model.\n\nExample cURL request:\n\n\u0060\u0060\u0060console\ncurl -s -X POST \\\n  -H \\\u0022Authorization: Bearer $REPLICATE_API_TOKEN\\\u0022 \\\n  -H \u0027Content-Type: application/json\u0027 \\\n  -d \u0027{\\\u0022owner\\\u0022: \\\u0022alice\\\u0022, \\\u0022name\\\u0022: \\\u0022hot-dog-detector\\\u0022, \\\u0022description\\\u0022: \\\u0022Detect hot dogs in images\\\u0022, \\\u0022visibility\\\u0022: \\\u0022public\\\u0022, \\\u0022hardware\\\u0022: \\\u0022cpu\\\u0022}\u0027 \\\n  https://api.replicate.com/v1/models\n\u0060\u0060\u0060\n\nThe response will be a model object in the following format:\n\n\u0060\u0060\u0060json\n{\n  \\\u0022url\\\u0022: \\\u0022https://replicate.com/alice/hot-dog-detector\\\u0022,\n  \\\u0022owner\\\u0022: \\\u0022alice\\\u0022,\n  \\\u0022name\\\u0022: \\\u0022hot-dog-detector\\\u0022,\n  \\\u0022description\\\u0022: \\\u0022Detect hot dogs in images\\\u0022,\n  \\\u0022visibility\\\u0022: \\\u0022public\\\u0022,\n  \\\u0022github_url\\\u0022: null,\n  \\\u0022paper_url\\\u0022: null,\n  \\\u0022license_url\\\u0022: null,\n  \\\u0022run_count\\\u0022: 0,\n  \\\u0022cover_image_url\\\u0022: null,\n  \\\u0022default_example\\\u0022: null,\n  \\\u0022latest_version\\\u0022: null,\n}\n\u0060\u0060\u0060\n\nNote that there is a limit of 1,000 models per account. For most purposes, we recommend using a single model and pushing new [versions](https://replicate.com/docs/how-does-replicate-work#versions) of the model as you make changes to it.\n\u0022",
+        "operationId": "ModelsCreate",
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/ModelsCreate"
+                "$ref": "#/components/schemas/ModelsCreateRequest"
               }
             }
           }
@@ -652,14 +587,14 @@
         }
       }
     },
-    "/models/{model_owner}/{model_name}": {
+    "/models/{modelOwner}/{modelName}": {
       "delete": {
         "summary": "Delete a model",
-        "description": "\"Delete a model\n\nModel deletion has some restrictions:\n\n- You can only delete models you own.\n- You can only delete private models.\n- You can only delete models that have no versions associated with them. Currently you'll need to [delete the model's versions](#models.versions.delete) before you can delete the model itself.\n\nExample cURL request:\n\n```command\ncurl -s -X DELETE \\\n  -H \\\"Authorization: Bearer $REPLICATE_API_TOKEN\\\" \\\n  https://api.replicate.com/v1/models/replicate/hello-world\n```\n\nThe response will be an empty 204, indicating the model has been deleted.\n\"",
-        "operationId": "models-delete",
+        "description": "\u0022Delete a model\n\nModel deletion has some restrictions:\n\n- You can only delete models you own.\n- You can only delete private models.\n- You can only delete models that have no versions associated with them. Currently you\u0027ll need to [delete the model\u0027s versions](#models.versions.delete) before you can delete the model itself.\n\nExample cURL request:\n\n\u0060\u0060\u0060command\ncurl -s -X DELETE \\\n  -H \\\u0022Authorization: Bearer $REPLICATE_API_TOKEN\\\u0022 \\\n  https://api.replicate.com/v1/models/replicate/hello-world\n\u0060\u0060\u0060\n\nThe response will be an empty 204, indicating the model has been deleted.\n\u0022",
+        "operationId": "ModelsDelete",
         "parameters": [
           {
-            "name": "model_owner",
+            "name": "modelOwner",
             "in": "path",
             "description": "The name of the user or organization that owns the model.\n",
             "required": true,
@@ -668,7 +603,7 @@
             }
           },
           {
-            "name": "model_name",
+            "name": "modelName",
             "in": "path",
             "description": "The name of the model.\n",
             "required": true,
@@ -683,9 +618,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "DefaultResponse",
-                  "type": "object",
-                  "description": "Default response schema"
+                  "$ref": "#/components/schemas/DefaultResponseResponseJson"
                 }
               }
             }
@@ -694,11 +627,11 @@
       },
       "get": {
         "summary": "Get a model",
-        "description": "\"Example cURL request:\n\n```console\ncurl -s \\\n  -H \\\"Authorization: Bearer $REPLICATE_API_TOKEN\\\" \\\n  https://api.replicate.com/v1/models/replicate/hello-world\n```\n\nThe response will be a model object in the following format:\n\n```json\n{\n  \\\"url\\\": \\\"https://replicate.com/replicate/hello-world\\\",\n  \\\"owner\\\": \\\"replicate\\\",\n  \\\"name\\\": \\\"hello-world\\\",\n  \\\"description\\\": \\\"A tiny model that says hello\\\",\n  \\\"visibility\\\": \\\"public\\\",\n  \\\"github_url\\\": \\\"https://github.com/replicate/cog-examples\\\",\n  \\\"paper_url\\\": null,\n  \\\"license_url\\\": null,\n  \\\"run_count\\\": 5681081,\n  \\\"cover_image_url\\\": \\\"...\\\",\n  \\\"default_example\\\": {...},\n  \\\"latest_version\\\": {...},\n}\n```\n\nThe model object includes the [input and output schema](https://replicate.com/docs/reference/openapi#model-schemas) for the latest version of the model.\n\nHere's an example showing how to fetch the model with cURL and display its input schema with [jq](https://stedolan.github.io/jq/):\n\n```console\ncurl -s \\\n    -H \\\"Authorization: Bearer $REPLICATE_API_TOKEN\\\" \\\n    https://api.replicate.com/v1/models/replicate/hello-world \\\n    | jq \\\".latest_version.openapi_schema.components.schemas.Input\\\"\n```\n\nThis will return the following JSON object:\n\n```json\n{\n  \\\"type\\\": \\\"object\\\",\n  \\\"title\\\": \\\"Input\\\",\n  \\\"required\\\": [\n    \\\"text\\\"\n  ],\n  \\\"properties\\\": {\n    \\\"text\\\": {\n      \\\"type\\\": \\\"string\\\",\n      \\\"title\\\": \\\"Text\\\",\n      \\\"x-order\\\": 0,\n      \\\"description\\\": \\\"Text to prefix with 'hello '\\\"\n    }\n  }\n}\n``` \n\nThe `cover_image_url` string is an HTTPS URL for an image file. This can be:\n\n- An image uploaded by the model author.\n- The output file of the example prediction, if the model author has not set a cover image.\n- The input file of the example prediction, if the model author has not set a cover image and the example prediction has no output file.\n- A generic fallback image.\n\nThe `default_example` object is a [prediction](#predictions.get) created with this model.\n\nThe `latest_version` object is the model's most recently pushed [version](#models.versions.get).\n\"",
-        "operationId": "models-get",
+        "description": "\u0022Example cURL request:\n\n\u0060\u0060\u0060console\ncurl -s \\\n  -H \\\u0022Authorization: Bearer $REPLICATE_API_TOKEN\\\u0022 \\\n  https://api.replicate.com/v1/models/replicate/hello-world\n\u0060\u0060\u0060\n\nThe response will be a model object in the following format:\n\n\u0060\u0060\u0060json\n{\n  \\\u0022url\\\u0022: \\\u0022https://replicate.com/replicate/hello-world\\\u0022,\n  \\\u0022owner\\\u0022: \\\u0022replicate\\\u0022,\n  \\\u0022name\\\u0022: \\\u0022hello-world\\\u0022,\n  \\\u0022description\\\u0022: \\\u0022A tiny model that says hello\\\u0022,\n  \\\u0022visibility\\\u0022: \\\u0022public\\\u0022,\n  \\\u0022github_url\\\u0022: \\\u0022https://github.com/replicate/cog-examples\\\u0022,\n  \\\u0022paper_url\\\u0022: null,\n  \\\u0022license_url\\\u0022: null,\n  \\\u0022run_count\\\u0022: 5681081,\n  \\\u0022cover_image_url\\\u0022: \\\u0022...\\\u0022,\n  \\\u0022default_example\\\u0022: {...},\n  \\\u0022latest_version\\\u0022: {...},\n}\n\u0060\u0060\u0060\n\nThe model object includes the [input and output schema](https://replicate.com/docs/reference/openapi#model-schemas) for the latest version of the model.\n\nHere\u0027s an example showing how to fetch the model with cURL and display its input schema with [jq](https://stedolan.github.io/jq/):\n\n\u0060\u0060\u0060console\ncurl -s \\\n    -H \\\u0022Authorization: Bearer $REPLICATE_API_TOKEN\\\u0022 \\\n    https://api.replicate.com/v1/models/replicate/hello-world \\\n    | jq \\\u0022.latest_version.openapi_schema.components.schemas.Input\\\u0022\n\u0060\u0060\u0060\n\nThis will return the following JSON object:\n\n\u0060\u0060\u0060json\n{\n  \\\u0022type\\\u0022: \\\u0022object\\\u0022,\n  \\\u0022title\\\u0022: \\\u0022Input\\\u0022,\n  \\\u0022required\\\u0022: [\n    \\\u0022text\\\u0022\n  ],\n  \\\u0022properties\\\u0022: {\n    \\\u0022text\\\u0022: {\n      \\\u0022type\\\u0022: \\\u0022string\\\u0022,\n      \\\u0022title\\\u0022: \\\u0022Text\\\u0022,\n      \\\u0022x-order\\\u0022: 0,\n      \\\u0022description\\\u0022: \\\u0022Text to prefix with \u0027hello \u0027\\\u0022\n    }\n  }\n}\n\u0060\u0060\u0060 \n\nThe \u0060cover_image_url\u0060 string is an HTTPS URL for an image file. This can be:\n\n- An image uploaded by the model author.\n- The output file of the example prediction, if the model author has not set a cover image.\n- The input file of the example prediction, if the model author has not set a cover image and the example prediction has no output file.\n- A generic fallback image.\n\nThe \u0060default_example\u0060 object is a [prediction](#predictions.get) created with this model.\n\nThe \u0060latest_version\u0060 object is the model\u0027s most recently pushed [version](#models.versions.get).\n\u0022",
+        "operationId": "ModelsGet",
         "parameters": [
           {
-            "name": "model_owner",
+            "name": "modelOwner",
             "in": "path",
             "description": "The name of the user or organization that owns the model.\n",
             "required": true,
@@ -707,7 +640,7 @@
             }
           },
           {
-            "name": "model_name",
+            "name": "modelName",
             "in": "path",
             "description": "The name of the model.\n",
             "required": true,
@@ -731,11 +664,11 @@
       },
       "patch": {
         "summary": "Update metadata for a model",
-        "description": "\"Update select properties of an existing model.\n\nYou can update the following properties:\n\n  - `description` - Model description\n  - `readme` - Model README content\n  - `github_url` - GitHub repository URL\n  - `paper_url` - Research paper URL\n  - `weights_url` - Model weights URL\n  - `license_url` - License URL\n\nExample cURL request:\n\n```console\ncurl -X PATCH \\\n  https://api.replicate.com/v1/models/your-username/your-model-name \\\n  -H \\\"Authorization: Token $REPLICATE_API_TOKEN\\\" \\\n  -H \\\"Content-Type: application/json\\\" \\\n  -d '{\n    \\\"description\\\": \\\"Detect hot dogs in images\\\",\n    \\\"readme\\\": \\\"# Hot Dog Detector\\n\\n🌭 Ketchup, mustard, and onions...\\\",\n    \\\"github_url\\\": \\\"https://github.com/alice/hot-dog-detector\\\",\n    \\\"paper_url\\\": \\\"https://arxiv.org/abs/2504.17639\\\",\n    \\\"weights_url\\\": \\\"https://huggingface.co/alice/hot-dog-detector\\\",\n    \\\"license_url\\\": \\\"https://choosealicense.com/licenses/mit/\\\"\n  }'\n```\n\nThe response will be the updated model object with all of its properties.\n\"",
-        "operationId": "models-update",
+        "description": "\u0022Update select properties of an existing model.\n\nYou can update the following properties:\n\n  - \u0060description\u0060 - Model description\n  - \u0060readme\u0060 - Model README content\n  - \u0060github_url\u0060 - GitHub repository URL\n  - \u0060paper_url\u0060 - Research paper URL\n  - \u0060weights_url\u0060 - Model weights URL\n  - \u0060license_url\u0060 - License URL\n\nExample cURL request:\n\n\u0060\u0060\u0060console\ncurl -X PATCH \\\n  https://api.replicate.com/v1/models/your-username/your-model-name \\\n  -H \\\u0022Authorization: Token $REPLICATE_API_TOKEN\\\u0022 \\\n  -H \\\u0022Content-Type: application/json\\\u0022 \\\n  -d \u0027{\n    \\\u0022description\\\u0022: \\\u0022Detect hot dogs in images\\\u0022,\n    \\\u0022readme\\\u0022: \\\u0022# Hot Dog Detector\\n\\n\uD83C\uDF2D Ketchup, mustard, and onions...\\\u0022,\n    \\\u0022github_url\\\u0022: \\\u0022https://github.com/alice/hot-dog-detector\\\u0022,\n    \\\u0022paper_url\\\u0022: \\\u0022https://arxiv.org/abs/2504.17639\\\u0022,\n    \\\u0022weights_url\\\u0022: \\\u0022https://huggingface.co/alice/hot-dog-detector\\\u0022,\n    \\\u0022license_url\\\u0022: \\\u0022https://choosealicense.com/licenses/mit/\\\u0022\n  }\u0027\n\u0060\u0060\u0060\n\nThe response will be the updated model object with all of its properties.\n\u0022",
+        "operationId": "ModelsUpdate",
         "parameters": [
           {
-            "name": "model_owner",
+            "name": "modelOwner",
             "in": "path",
             "description": "The name of the user or organization that owns the model.\n",
             "required": true,
@@ -744,7 +677,7 @@
             }
           },
           {
-            "name": "model_name",
+            "name": "modelName",
             "in": "path",
             "description": "The name of the model.\n",
             "required": true,
@@ -757,7 +690,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/ModelsUpdate"
+                "$ref": "#/components/schemas/ModelsUpdateRequest"
               }
             }
           }
@@ -776,14 +709,14 @@
         }
       }
     },
-    "/models/{model_owner}/{model_name}/examples": {
+    "/models/{modelOwner}/{modelName}/examples": {
       "get": {
         "summary": "List examples for a model",
-        "description": "\"List [example predictions](https://replicate.com/docs/topics/models/publish-a-model#what-are-examples) made using the model.\nThese are predictions that were saved by the model author as illustrative examples of the model's capabilities.\n\nIf you want all the examples for a model, use this operation.\n\nIf you just want the model's default example, you can use the [`models.get`](#models.get) operation instead, which includes a `default_example` object.\n\nExample cURL request:\n\n```console\ncurl -s \\\n  -H \\\"Authorization: Bearer $REPLICATE_API_TOKEN\\\" \\\n  https://api.replicate.com/v1/models/replicate/hello-world/examples\n```\n\nThe response will be a pagination object containing a list of example predictions:\n\n```json\n{\n  \\\"next\\\": \\\"https://api.replicate.com/v1/models/replicate/hello-world/examples?cursor=...\\\",\n  \\\"previous\\\": \\\"https://api.replicate.com/v1/models/replicate/hello-world/examples?cursor=...\\\",\n  \\\"results\\\": [...]\n}\n```\n\nEach item in the `results` list is a [prediction object](#predictions.get).\n\"",
-        "operationId": "models-examples-list",
+        "description": "\u0022List [example predictions](https://replicate.com/docs/topics/models/publish-a-model#what-are-examples) made using the model.\nThese are predictions that were saved by the model author as illustrative examples of the model\u0027s capabilities.\n\nIf you want all the examples for a model, use this operation.\n\nIf you just want the model\u0027s default example, you can use the [\u0060models.get\u0060](#models.get) operation instead, which includes a \u0060default_example\u0060 object.\n\nExample cURL request:\n\n\u0060\u0060\u0060console\ncurl -s \\\n  -H \\\u0022Authorization: Bearer $REPLICATE_API_TOKEN\\\u0022 \\\n  https://api.replicate.com/v1/models/replicate/hello-world/examples\n\u0060\u0060\u0060\n\nThe response will be a pagination object containing a list of example predictions:\n\n\u0060\u0060\u0060json\n{\n  \\\u0022next\\\u0022: \\\u0022https://api.replicate.com/v1/models/replicate/hello-world/examples?cursor=...\\\u0022,\n  \\\u0022previous\\\u0022: \\\u0022https://api.replicate.com/v1/models/replicate/hello-world/examples?cursor=...\\\u0022,\n  \\\u0022results\\\u0022: [...]\n}\n\u0060\u0060\u0060\n\nEach item in the \u0060results\u0060 list is a [prediction object](#predictions.get).\n\u0022",
+        "operationId": "ModelsExamplesList",
         "parameters": [
           {
-            "name": "model_owner",
+            "name": "modelOwner",
             "in": "path",
             "description": "The name of the user or organization that owns the model.\n",
             "required": true,
@@ -792,7 +725,7 @@
             }
           },
           {
-            "name": "model_name",
+            "name": "modelName",
             "in": "path",
             "description": "The name of the model.\n",
             "required": true,
@@ -815,14 +748,14 @@
         }
       }
     },
-    "/models/{model_owner}/{model_name}/predictions": {
+    "/models/{modelOwner}/{modelName}/predictions": {
       "post": {
         "summary": "Create a prediction using an official model",
-        "description": "\"Create a prediction using an [official model](https://replicate.com/changelog/2025-01-29-official-models).\n\nIf you're _not_ running an official model, use the [`predictions.create`](#predictions.create) operation instead.\n\nExample cURL request:\n\n```console\ncurl -s -X POST -H 'Prefer: wait' \\\n  -d '{\\\"input\\\": {\\\"prompt\\\": \\\"Write a short poem about the weather.\\\"}}' \\\n  -H \\\"Authorization: Bearer $REPLICATE_API_TOKEN\\\" \\\n  -H 'Content-Type: application/json' \\\n  https://api.replicate.com/v1/models/meta/meta-llama-3-70b-instruct/predictions\n```\n\nThe request will wait up to 60 seconds for the model to run. If this time is exceeded the prediction will be returned in a `\\\"starting\\\"` state and need to be retrieved using the `predictions.get` endpoint.\n\nFor a complete overview of the `deployments.predictions.create` API check out our documentation on [creating a prediction](https://replicate.com/docs/topics/predictions/create-a-prediction) which covers a variety of use cases.\n\"",
-        "operationId": "models-predictions-create",
+        "description": "\u0022Create a prediction using an [official model](https://replicate.com/changelog/2025-01-29-official-models).\n\nIf you\u0027re _not_ running an official model, use the [\u0060predictions.create\u0060](#predictions.create) operation instead.\n\nExample cURL request:\n\n\u0060\u0060\u0060console\ncurl -s -X POST -H \u0027Prefer: wait\u0027 \\\n  -d \u0027{\\\u0022input\\\u0022: {\\\u0022prompt\\\u0022: \\\u0022Write a short poem about the weather.\\\u0022}}\u0027 \\\n  -H \\\u0022Authorization: Bearer $REPLICATE_API_TOKEN\\\u0022 \\\n  -H \u0027Content-Type: application/json\u0027 \\\n  https://api.replicate.com/v1/models/meta/meta-llama-3-70b-instruct/predictions\n\u0060\u0060\u0060\n\nThe request will wait up to 60 seconds for the model to run. If this time is exceeded the prediction will be returned in a \u0060\\\u0022starting\\\u0022\u0060 state and need to be retrieved using the \u0060predictions.get\u0060 endpoint.\n\nFor a complete overview of the \u0060deployments.predictions.create\u0060 API check out our documentation on [creating a prediction](https://replicate.com/docs/topics/predictions/create-a-prediction) which covers a variety of use cases.\n\u0022",
+        "operationId": "ModelsPredictionsCreate",
         "parameters": [
           {
-            "name": "model_owner",
+            "name": "modelOwner",
             "in": "path",
             "description": "The name of the user or organization that owns the model.\n",
             "required": true,
@@ -831,7 +764,7 @@
             }
           },
           {
-            "name": "model_name",
+            "name": "modelName",
             "in": "path",
             "description": "The name of the model.\n",
             "required": true,
@@ -857,7 +790,7 @@
         },
         "responses": {
           "201": {
-            "description": "\"Prediction has been created. If the `Prefer: wait` header is provided it will contain the final output.\"",
+            "description": "\u0022Prediction has been created. If the \u0060Prefer: wait\u0060 header is provided it will contain the final output.\u0022",
             "content": {
               "application/json": {
                 "schema": {
@@ -879,14 +812,14 @@
         }
       }
     },
-    "/models/{model_owner}/{model_name}/readme": {
+    "/models/{modelOwner}/{modelName}/readme": {
       "get": {
-        "summary": "Get a model's README",
-        "description": "\"Get the README content for a model.\n\nExample cURL request:\n\n```console\ncurl -s \\\n  -H \\\"Authorization: Bearer $REPLICATE_API_TOKEN\\\" \\\n  https://api.replicate.com/v1/models/replicate/hello-world/readme\n```\n\nThe response will be the README content as plain text in Markdown format:\n\n```\n# Hello World Model\n\nThis is an example model that...\n```\n\"",
-        "operationId": "models-readme-get",
+        "summary": "Get a model\u0027s README",
+        "description": "\u0022Get the README content for a model.\n\nExample cURL request:\n\n\u0060\u0060\u0060console\ncurl -s \\\n  -H \\\u0022Authorization: Bearer $REPLICATE_API_TOKEN\\\u0022 \\\n  https://api.replicate.com/v1/models/replicate/hello-world/readme\n\u0060\u0060\u0060\n\nThe response will be the README content as plain text in Markdown format:\n\n\u0060\u0060\u0060\n# Hello World Model\n\nThis is an example model that...\n\u0060\u0060\u0060\n\u0022",
+        "operationId": "ModelsReadmeGet",
         "parameters": [
           {
-            "name": "model_owner",
+            "name": "modelOwner",
             "in": "path",
             "description": "The name of the user or organization that owns the model.\n",
             "required": true,
@@ -895,7 +828,7 @@
             }
           },
           {
-            "name": "model_name",
+            "name": "modelName",
             "in": "path",
             "description": "The name of the model.\n",
             "required": true,
@@ -910,8 +843,7 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "type": "string",
-                  "description": "The README content in Markdown format"
+                  "$ref": "#/components/schemas/ModelsReadmeGet200ResponseResponsePlain"
                 }
               }
             }
@@ -919,14 +851,14 @@
         }
       }
     },
-    "/models/{model_owner}/{model_name}/versions": {
+    "/models/{modelOwner}/{modelName}/versions": {
       "get": {
         "summary": "List model versions",
-        "description": "\"Example cURL request:\n\n```console\ncurl -s \\\n  -H \\\"Authorization: Bearer $REPLICATE_API_TOKEN\\\" \\\n  https://api.replicate.com/v1/models/replicate/hello-world/versions\n```\n\nThe response will be a JSON array of model version objects, sorted with the most recent version first:\n\n```json\n{\n  \\\"next\\\": null,\n  \\\"previous\\\": null,\n  \\\"results\\\": [\n    {\n      \\\"id\\\": \\\"5c7d5dc6dd8bf75c1acaa8565735e7986bc5b66206b55cca93cb72c9bf15ccaa\\\",\n      \\\"created_at\\\": \\\"2022-04-26T19:29:04.418669Z\\\",\n      \\\"cog_version\\\": \\\"0.3.0\\\",\n      \\\"openapi_schema\\\": {...}\n    }\n  ]\n}\n```\n\"",
-        "operationId": "models-versions-list",
+        "description": "\u0022Example cURL request:\n\n\u0060\u0060\u0060console\ncurl -s \\\n  -H \\\u0022Authorization: Bearer $REPLICATE_API_TOKEN\\\u0022 \\\n  https://api.replicate.com/v1/models/replicate/hello-world/versions\n\u0060\u0060\u0060\n\nThe response will be a JSON array of model version objects, sorted with the most recent version first:\n\n\u0060\u0060\u0060json\n{\n  \\\u0022next\\\u0022: null,\n  \\\u0022previous\\\u0022: null,\n  \\\u0022results\\\u0022: [\n    {\n      \\\u0022id\\\u0022: \\\u00225c7d5dc6dd8bf75c1acaa8565735e7986bc5b66206b55cca93cb72c9bf15ccaa\\\u0022,\n      \\\u0022created_at\\\u0022: \\\u00222022-04-26T19:29:04.418669Z\\\u0022,\n      \\\u0022cog_version\\\u0022: \\\u00220.3.0\\\u0022,\n      \\\u0022openapi_schema\\\u0022: {...}\n    }\n  ]\n}\n\u0060\u0060\u0060\n\u0022",
+        "operationId": "ModelsVersionsList",
         "parameters": [
           {
-            "name": "model_owner",
+            "name": "modelOwner",
             "in": "path",
             "description": "The name of the user or organization that owns the model.\n",
             "required": true,
@@ -935,7 +867,7 @@
             }
           },
           {
-            "name": "model_name",
+            "name": "modelName",
             "in": "path",
             "description": "The name of the model.\n",
             "required": true,
@@ -958,14 +890,14 @@
         }
       }
     },
-    "/models/{model_owner}/{model_name}/versions/{version_id}": {
+    "/models/{modelOwner}/{modelName}/versions/{versionId}": {
       "delete": {
         "summary": "Delete a model version",
-        "description": "\"Delete a model version and all associated predictions, including all output files.\n\nModel version deletion has some restrictions:\n\n- You can only delete versions from models you own.\n- You can only delete versions from private models.\n- You cannot delete a version if someone other than you has run predictions with it.\n- You cannot delete a version if it is being used as the base model for a fine tune/training.\n- You cannot delete a version if it has an associated deployment.\n- You cannot delete a version if another model version is overridden to use it.\n\nExample cURL request:\n\n```command\ncurl -s -X DELETE \\\n  -H \\\"Authorization: Bearer $REPLICATE_API_TOKEN\\\" \\\n  https://api.replicate.com/v1/models/replicate/hello-world/versions/5c7d5dc6dd8bf75c1acaa8565735e7986bc5b66206b55cca93cb72c9bf15ccaa\n```\n\nThe response will be an empty 202, indicating the deletion request has been accepted. It might take a few minutes to be processed.\n\"",
-        "operationId": "models-versions-delete",
+        "description": "\u0022Delete a model version and all associated predictions, including all output files.\n\nModel version deletion has some restrictions:\n\n- You can only delete versions from models you own.\n- You can only delete versions from private models.\n- You cannot delete a version if someone other than you has run predictions with it.\n- You cannot delete a version if it is being used as the base model for a fine tune/training.\n- You cannot delete a version if it has an associated deployment.\n- You cannot delete a version if another model version is overridden to use it.\n\nExample cURL request:\n\n\u0060\u0060\u0060command\ncurl -s -X DELETE \\\n  -H \\\u0022Authorization: Bearer $REPLICATE_API_TOKEN\\\u0022 \\\n  https://api.replicate.com/v1/models/replicate/hello-world/versions/5c7d5dc6dd8bf75c1acaa8565735e7986bc5b66206b55cca93cb72c9bf15ccaa\n\u0060\u0060\u0060\n\nThe response will be an empty 202, indicating the deletion request has been accepted. It might take a few minutes to be processed.\n\u0022",
+        "operationId": "ModelsVersionsDelete",
         "parameters": [
           {
-            "name": "model_owner",
+            "name": "modelOwner",
             "in": "path",
             "description": "The name of the user or organization that owns the model.\n",
             "required": true,
@@ -974,7 +906,7 @@
             }
           },
           {
-            "name": "model_name",
+            "name": "modelName",
             "in": "path",
             "description": "The name of the model.\n",
             "required": true,
@@ -983,7 +915,7 @@
             }
           },
           {
-            "name": "version_id",
+            "name": "versionId",
             "in": "path",
             "description": "The ID of the version.\n",
             "required": true,
@@ -998,9 +930,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "DefaultResponse",
-                  "type": "object",
-                  "description": "Default response schema"
+                  "$ref": "#/components/schemas/DefaultResponseResponseJson2"
                 }
               }
             }
@@ -1009,11 +939,11 @@
       },
       "get": {
         "summary": "Get a model version",
-        "description": "\"Example cURL request:\n\n```console\ncurl -s \\\n  -H \\\"Authorization: Bearer $REPLICATE_API_TOKEN\\\" \\\n  https://api.replicate.com/v1/models/replicate/hello-world/versions/5c7d5dc6dd8bf75c1acaa8565735e7986bc5b66206b55cca93cb72c9bf15ccaa\n```\n\nThe response will be the version object:\n\n```json\n{\n  \\\"id\\\": \\\"5c7d5dc6dd8bf75c1acaa8565735e7986bc5b66206b55cca93cb72c9bf15ccaa\\\",\n  \\\"created_at\\\": \\\"2022-04-26T19:29:04.418669Z\\\",\n  \\\"cog_version\\\": \\\"0.3.0\\\",\n  \\\"openapi_schema\\\": {...}\n}\n```\n\nEvery model describes its inputs and outputs with [OpenAPI Schema Objects](https://spec.openapis.org/oas/latest.html#schemaObject) in the `openapi_schema` property.\n\nThe `openapi_schema.components.schemas.Input` property for the [replicate/hello-world](https://replicate.com/replicate/hello-world) model looks like this:\n\n```json\n{\n  \\\"type\\\": \\\"object\\\",\n  \\\"title\\\": \\\"Input\\\",\n  \\\"required\\\": [\n    \\\"text\\\"\n  ],\n  \\\"properties\\\": {\n    \\\"text\\\": {\n      \\\"x-order\\\": 0,\n      \\\"type\\\": \\\"string\\\",\n      \\\"title\\\": \\\"Text\\\",\n      \\\"description\\\": \\\"Text to prefix with 'hello '\\\"\n    }\n  }\n}\n```\n\nThe `openapi_schema.components.schemas.Output` property for the [replicate/hello-world](https://replicate.com/replicate/hello-world) model looks like this:\n\n```json\n{\n  \\\"type\\\": \\\"string\\\",\n  \\\"title\\\": \\\"Output\\\"\n}\n```\n\nFor more details, see the docs on [Cog's supported input and output types](https://github.com/replicate/cog/blob/75b7802219e7cd4cee845e34c4c22139558615d4/docs/python.md#input-and-output-types)\n\"",
-        "operationId": "models-versions-get",
+        "description": "\u0022Example cURL request:\n\n\u0060\u0060\u0060console\ncurl -s \\\n  -H \\\u0022Authorization: Bearer $REPLICATE_API_TOKEN\\\u0022 \\\n  https://api.replicate.com/v1/models/replicate/hello-world/versions/5c7d5dc6dd8bf75c1acaa8565735e7986bc5b66206b55cca93cb72c9bf15ccaa\n\u0060\u0060\u0060\n\nThe response will be the version object:\n\n\u0060\u0060\u0060json\n{\n  \\\u0022id\\\u0022: \\\u00225c7d5dc6dd8bf75c1acaa8565735e7986bc5b66206b55cca93cb72c9bf15ccaa\\\u0022,\n  \\\u0022created_at\\\u0022: \\\u00222022-04-26T19:29:04.418669Z\\\u0022,\n  \\\u0022cog_version\\\u0022: \\\u00220.3.0\\\u0022,\n  \\\u0022openapi_schema\\\u0022: {...}\n}\n\u0060\u0060\u0060\n\nEvery model describes its inputs and outputs with [OpenAPI Schema Objects](https://spec.openapis.org/oas/latest.html#schemaObject) in the \u0060openapi_schema\u0060 property.\n\nThe \u0060openapi_schema.components.schemas.Input\u0060 property for the [replicate/hello-world](https://replicate.com/replicate/hello-world) model looks like this:\n\n\u0060\u0060\u0060json\n{\n  \\\u0022type\\\u0022: \\\u0022object\\\u0022,\n  \\\u0022title\\\u0022: \\\u0022Input\\\u0022,\n  \\\u0022required\\\u0022: [\n    \\\u0022text\\\u0022\n  ],\n  \\\u0022properties\\\u0022: {\n    \\\u0022text\\\u0022: {\n      \\\u0022x-order\\\u0022: 0,\n      \\\u0022type\\\u0022: \\\u0022string\\\u0022,\n      \\\u0022title\\\u0022: \\\u0022Text\\\u0022,\n      \\\u0022description\\\u0022: \\\u0022Text to prefix with \u0027hello \u0027\\\u0022\n    }\n  }\n}\n\u0060\u0060\u0060\n\nThe \u0060openapi_schema.components.schemas.Output\u0060 property for the [replicate/hello-world](https://replicate.com/replicate/hello-world) model looks like this:\n\n\u0060\u0060\u0060json\n{\n  \\\u0022type\\\u0022: \\\u0022string\\\u0022,\n  \\\u0022title\\\u0022: \\\u0022Output\\\u0022\n}\n\u0060\u0060\u0060\n\nFor more details, see the docs on [Cog\u0027s supported input and output types](https://github.com/replicate/cog/blob/75b7802219e7cd4cee845e34c4c22139558615d4/docs/python.md#input-and-output-types)\n\u0022",
+        "operationId": "ModelsVersionsGet",
         "parameters": [
           {
-            "name": "model_owner",
+            "name": "modelOwner",
             "in": "path",
             "description": "The name of the user or organization that owns the model.\n",
             "required": true,
@@ -1022,7 +952,7 @@
             }
           },
           {
-            "name": "model_name",
+            "name": "modelName",
             "in": "path",
             "description": "The name of the model.\n",
             "required": true,
@@ -1031,7 +961,7 @@
             }
           },
           {
-            "name": "version_id",
+            "name": "versionId",
             "in": "path",
             "description": "The ID of the version.\n",
             "required": true,
@@ -1054,14 +984,14 @@
         }
       }
     },
-    "/models/{model_owner}/{model_name}/versions/{version_id}/trainings": {
+    "/models/{modelOwner}/{modelName}/versions/{versionId}/trainings": {
       "post": {
         "summary": "Create a training",
-        "description": "\"Start a new training of the model version you specify.\n\nExample request body:\n\n```json\n{\n  \\\"destination\\\": \\\"{new_owner}/{new_name}\\\",\n  \\\"input\\\": {\n    \\\"train_data\\\": \\\"https://example.com/my-input-images.zip\\\",\n  },\n  \\\"webhook\\\": \\\"https://example.com/my-webhook\\\",\n}\n```\n\nExample cURL request:\n\n```console\ncurl -s -X POST \\\n  -d '{\\\"destination\\\": \\\"{new_owner}/{new_name}\\\", \\\"input\\\": {\\\"input_images\\\": \\\"https://example.com/my-input-images.zip\\\"}}' \\\n  -H \\\"Authorization: Bearer $REPLICATE_API_TOKEN\\\" \\\n  -H 'Content-Type: application/json' \\\n  https://api.replicate.com/v1/models/stability-ai/sdxl/versions/da77bc59ee60423279fd632efb4795ab731d9e3ca9705ef3341091fb989b7eaf/trainings\n```\n\nThe response will be the training object:\n\n```json\n{\n  \\\"id\\\": \\\"zz4ibbonubfz7carwiefibzgga\\\",\n  \\\"model\\\": \\\"stability-ai/sdxl\\\",\n  \\\"version\\\": \\\"da77bc59ee60423279fd632efb4795ab731d9e3ca9705ef3341091fb989b7eaf\\\",\n  \\\"input\\\": {\n    \\\"input_images\\\": \\\"https://example.com/my-input-images.zip\\\"\n  },\n  \\\"logs\\\": \\\"\\\",\n  \\\"error\\\": null,\n  \\\"status\\\": \\\"starting\\\",\n  \\\"created_at\\\": \\\"2023-09-08T16:32:56.990893084Z\\\",\n  \\\"urls\\\": {\n    \\\"web\\\": \\\"https://replicate.com/p/zz4ibbonubfz7carwiefibzgga\\\",\n     \\\"get\\\": \\\"https://api.replicate.com/v1/predictions/zz4ibbonubfz7carwiefibzgga\\\",\n     \\\"cancel\\\": \\\"https://api.replicate.com/v1/predictions/zz4ibbonubfz7carwiefibzgga/cancel\\\"\n  }\n}\n```\n\nAs models can take several minutes or more to train, the result will not be available immediately. To get the final result of the training you should either provide a `webhook` HTTPS URL for us to call when the results are ready, or poll the [get a training](#trainings.get) endpoint until it has finished.\n\nWhen a training completes, it creates a new [version](https://replicate.com/docs/how-does-replicate-work#terminology) of the model at the specified destination.\n\nTo find some models to train on, check out the [trainable language models collection](https://replicate.com/collections/trainable-language-models).\n\"",
-        "operationId": "trainings-create",
+        "description": "\u0022Start a new training of the model version you specify.\n\nExample request body:\n\n\u0060\u0060\u0060json\n{\n  \\\u0022destination\\\u0022: \\\u0022{new_owner}/{new_name}\\\u0022,\n  \\\u0022input\\\u0022: {\n    \\\u0022train_data\\\u0022: \\\u0022https://example.com/my-input-images.zip\\\u0022,\n  },\n  \\\u0022webhook\\\u0022: \\\u0022https://example.com/my-webhook\\\u0022,\n}\n\u0060\u0060\u0060\n\nExample cURL request:\n\n\u0060\u0060\u0060console\ncurl -s -X POST \\\n  -d \u0027{\\\u0022destination\\\u0022: \\\u0022{new_owner}/{new_name}\\\u0022, \\\u0022input\\\u0022: {\\\u0022input_images\\\u0022: \\\u0022https://example.com/my-input-images.zip\\\u0022}}\u0027 \\\n  -H \\\u0022Authorization: Bearer $REPLICATE_API_TOKEN\\\u0022 \\\n  -H \u0027Content-Type: application/json\u0027 \\\n  https://api.replicate.com/v1/models/stability-ai/sdxl/versions/da77bc59ee60423279fd632efb4795ab731d9e3ca9705ef3341091fb989b7eaf/trainings\n\u0060\u0060\u0060\n\nThe response will be the training object:\n\n\u0060\u0060\u0060json\n{\n  \\\u0022id\\\u0022: \\\u0022zz4ibbonubfz7carwiefibzgga\\\u0022,\n  \\\u0022model\\\u0022: \\\u0022stability-ai/sdxl\\\u0022,\n  \\\u0022version\\\u0022: \\\u0022da77bc59ee60423279fd632efb4795ab731d9e3ca9705ef3341091fb989b7eaf\\\u0022,\n  \\\u0022input\\\u0022: {\n    \\\u0022input_images\\\u0022: \\\u0022https://example.com/my-input-images.zip\\\u0022\n  },\n  \\\u0022logs\\\u0022: \\\u0022\\\u0022,\n  \\\u0022error\\\u0022: null,\n  \\\u0022status\\\u0022: \\\u0022starting\\\u0022,\n  \\\u0022created_at\\\u0022: \\\u00222023-09-08T16:32:56.990893084Z\\\u0022,\n  \\\u0022urls\\\u0022: {\n    \\\u0022web\\\u0022: \\\u0022https://replicate.com/p/zz4ibbonubfz7carwiefibzgga\\\u0022,\n     \\\u0022get\\\u0022: \\\u0022https://api.replicate.com/v1/predictions/zz4ibbonubfz7carwiefibzgga\\\u0022,\n     \\\u0022cancel\\\u0022: \\\u0022https://api.replicate.com/v1/predictions/zz4ibbonubfz7carwiefibzgga/cancel\\\u0022\n  }\n}\n\u0060\u0060\u0060\n\nAs models can take several minutes or more to train, the result will not be available immediately. To get the final result of the training you should either provide a \u0060webhook\u0060 HTTPS URL for us to call when the results are ready, or poll the [get a training](#trainings.get) endpoint until it has finished.\n\nWhen a training completes, it creates a new [version](https://replicate.com/docs/how-does-replicate-work#terminology) of the model at the specified destination.\n\nTo find some models to train on, check out the [trainable language models collection](https://replicate.com/collections/trainable-language-models).\n\u0022",
+        "operationId": "TrainingsCreate",
         "parameters": [
           {
-            "name": "model_owner",
+            "name": "modelOwner",
             "in": "path",
             "description": "The name of the user or organization that owns the model.\n",
             "required": true,
@@ -1070,7 +1000,7 @@
             }
           },
           {
-            "name": "model_name",
+            "name": "modelName",
             "in": "path",
             "description": "The name of the model.\n",
             "required": true,
@@ -1079,7 +1009,7 @@
             }
           },
           {
-            "name": "version_id",
+            "name": "versionId",
             "in": "path",
             "description": "The ID of the version.\n",
             "required": true,
@@ -1114,8 +1044,8 @@
     "/predictions": {
       "get": {
         "summary": "List predictions",
-        "description": "\"Get a paginated list of all predictions created by the user or organization associated with the provided API token.\n\nThis will include predictions created from the API and the website. It will return 100 records per page.\n\nExample cURL request:\n\n```console\ncurl -s \\\n  -H \\\"Authorization: Bearer $REPLICATE_API_TOKEN\\\" \\\n  https://api.replicate.com/v1/predictions\n```\n\nThe response will be a paginated JSON array of prediction objects, sorted with the most recent prediction first:\n\n```json\n{\n  \\\"next\\\": null,\n  \\\"previous\\\": null,\n  \\\"results\\\": [\n    {\n      \\\"completed_at\\\": \\\"2023-09-08T16:19:34.791859Z\\\",\n      \\\"created_at\\\": \\\"2023-09-08T16:19:34.907244Z\\\",\n      \\\"data_removed\\\": false,\n      \\\"error\\\": null,\n      \\\"id\\\": \\\"gm3qorzdhgbfurvjtvhg6dckhu\\\",\n      \\\"input\\\": {\n        \\\"text\\\": \\\"Alice\\\"\n      },\n      \\\"metrics\\\": {\n        \\\"predict_time\\\": 0.012683\n      },\n      \\\"output\\\": \\\"hello Alice\\\",\n      \\\"started_at\\\": \\\"2023-09-08T16:19:34.779176Z\\\",\n      \\\"source\\\": \\\"api\\\",\n      \\\"status\\\": \\\"succeeded\\\",\n      \\\"urls\\\": {\n        \\\"web\\\": \\\"https://replicate.com/p/gm3qorzdhgbfurvjtvhg6dckhu\\\",\n        \\\"get\\\": \\\"https://api.replicate.com/v1/predictions/gm3qorzdhgbfurvjtvhg6dckhu\\\",\n        \\\"cancel\\\": \\\"https://api.replicate.com/v1/predictions/gm3qorzdhgbfurvjtvhg6dckhu/cancel\\\"\n      },\n      \\\"model\\\": \\\"replicate/hello-world\\\",\n      \\\"version\\\": \\\"5c7d5dc6dd8bf75c1acaa8565735e7986bc5b66206b55cca93cb72c9bf15ccaa\\\",\n    }\n  ]\n}\n```\n\n`id` will be the unique ID of the prediction.\n\n`source` will indicate how the prediction was created. Possible values are `web` or `api`.\n\n`status` will be the status of the prediction. Refer to [get a single prediction](#predictions.get) for possible values.\n\n`urls` will be a convenience object that can be used to construct new API requests for the given prediction. If the requested model version supports streaming, this will have a `stream` entry with an HTTPS URL that you can use to construct an [`EventSource`](https://developer.mozilla.org/en-US/docs/Web/API/EventSource).\n\n`model` will be the model identifier string in the format of `{model_owner}/{model_name}`.\n\n`version` will be the unique ID of model version used to create the prediction.\n\n`data_removed` will be `true` if the input and output data has been deleted.\n\"",
-        "operationId": "predictions-list",
+        "description": "\u0022Get a paginated list of all predictions created by the user or organization associated with the provided API token.\n\nThis will include predictions created from the API and the website. It will return 100 records per page.\n\nExample cURL request:\n\n\u0060\u0060\u0060console\ncurl -s \\\n  -H \\\u0022Authorization: Bearer $REPLICATE_API_TOKEN\\\u0022 \\\n  https://api.replicate.com/v1/predictions\n\u0060\u0060\u0060\n\nThe response will be a paginated JSON array of prediction objects, sorted with the most recent prediction first:\n\n\u0060\u0060\u0060json\n{\n  \\\u0022next\\\u0022: null,\n  \\\u0022previous\\\u0022: null,\n  \\\u0022results\\\u0022: [\n    {\n      \\\u0022completed_at\\\u0022: \\\u00222023-09-08T16:19:34.791859Z\\\u0022,\n      \\\u0022created_at\\\u0022: \\\u00222023-09-08T16:19:34.907244Z\\\u0022,\n      \\\u0022data_removed\\\u0022: false,\n      \\\u0022error\\\u0022: null,\n      \\\u0022id\\\u0022: \\\u0022gm3qorzdhgbfurvjtvhg6dckhu\\\u0022,\n      \\\u0022input\\\u0022: {\n        \\\u0022text\\\u0022: \\\u0022Alice\\\u0022\n      },\n      \\\u0022metrics\\\u0022: {\n        \\\u0022predict_time\\\u0022: 0.012683\n      },\n      \\\u0022output\\\u0022: \\\u0022hello Alice\\\u0022,\n      \\\u0022started_at\\\u0022: \\\u00222023-09-08T16:19:34.779176Z\\\u0022,\n      \\\u0022source\\\u0022: \\\u0022api\\\u0022,\n      \\\u0022status\\\u0022: \\\u0022succeeded\\\u0022,\n      \\\u0022urls\\\u0022: {\n        \\\u0022web\\\u0022: \\\u0022https://replicate.com/p/gm3qorzdhgbfurvjtvhg6dckhu\\\u0022,\n        \\\u0022get\\\u0022: \\\u0022https://api.replicate.com/v1/predictions/gm3qorzdhgbfurvjtvhg6dckhu\\\u0022,\n        \\\u0022cancel\\\u0022: \\\u0022https://api.replicate.com/v1/predictions/gm3qorzdhgbfurvjtvhg6dckhu/cancel\\\u0022\n      },\n      \\\u0022model\\\u0022: \\\u0022replicate/hello-world\\\u0022,\n      \\\u0022version\\\u0022: \\\u00225c7d5dc6dd8bf75c1acaa8565735e7986bc5b66206b55cca93cb72c9bf15ccaa\\\u0022,\n    }\n  ]\n}\n\u0060\u0060\u0060\n\n\u0060id\u0060 will be the unique ID of the prediction.\n\n\u0060source\u0060 will indicate how the prediction was created. Possible values are \u0060web\u0060 or \u0060api\u0060.\n\n\u0060status\u0060 will be the status of the prediction. Refer to [get a single prediction](#predictions.get) for possible values.\n\n\u0060urls\u0060 will be a convenience object that can be used to construct new API requests for the given prediction. If the requested model version supports streaming, this will have a \u0060stream\u0060 entry with an HTTPS URL that you can use to construct an [\u0060EventSource\u0060](https://developer.mozilla.org/en-US/docs/Web/API/EventSource).\n\n\u0060model\u0060 will be the model identifier string in the format of \u0060{model_owner}/{model_name}\u0060.\n\n\u0060version\u0060 will be the unique ID of model version used to create the prediction.\n\n\u0060data_removed\u0060 will be \u0060true\u0060 if the input and output data has been deleted.\n\u0022",
+        "operationId": "PredictionsList",
         "parameters": [
           {
             "name": "created_after",
@@ -1140,13 +1070,9 @@
           {
             "name": "source",
             "in": "query",
-            "description": "Filter predictions by how they were created. Currently only `web` is supported.\n\nIf no value is set, the API returns predictions from both API and web sources.\n\nWhen filtering by `source=web`, results are limited to predictions created in the last 14 days.\n",
+            "description": "Filter predictions by how they were created. Currently only \u0060web\u0060 is supported.\n\nIf no value is set, the API returns predictions from both API and web sources.\n\nWhen filtering by \u0060source=web\u0060, results are limited to predictions created in the last 14 days.\n",
             "schema": {
-              "enum": [
-                "web"
-              ],
-              "type": "string",
-              "additionalProperties": false
+              "$ref": "#/components/schemas/PredictionsListSourceParameter"
             }
           }
         ],
@@ -1156,25 +1082,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
-                  "properties": {
-                    "next": {
-                      "type": "string",
-                      "format": "uri",
-                      "nullable": true
-                    },
-                    "previous": {
-                      "type": "string",
-                      "format": "uri",
-                      "nullable": true
-                    },
-                    "results": {
-                      "type": "array",
-                      "items": {
-                        "$ref": "#/components/schemas/SchemasPredictionResponse"
-                      }
-                    }
-                  }
+                  "$ref": "#/components/schemas/PredictionsList200Response"
                 }
               }
             }
@@ -1183,8 +1091,8 @@
       },
       "post": {
         "summary": "Create a prediction",
-        "description": "\"Create a prediction for the model version and inputs you provide.\n\nExample cURL request:\n\n```console\ncurl -s -X POST -H 'Prefer: wait' \\\n  -d '{\\\"version\\\": \\\"replicate/hello-world:5c7d5dc6dd8bf75c1acaa8565735e7986bc5b66206b55cca93cb72c9bf15ccaa\\\", \\\"input\\\": {\\\"text\\\": \\\"Alice\\\"}}' \\\n  -H \\\"Authorization: Bearer $REPLICATE_API_TOKEN\\\" \\\n  -H 'Content-Type: application/json' \\\n  https://api.replicate.com/v1/predictions\n```\n\nThe request will wait up to 60 seconds for the model to run. If this time is exceeded the prediction will be returned in a `\\\"starting\\\"` state and need to be retrieved using the `predictions.get` endpoint.\n\nFor a complete overview of the `predictions.create` API check out our documentation on [creating a prediction](https://replicate.com/docs/topics/predictions/create-a-prediction) which covers a variety of use cases.\n\"",
-        "operationId": "predictions-create",
+        "description": "\u0022Create a prediction for the model version and inputs you provide.\n\nExample cURL request:\n\n\u0060\u0060\u0060console\ncurl -s -X POST -H \u0027Prefer: wait\u0027 \\\n  -d \u0027{\\\u0022version\\\u0022: \\\u0022replicate/hello-world:5c7d5dc6dd8bf75c1acaa8565735e7986bc5b66206b55cca93cb72c9bf15ccaa\\\u0022, \\\u0022input\\\u0022: {\\\u0022text\\\u0022: \\\u0022Alice\\\u0022}}\u0027 \\\n  -H \\\u0022Authorization: Bearer $REPLICATE_API_TOKEN\\\u0022 \\\n  -H \u0027Content-Type: application/json\u0027 \\\n  https://api.replicate.com/v1/predictions\n\u0060\u0060\u0060\n\nThe request will wait up to 60 seconds for the model to run. If this time is exceeded the prediction will be returned in a \u0060\\\u0022starting\\\u0022\u0060 state and need to be retrieved using the \u0060predictions.get\u0060 endpoint.\n\nFor a complete overview of the \u0060predictions.create\u0060 API check out our documentation on [creating a prediction](https://replicate.com/docs/topics/predictions/create-a-prediction) which covers a variety of use cases.\n\u0022",
+        "operationId": "PredictionsCreate",
         "parameters": [
           {
             "$ref": "#/components/parameters/parameters_prefer_header"
@@ -1204,7 +1112,7 @@
         },
         "responses": {
           "201": {
-            "description": "\"Prediction has been created. If the `Prefer: wait` header is provided it will contain the final output.\"",
+            "description": "\u0022Prediction has been created. If the \u0060Prefer: wait\u0060 header is provided it will contain the final output.\u0022",
             "content": {
               "application/json": {
                 "schema": {
@@ -1226,14 +1134,14 @@
         }
       }
     },
-    "/predictions/{prediction_id}": {
+    "/predictions/{predictionId}": {
       "get": {
         "summary": "Get a prediction",
-        "description": "\"Get the current state of a prediction.\n\nExample cURL request:\n\n```console\ncurl -s \\\n  -H \\\"Authorization: Bearer $REPLICATE_API_TOKEN\\\" \\\n  https://api.replicate.com/v1/predictions/gm3qorzdhgbfurvjtvhg6dckhu\n```\n\nThe response will be the prediction object:\n\n```json\n{\n  \\\"id\\\": \\\"gm3qorzdhgbfurvjtvhg6dckhu\\\",\n  \\\"model\\\": \\\"replicate/hello-world\\\",\n  \\\"version\\\": \\\"5c7d5dc6dd8bf75c1acaa8565735e7986bc5b66206b55cca93cb72c9bf15ccaa\\\",\n  \\\"input\\\": {\n    \\\"text\\\": \\\"Alice\\\"\n  },\n  \\\"logs\\\": \\\"\\\",\n  \\\"output\\\": \\\"hello Alice\\\",\n  \\\"error\\\": null,\n  \\\"status\\\": \\\"succeeded\\\",\n  \\\"created_at\\\": \\\"2023-09-08T16:19:34.765994Z\\\",\n  \\\"source\\\": \\\"api\\\",\n  \\\"data_removed\\\": false,\n  \\\"started_at\\\": \\\"2023-09-08T16:19:34.779176Z\\\",\n  \\\"completed_at\\\": \\\"2023-09-08T16:19:34.791859Z\\\",\n  \\\"metrics\\\": {\n    \\\"predict_time\\\": 0.012683\n  },\n  \\\"urls\\\": {\n    \\\"web\\\": \\\"https://replicate.com/p/gm3qorzdhgbfurvjtvhg6dckhu\\\",\n    \\\"get\\\": \\\"https://api.replicate.com/v1/predictions/gm3qorzdhgbfurvjtvhg6dckhu\\\",\n    \\\"cancel\\\": \\\"https://api.replicate.com/v1/predictions/gm3qorzdhgbfurvjtvhg6dckhu/cancel\\\"\n  }\n}\n```\n\n`source` will indicate how the prediction was created. Possible values are `web` or `api`.\n\n`status` will be one of:\n\n- `starting`: the prediction is starting up. If this status lasts longer than a few seconds, then it's typically because a new worker is being started to run the prediction.\n- `processing`: the `predict()` method of the model is currently running.\n- `succeeded`: the prediction completed successfully.\n- `failed`: the prediction encountered an error during processing.\n- `canceled`: the prediction was canceled by its creator.\n\nIn the case of success, `output` will be an object containing the output of the model. Any files will be represented as HTTPS URLs. You'll need to pass the `Authorization` header to request them.\n\nIn the case of failure, `error` will contain the error encountered during the prediction.\n\nTerminated predictions (with a status of `succeeded`, `failed`, or `canceled`) will include a `metrics` object with a `predict_time` property showing the amount of CPU or GPU time, in seconds, that the prediction used while running. It won't include time waiting for the prediction to start. The `metrics` object will also include a `total_time` property showing the total time, in seconds, that the prediction took to complete.\n\nAll input parameters, output values, and logs are automatically removed after an hour, by default, for predictions created through the API.\n\nYou must save a copy of any data or files in the output if you'd like to continue using them. The `output` key will still be present, but it's value will be `null` after the output has been removed.\n\nOutput files are served by `replicate.delivery` and its subdomains. If you use an allow list of external domains for your assets, add `replicate.delivery` and `*.replicate.delivery` to it.\n\"",
-        "operationId": "predictions-get",
+        "description": "\u0022Get the current state of a prediction.\n\nExample cURL request:\n\n\u0060\u0060\u0060console\ncurl -s \\\n  -H \\\u0022Authorization: Bearer $REPLICATE_API_TOKEN\\\u0022 \\\n  https://api.replicate.com/v1/predictions/gm3qorzdhgbfurvjtvhg6dckhu\n\u0060\u0060\u0060\n\nThe response will be the prediction object:\n\n\u0060\u0060\u0060json\n{\n  \\\u0022id\\\u0022: \\\u0022gm3qorzdhgbfurvjtvhg6dckhu\\\u0022,\n  \\\u0022model\\\u0022: \\\u0022replicate/hello-world\\\u0022,\n  \\\u0022version\\\u0022: \\\u00225c7d5dc6dd8bf75c1acaa8565735e7986bc5b66206b55cca93cb72c9bf15ccaa\\\u0022,\n  \\\u0022input\\\u0022: {\n    \\\u0022text\\\u0022: \\\u0022Alice\\\u0022\n  },\n  \\\u0022logs\\\u0022: \\\u0022\\\u0022,\n  \\\u0022output\\\u0022: \\\u0022hello Alice\\\u0022,\n  \\\u0022error\\\u0022: null,\n  \\\u0022status\\\u0022: \\\u0022succeeded\\\u0022,\n  \\\u0022created_at\\\u0022: \\\u00222023-09-08T16:19:34.765994Z\\\u0022,\n  \\\u0022source\\\u0022: \\\u0022api\\\u0022,\n  \\\u0022data_removed\\\u0022: false,\n  \\\u0022started_at\\\u0022: \\\u00222023-09-08T16:19:34.779176Z\\\u0022,\n  \\\u0022completed_at\\\u0022: \\\u00222023-09-08T16:19:34.791859Z\\\u0022,\n  \\\u0022metrics\\\u0022: {\n    \\\u0022predict_time\\\u0022: 0.012683\n  },\n  \\\u0022urls\\\u0022: {\n    \\\u0022web\\\u0022: \\\u0022https://replicate.com/p/gm3qorzdhgbfurvjtvhg6dckhu\\\u0022,\n    \\\u0022get\\\u0022: \\\u0022https://api.replicate.com/v1/predictions/gm3qorzdhgbfurvjtvhg6dckhu\\\u0022,\n    \\\u0022cancel\\\u0022: \\\u0022https://api.replicate.com/v1/predictions/gm3qorzdhgbfurvjtvhg6dckhu/cancel\\\u0022\n  }\n}\n\u0060\u0060\u0060\n\n\u0060source\u0060 will indicate how the prediction was created. Possible values are \u0060web\u0060 or \u0060api\u0060.\n\n\u0060status\u0060 will be one of:\n\n- \u0060starting\u0060: the prediction is starting up. If this status lasts longer than a few seconds, then it\u0027s typically because a new worker is being started to run the prediction.\n- \u0060processing\u0060: the \u0060predict()\u0060 method of the model is currently running.\n- \u0060succeeded\u0060: the prediction completed successfully.\n- \u0060failed\u0060: the prediction encountered an error during processing.\n- \u0060canceled\u0060: the prediction was canceled by its creator.\n\nIn the case of success, \u0060output\u0060 will be an object containing the output of the model. Any files will be represented as HTTPS URLs. You\u0027ll need to pass the \u0060Authorization\u0060 header to request them.\n\nIn the case of failure, \u0060error\u0060 will contain the error encountered during the prediction.\n\nTerminated predictions (with a status of \u0060succeeded\u0060, \u0060failed\u0060, or \u0060canceled\u0060) will include a \u0060metrics\u0060 object with a \u0060predict_time\u0060 property showing the amount of CPU or GPU time, in seconds, that the prediction used while running. It won\u0027t include time waiting for the prediction to start. The \u0060metrics\u0060 object will also include a \u0060total_time\u0060 property showing the total time, in seconds, that the prediction took to complete.\n\nAll input parameters, output values, and logs are automatically removed after an hour, by default, for predictions created through the API.\n\nYou must save a copy of any data or files in the output if you\u0027d like to continue using them. The \u0060output\u0060 key will still be present, but it\u0027s value will be \u0060null\u0060 after the output has been removed.\n\nOutput files are served by \u0060replicate.delivery\u0060 and its subdomains. If you use an allow list of external domains for your assets, add \u0060replicate.delivery\u0060 and \u0060*.replicate.delivery\u0060 to it.\n\u0022",
+        "operationId": "PredictionsGet",
         "parameters": [
           {
-            "name": "prediction_id",
+            "name": "predictionId",
             "in": "path",
             "description": "The ID of the prediction to get.\n",
             "required": true,
@@ -1256,14 +1164,14 @@
         }
       }
     },
-    "/predictions/{prediction_id}/cancel": {
+    "/predictions/{predictionId}/cancel": {
       "post": {
         "summary": "Cancel a prediction",
-        "description": "\"Cancel a prediction that is currently running.\n\nExample cURL request that creates a prediction and then cancels it:\n\n```console\n# First, create a prediction\nPREDICTION_ID=$(curl -s -X POST \\\n  -H \\\"Authorization: Bearer $REPLICATE_API_TOKEN\\\" \\\n  -H \\\"Content-Type: application/json\\\" \\\n  -d '{\n    \\\"input\\\": {\n      \\\"prompt\\\": \\\"a video that may take a while to generate\\\"\n    }\n  }' \\\n  https://api.replicate.com/v1/models/minimax/video-01/predictions | jq -r '.id')\n\n# Echo the prediction ID\necho \\\"Created prediction with ID: $PREDICTION_ID\\\"\n\n# Cancel the prediction\ncurl -s -X POST \\\n  -H \\\"Authorization: Bearer $REPLICATE_API_TOKEN\\\" \\\n  https://api.replicate.com/v1/predictions/$PREDICTION_ID/cancel\n```\n\"",
-        "operationId": "predictions-cancel",
+        "description": "\u0022Cancel a prediction that is currently running.\n\nExample cURL request that creates a prediction and then cancels it:\n\n\u0060\u0060\u0060console\n# First, create a prediction\nPREDICTION_ID=$(curl -s -X POST \\\n  -H \\\u0022Authorization: Bearer $REPLICATE_API_TOKEN\\\u0022 \\\n  -H \\\u0022Content-Type: application/json\\\u0022 \\\n  -d \u0027{\n    \\\u0022input\\\u0022: {\n      \\\u0022prompt\\\u0022: \\\u0022a video that may take a while to generate\\\u0022\n    }\n  }\u0027 \\\n  https://api.replicate.com/v1/models/minimax/video-01/predictions | jq -r \u0027.id\u0027)\n\n# Echo the prediction ID\necho \\\u0022Created prediction with ID: $PREDICTION_ID\\\u0022\n\n# Cancel the prediction\ncurl -s -X POST \\\n  -H \\\u0022Authorization: Bearer $REPLICATE_API_TOKEN\\\u0022 \\\n  https://api.replicate.com/v1/predictions/$PREDICTION_ID/cancel\n\u0060\u0060\u0060\n\u0022",
+        "operationId": "PredictionsCancel",
         "parameters": [
           {
-            "name": "prediction_id",
+            "name": "predictionId",
             "in": "path",
             "description": "The ID of the prediction to cancel.\n",
             "required": true,
@@ -1289,8 +1197,8 @@
     "/search": {
       "get": {
         "summary": "Search models, collections, and docs (beta)",
-        "description": "\"Search for public models, collections, and docs using a text query.\n\nFor models, the response includes all model data, plus a new `metadata` object with the following fields:\n\n- `generated_description`: A longer and more detailed AI-generated description of the model\n- `tags`: An array of tags for the model\n- `score`: A score for the model's relevance to the search query\n\nExample cURL request:\n\n```console\ncurl -s \\\n  -H \\\"Authorization: Bearer $REPLICATE_API_TOKEN\\\" \\\n  \\\"https://api.replicate.com/v1/search?query=nano+banana\\\"\n```\n\nNote: This search API is currently in beta and may change in future versions.\n\"",
-        "operationId": "search",
+        "description": "\u0022Search for public models, collections, and docs using a text query.\n\nFor models, the response includes all model data, plus a new \u0060metadata\u0060 object with the following fields:\n\n- \u0060generated_description\u0060: A longer and more detailed AI-generated description of the model\n- \u0060tags\u0060: An array of tags for the model\n- \u0060score\u0060: A score for the model\u0027s relevance to the search query\n\nExample cURL request:\n\n\u0060\u0060\u0060console\ncurl -s \\\n  -H \\\u0022Authorization: Bearer $REPLICATE_API_TOKEN\\\u0022 \\\n  \\\u0022https://api.replicate.com/v1/search?query=nano\u002Bbanana\\\u0022\n\u0060\u0060\u0060\n\nNote: This search API is currently in beta and may change in future versions.\n\u0022",
+        "operationId": "Search",
         "parameters": [
           {
             "name": "query",
@@ -1349,13 +1257,13 @@
                       "model": {
                         "cover_image_url": "https://tjzk.replicate.delivery/models_models_featured_image/ed879e99-71b5-4689-bed3-e7305e35a28a/this.png",
                         "default_example": null,
-                        "description": "Google's latest image editing model in Gemini 2.5",
+                        "description": "Google\u0027s latest image editing model in Gemini 2.5",
                         "github_url": null,
                         "latest_version": {
                           "cog_version": "0.16.7",
                           "created_at": "2025-09-12T16:36:33.884779Z",
                           "id": "56b8f5f774804fda8ffe63f01d3e2900f97609bd7ae976f50e595854110de200",
-                          "openapi_schema": { }
+                          "openapi_schema": {}
                         },
                         "license_url": null,
                         "name": "nano-banana",
@@ -1383,7 +1291,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Search400"
+                  "$ref": "#/components/schemas/Search400Response"
                 }
               }
             }
@@ -1393,45 +1301,27 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Search500"
+                  "$ref": "#/components/schemas/Search500Response"
                 }
               }
             }
           }
         },
-        "security": [ ]
+        "security": []
       }
     },
     "/trainings": {
       "get": {
         "summary": "List trainings",
-        "description": "\"Get a paginated list of all trainings created by the user or organization associated with the provided API token.\n\nThis will include trainings created from the API and the website. It will return 100 records per page.\n\nExample cURL request:\n\n```console\ncurl -s \\\n  -H \\\"Authorization: Bearer $REPLICATE_API_TOKEN\\\" \\\n  https://api.replicate.com/v1/trainings\n```\n\nThe response will be a paginated JSON array of training objects, sorted with the most recent training first:\n\n```json\n{\n  \\\"next\\\": null,\n  \\\"previous\\\": null,\n  \\\"results\\\": [\n    {\n      \\\"completed_at\\\": \\\"2023-09-08T16:41:19.826523Z\\\",\n      \\\"created_at\\\": \\\"2023-09-08T16:32:57.018467Z\\\",\n      \\\"error\\\": null,\n      \\\"id\\\": \\\"zz4ibbonubfz7carwiefibzgga\\\",\n      \\\"input\\\": {\n        \\\"input_images\\\": \\\"https://example.com/my-input-images.zip\\\"\n      },\n      \\\"metrics\\\": {\n        \\\"predict_time\\\": 502.713876\n      },\n      \\\"output\\\": {\n        \\\"version\\\": \\\"...\\\",\n        \\\"weights\\\": \\\"...\\\"\n      },\n      \\\"started_at\\\": \\\"2023-09-08T16:32:57.112647Z\\\",\n      \\\"source\\\": \\\"api\\\",\n      \\\"status\\\": \\\"succeeded\\\",\n      \\\"urls\\\": {\n        \\\"web\\\": \\\"https://replicate.com/p/zz4ibbonubfz7carwiefibzgga\\\",\n        \\\"get\\\": \\\"https://api.replicate.com/v1/trainings/zz4ibbonubfz7carwiefibzgga\\\",\n        \\\"cancel\\\": \\\"https://api.replicate.com/v1/trainings/zz4ibbonubfz7carwiefibzgga/cancel\\\"\n      },\n      \\\"model\\\": \\\"stability-ai/sdxl\\\",\n      \\\"version\\\": \\\"da77bc59ee60423279fd632efb4795ab731d9e3ca9705ef3341091fb989b7eaf\\\",\n    }\n  ]\n}\n```\n\n`id` will be the unique ID of the training.\n\n`source` will indicate how the training was created. Possible values are `web` or `api`.\n\n`status` will be the status of the training. Refer to [get a single training](#trainings.get) for possible values.\n\n`urls` will be a convenience object that can be used to construct new API requests for the given training.\n\n`version` will be the unique ID of model version used to create the training.\n\"",
-        "operationId": "trainings-list",
+        "description": "\u0022Get a paginated list of all trainings created by the user or organization associated with the provided API token.\n\nThis will include trainings created from the API and the website. It will return 100 records per page.\n\nExample cURL request:\n\n\u0060\u0060\u0060console\ncurl -s \\\n  -H \\\u0022Authorization: Bearer $REPLICATE_API_TOKEN\\\u0022 \\\n  https://api.replicate.com/v1/trainings\n\u0060\u0060\u0060\n\nThe response will be a paginated JSON array of training objects, sorted with the most recent training first:\n\n\u0060\u0060\u0060json\n{\n  \\\u0022next\\\u0022: null,\n  \\\u0022previous\\\u0022: null,\n  \\\u0022results\\\u0022: [\n    {\n      \\\u0022completed_at\\\u0022: \\\u00222023-09-08T16:41:19.826523Z\\\u0022,\n      \\\u0022created_at\\\u0022: \\\u00222023-09-08T16:32:57.018467Z\\\u0022,\n      \\\u0022error\\\u0022: null,\n      \\\u0022id\\\u0022: \\\u0022zz4ibbonubfz7carwiefibzgga\\\u0022,\n      \\\u0022input\\\u0022: {\n        \\\u0022input_images\\\u0022: \\\u0022https://example.com/my-input-images.zip\\\u0022\n      },\n      \\\u0022metrics\\\u0022: {\n        \\\u0022predict_time\\\u0022: 502.713876\n      },\n      \\\u0022output\\\u0022: {\n        \\\u0022version\\\u0022: \\\u0022...\\\u0022,\n        \\\u0022weights\\\u0022: \\\u0022...\\\u0022\n      },\n      \\\u0022started_at\\\u0022: \\\u00222023-09-08T16:32:57.112647Z\\\u0022,\n      \\\u0022source\\\u0022: \\\u0022api\\\u0022,\n      \\\u0022status\\\u0022: \\\u0022succeeded\\\u0022,\n      \\\u0022urls\\\u0022: {\n        \\\u0022web\\\u0022: \\\u0022https://replicate.com/p/zz4ibbonubfz7carwiefibzgga\\\u0022,\n        \\\u0022get\\\u0022: \\\u0022https://api.replicate.com/v1/trainings/zz4ibbonubfz7carwiefibzgga\\\u0022,\n        \\\u0022cancel\\\u0022: \\\u0022https://api.replicate.com/v1/trainings/zz4ibbonubfz7carwiefibzgga/cancel\\\u0022\n      },\n      \\\u0022model\\\u0022: \\\u0022stability-ai/sdxl\\\u0022,\n      \\\u0022version\\\u0022: \\\u0022da77bc59ee60423279fd632efb4795ab731d9e3ca9705ef3341091fb989b7eaf\\\u0022,\n    }\n  ]\n}\n\u0060\u0060\u0060\n\n\u0060id\u0060 will be the unique ID of the training.\n\n\u0060source\u0060 will indicate how the training was created. Possible values are \u0060web\u0060 or \u0060api\u0060.\n\n\u0060status\u0060 will be the status of the training. Refer to [get a single training](#trainings.get) for possible values.\n\n\u0060urls\u0060 will be a convenience object that can be used to construct new API requests for the given training.\n\n\u0060version\u0060 will be the unique ID of model version used to create the training.\n\u0022",
+        "operationId": "TrainingsList",
         "responses": {
           "200": {
             "description": "Success",
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
-                  "properties": {
-                    "next": {
-                      "type": "string",
-                      "description": "URL to the next page of results",
-                      "nullable": true
-                    },
-                    "previous": {
-                      "type": "string",
-                      "description": "URL to the previous page of results",
-                      "nullable": true
-                    },
-                    "results": {
-                      "type": "array",
-                      "items": {
-                        "$ref": "#/components/schemas/SchemasTrainingResponse"
-                      }
-                    }
-                  }
+                  "$ref": "#/components/schemas/TrainingsList200Response"
                 }
               }
             }
@@ -1439,14 +1329,14 @@
         }
       }
     },
-    "/trainings/{training_id}": {
+    "/trainings/{trainingId}": {
       "get": {
         "summary": "Get a training",
-        "description": "\"Get the current state of a training.\n\nExample cURL request:\n\n```console\ncurl -s \\\n  -H \\\"Authorization: Bearer $REPLICATE_API_TOKEN\\\" \\\n  https://api.replicate.com/v1/trainings/zz4ibbonubfz7carwiefibzgga\n```\n\nThe response will be the training object:\n\n```json\n{\n  \\\"completed_at\\\": \\\"2023-09-08T16:41:19.826523Z\\\",\n  \\\"created_at\\\": \\\"2023-09-08T16:32:57.018467Z\\\",\n  \\\"error\\\": null,\n  \\\"id\\\": \\\"zz4ibbonubfz7carwiefibzgga\\\",\n  \\\"input\\\": {\n    \\\"input_images\\\": \\\"https://example.com/my-input-images.zip\\\"\n  },\n  \\\"logs\\\": \\\"...\\\",\n  \\\"metrics\\\": {\n    \\\"predict_time\\\": 502.713876\n  },\n  \\\"output\\\": {\n    \\\"version\\\": \\\"...\\\",\n    \\\"weights\\\": \\\"...\\\"\n  },\n  \\\"started_at\\\": \\\"2023-09-08T16:32:57.112647Z\\\",\n  \\\"status\\\": \\\"succeeded\\\",\n  \\\"urls\\\": {\n    \\\"web\\\": \\\"https://replicate.com/p/zz4ibbonubfz7carwiefibzgga\\\",\n    \\\"get\\\": \\\"https://api.replicate.com/v1/trainings/zz4ibbonubfz7carwiefibzgga\\\",\n    \\\"cancel\\\": \\\"https://api.replicate.com/v1/trainings/zz4ibbonubfz7carwiefibzgga/cancel\\\"\n  },\n  \\\"model\\\": \\\"stability-ai/sdxl\\\",\n  \\\"version\\\": \\\"da77bc59ee60423279fd632efb4795ab731d9e3ca9705ef3341091fb989b7eaf\\\",\n}\n```\n\n`status` will be one of:\n\n- `starting`: the training is starting up. If this status lasts longer than a few seconds, then it's typically because a new worker is being started to run the training.\n- `processing`: the `train()` method of the model is currently running.\n- `succeeded`: the training completed successfully.\n- `failed`: the training encountered an error during processing.\n- `canceled`: the training was canceled by its creator.\n\nIn the case of success, `output` will be an object containing the output of the model. Any files will be represented as HTTPS URLs. You'll need to pass the `Authorization` header to request them.\n\nIn the case of failure, `error` will contain the error encountered during the training.\n\nTerminated trainings (with a status of `succeeded`, `failed`, or `canceled`) will include a `metrics` object with a `predict_time` property showing the amount of CPU or GPU time, in seconds, that the training used while running. It won't include time waiting for the training to start. The `metrics` object will also include a `total_time` property showing the total time, in seconds, that the training took to complete.\n\"",
-        "operationId": "trainings-get",
+        "description": "\u0022Get the current state of a training.\n\nExample cURL request:\n\n\u0060\u0060\u0060console\ncurl -s \\\n  -H \\\u0022Authorization: Bearer $REPLICATE_API_TOKEN\\\u0022 \\\n  https://api.replicate.com/v1/trainings/zz4ibbonubfz7carwiefibzgga\n\u0060\u0060\u0060\n\nThe response will be the training object:\n\n\u0060\u0060\u0060json\n{\n  \\\u0022completed_at\\\u0022: \\\u00222023-09-08T16:41:19.826523Z\\\u0022,\n  \\\u0022created_at\\\u0022: \\\u00222023-09-08T16:32:57.018467Z\\\u0022,\n  \\\u0022error\\\u0022: null,\n  \\\u0022id\\\u0022: \\\u0022zz4ibbonubfz7carwiefibzgga\\\u0022,\n  \\\u0022input\\\u0022: {\n    \\\u0022input_images\\\u0022: \\\u0022https://example.com/my-input-images.zip\\\u0022\n  },\n  \\\u0022logs\\\u0022: \\\u0022...\\\u0022,\n  \\\u0022metrics\\\u0022: {\n    \\\u0022predict_time\\\u0022: 502.713876\n  },\n  \\\u0022output\\\u0022: {\n    \\\u0022version\\\u0022: \\\u0022...\\\u0022,\n    \\\u0022weights\\\u0022: \\\u0022...\\\u0022\n  },\n  \\\u0022started_at\\\u0022: \\\u00222023-09-08T16:32:57.112647Z\\\u0022,\n  \\\u0022status\\\u0022: \\\u0022succeeded\\\u0022,\n  \\\u0022urls\\\u0022: {\n    \\\u0022web\\\u0022: \\\u0022https://replicate.com/p/zz4ibbonubfz7carwiefibzgga\\\u0022,\n    \\\u0022get\\\u0022: \\\u0022https://api.replicate.com/v1/trainings/zz4ibbonubfz7carwiefibzgga\\\u0022,\n    \\\u0022cancel\\\u0022: \\\u0022https://api.replicate.com/v1/trainings/zz4ibbonubfz7carwiefibzgga/cancel\\\u0022\n  },\n  \\\u0022model\\\u0022: \\\u0022stability-ai/sdxl\\\u0022,\n  \\\u0022version\\\u0022: \\\u0022da77bc59ee60423279fd632efb4795ab731d9e3ca9705ef3341091fb989b7eaf\\\u0022,\n}\n\u0060\u0060\u0060\n\n\u0060status\u0060 will be one of:\n\n- \u0060starting\u0060: the training is starting up. If this status lasts longer than a few seconds, then it\u0027s typically because a new worker is being started to run the training.\n- \u0060processing\u0060: the \u0060train()\u0060 method of the model is currently running.\n- \u0060succeeded\u0060: the training completed successfully.\n- \u0060failed\u0060: the training encountered an error during processing.\n- \u0060canceled\u0060: the training was canceled by its creator.\n\nIn the case of success, \u0060output\u0060 will be an object containing the output of the model. Any files will be represented as HTTPS URLs. You\u0027ll need to pass the \u0060Authorization\u0060 header to request them.\n\nIn the case of failure, \u0060error\u0060 will contain the error encountered during the training.\n\nTerminated trainings (with a status of \u0060succeeded\u0060, \u0060failed\u0060, or \u0060canceled\u0060) will include a \u0060metrics\u0060 object with a \u0060predict_time\u0060 property showing the amount of CPU or GPU time, in seconds, that the training used while running. It won\u0027t include time waiting for the training to start. The \u0060metrics\u0060 object will also include a \u0060total_time\u0060 property showing the total time, in seconds, that the training took to complete.\n\u0022",
+        "operationId": "TrainingsGet",
         "parameters": [
           {
-            "name": "training_id",
+            "name": "trainingId",
             "in": "path",
             "description": "The ID of the training to get.\n",
             "required": true,
@@ -1469,13 +1359,13 @@
         }
       }
     },
-    "/trainings/{training_id}/cancel": {
+    "/trainings/{trainingId}/cancel": {
       "post": {
         "summary": "Cancel a training",
-        "operationId": "trainings-cancel",
+        "operationId": "TrainingsCancel",
         "parameters": [
           {
-            "name": "training_id",
+            "name": "trainingId",
             "in": "path",
             "description": "The ID of the training you want to cancel.\n",
             "required": true,
@@ -1501,15 +1391,15 @@
     "/webhooks/default/secret": {
       "get": {
         "summary": "Get the signing secret for the default webhook",
-        "description": "\"Get the signing secret for the default webhook endpoint. This is used to verify that webhook requests are coming from Replicate.\n\nExample cURL request:\n\n```console\ncurl -s \\\n  -H \\\"Authorization: Bearer $REPLICATE_API_TOKEN\\\" \\\n  https://api.replicate.com/v1/webhooks/default/secret\n```\n\nThe response will be a JSON object with a `key` property:\n\n```json\n{\n  \\\"key\\\": \\\"...\\\"\n}\n```\n\"",
-        "operationId": "webhooks-default-secret-get",
+        "description": "\u0022Get the signing secret for the default webhook endpoint. This is used to verify that webhook requests are coming from Replicate.\n\nExample cURL request:\n\n\u0060\u0060\u0060console\ncurl -s \\\n  -H \\\u0022Authorization: Bearer $REPLICATE_API_TOKEN\\\u0022 \\\n  https://api.replicate.com/v1/webhooks/default/secret\n\u0060\u0060\u0060\n\nThe response will be a JSON object with a \u0060key\u0060 property:\n\n\u0060\u0060\u0060json\n{\n  \\\u0022key\\\u0022: \\\u0022...\\\u0022\n}\n\u0060\u0060\u0060\n\u0022",
+        "operationId": "WebhooksDefaultSecretGet",
         "responses": {
           "200": {
             "description": "Success",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/WebhooksDefaultSecretGet200"
+                  "$ref": "#/components/schemas/WebhooksDefaultSecretGet200Response"
                 }
               }
             }
@@ -1632,11 +1522,7 @@
             "example": "cneqzikepnug6xezperrr4z55o"
           },
           "metadata": {
-            "type": "object",
-            "description": "Metadata provided by user when the file was created",
-            "example": {
-              "customer_reference_id": 123
-            }
+            "$ref": "#/components/schemas/SchemasFileResponseMetadataProperty"
           },
           "size": {
             "type": "integer",
@@ -1654,14 +1540,12 @@
         "properties": {
           "cover_image_url": {
             "type": "string",
-            "description": "A URL for the model's cover image",
+            "description": "A URL for the model\u0027s cover image",
             "format": "uri",
             "nullable": true
           },
           "default_example": {
-            "type": "object",
-            "description": "The model's default example prediction",
-            "nullable": true
+            "$ref": "#/components/schemas/SchemasModelResponseDefaultExample"
           },
           "description": {
             "type": "string",
@@ -1670,7 +1554,7 @@
           },
           "github_url": {
             "type": "string",
-            "description": "A URL for the model's source code on GitHub",
+            "description": "A URL for the model\u0027s source code on GitHub",
             "format": "uri",
             "nullable": true
           },
@@ -1679,13 +1563,11 @@
             "description": "Boolean indicating whether the model is officially maintained by Replicate. Official models are always on, have stable API interfaces, and predictable pricing."
           },
           "latest_version": {
-            "type": "object",
-            "description": "The model's latest version",
-            "nullable": true
+            "$ref": "#/components/schemas/SchemasModelResponseLatestVersion"
           },
           "license_url": {
             "type": "string",
-            "description": "A URL for the model's license",
+            "description": "A URL for the model\u0027s license",
             "format": "uri",
             "nullable": true
           },
@@ -1699,7 +1581,7 @@
           },
           "paper_url": {
             "type": "string",
-            "description": "A URL for the model's paper",
+            "description": "A URL for the model\u0027s paper",
             "format": "uri",
             "nullable": true
           },
@@ -1713,13 +1595,7 @@
             "format": "uri"
           },
           "visibility": {
-            "enum": [
-              "public",
-              "private"
-            ],
-            "type": "string",
-            "additionalProperties": false,
-            "description": "Whether the model is public or private"
+            "$ref": "#/components/schemas/SchemasModelResponseVisibility"
           }
         }
       },
@@ -1835,16 +1711,11 @@
         "type": "object",
         "properties": {
           "input": {
-            "type": "object",
-            "description": "The model's input as a JSON object. The input schema depends on what model you are running. To see the available inputs, click the \"API\" tab on the model you are running or [get the model version](#models.versions.get) and look at its `openapi_schema` property. For example, [stability-ai/sdxl](https://replicate.com/stability-ai/sdxl) takes `prompt` as an input.\n\nFiles should be passed as HTTP URLs or data URLs.\n\nUse an HTTP URL when:\n\n- you have a large file > 256kb\n- you want to be able to use the file multiple times\n- you want your prediction metadata to be associable with your input files\n\nUse a data URL when:\n\n- you have a small file <= 256kb\n- you don't want to upload and host the file somewhere\n- you don't need to use the file again (Replicate will not store it)\n",
-            "example": {
-              "prompt": "Tell me a joke",
-              "system_prompt": "You are a helpful assistant"
-            }
+            "$ref": "#/components/schemas/SchemasPredictionRequestInputProperty"
           },
           "stream": {
             "type": "boolean",
-            "description": "**This field is deprecated.**\n\nRequest a URL to receive streaming output using [server-sent events (SSE)](https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events).\n\nThis field is no longer needed as the returned prediction will always have a `stream` entry in its `urls` property if the model supports streaming.\n"
+            "description": "**This field is deprecated.**\n\nRequest a URL to receive streaming output using [server-sent events (SSE)](https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events).\n\nThis field is no longer needed as the returned prediction will always have a \u0060stream\u0060 entry in its \u0060urls\u0060 property if the model supports streaming.\n"
           },
           "webhook": {
             "type": "string",
@@ -1854,16 +1725,9 @@
           "webhook_events_filter": {
             "type": "array",
             "items": {
-              "enum": [
-                "start",
-                "output",
-                "logs",
-                "completed"
-              ],
-              "type": "string",
-              "additionalProperties": false
+              "$ref": "#/components/schemas/SchemasPredictionRequestWebhookEventsFilterItem"
             },
-            "description": "\"By default, we will send requests to your webhook URL whenever there are new outputs or the prediction has finished. You can change which events trigger webhook requests by specifying `webhook_events_filter` in the prediction request:\n\n- `start`: immediately on prediction start\n- `output`: each time a prediction generates an output (note that predictions can generate multiple outputs)\n- `logs`: each time log output is generated by a prediction\n- `completed`: when the prediction reaches a terminal state (succeeded/canceled/failed)\n\nFor example, if you only wanted requests to be sent at the start and end of the prediction, you would provide:\n\n```json\n{\n  \\\"input\\\": {\n    \\\"text\\\": \\\"Alice\\\"\n  },\n  \\\"webhook\\\": \\\"https://example.com/my-webhook\\\",\n  \\\"webhook_events_filter\\\": [\\\"start\\\", \\\"completed\\\"]\n}\n```\n\nRequests for event types `output` and `logs` will be sent at most once every 500ms. If you request `start` and `completed` webhooks, then they'll always be sent regardless of throttling.\n\""
+            "description": "\u0022By default, we will send requests to your webhook URL whenever there are new outputs or the prediction has finished. You can change which events trigger webhook requests by specifying \u0060webhook_events_filter\u0060 in the prediction request:\n\n- \u0060start\u0060: immediately on prediction start\n- \u0060output\u0060: each time a prediction generates an output (note that predictions can generate multiple outputs)\n- \u0060logs\u0060: each time log output is generated by a prediction\n- \u0060completed\u0060: when the prediction reaches a terminal state (succeeded/canceled/failed)\n\nFor example, if you only wanted requests to be sent at the start and end of the prediction, you would provide:\n\n\u0060\u0060\u0060json\n{\n  \\\u0022input\\\u0022: {\n    \\\u0022text\\\u0022: \\\u0022Alice\\\u0022\n  },\n  \\\u0022webhook\\\u0022: \\\u0022https://example.com/my-webhook\\\u0022,\n  \\\u0022webhook_events_filter\\\u0022: [\\\u0022start\\\u0022, \\\u0022completed\\\u0022]\n}\n\u0060\u0060\u0060\n\nRequests for event types \u0060output\u0060 and \u0060logs\u0060 will be sent at most once every 500ms. If you request \u0060start\u0060 and \u0060completed\u0060 webhooks, then they\u0027ll always be sent regardless of throttling.\n\u0022"
           }
         },
         "additionalProperties": false
@@ -1908,15 +1772,14 @@
           },
           "error": {
             "type": "string",
-            "description": "An error string if the model status is `\"failed\"`",
+            "description": "An error string if the model status is \u0060\u0022failed\u0022\u0060",
             "nullable": true
           },
           "id": {
             "type": "string"
           },
           "input": {
-            "type": "object",
-            "description": "The prediction input"
+            "$ref": "#/components/schemas/SchemasPredictionResponseInputProperty"
           },
           "logs": {
             "type": "string",
@@ -1930,17 +1793,10 @@
             "description": "The name of the model that created the prediction"
           },
           "output": {
-            "type": "object",
-            "description": "The prediction output, which can be any JSON-serializable value, depending on the model"
+            "$ref": "#/components/schemas/SchemasPredictionResponseOutput"
           },
           "source": {
-            "enum": [
-              "web",
-              "api"
-            ],
-            "type": "string",
-            "additionalProperties": false,
-            "description": "Indicates how the prediction was created"
+            "$ref": "#/components/schemas/SchemasPredictionResponseSource"
           },
           "started_at": {
             "type": "string",
@@ -1948,37 +1804,13 @@
             "format": "date-time"
           },
           "status": {
-            "enum": [
-              "starting",
-              "processing",
-              "succeeded",
-              "failed",
-              "canceled",
-              "aborted"
-            ],
-            "type": "string",
-            "additionalProperties": false,
-            "description": "The prediction status. `canceled` means the prediction was canceled (either by the user or because it reached its deadline while running). `aborted` means the prediction was terminated before it started running (for example, when a deadline is reached before the prediction starts).\n"
+            "$ref": "#/components/schemas/SchemasPredictionResponseStatus"
           },
           "urls": {
             "$ref": "#/components/schemas/SchemasPredictionResponseUrls"
           },
           "version": {
-            "type": "object",
-            "oneOf": [
-              {
-                "type": "string",
-                "description": "The ID of the model version that created the prediction"
-              },
-              {
-                "enum": [
-                  "hidden"
-                ],
-                "type": "string",
-                "additionalProperties": false,
-                "description": "The model does not support versions, used by official models."
-              }
-            ]
+            "$ref": "#/components/schemas/SchemasPredictionResponseVersion"
           }
         }
       },
@@ -2054,19 +1886,7 @@
           "models": {
             "type": "array",
             "items": {
-              "required": [
-                "model",
-                "metadata"
-              ],
-              "type": "object",
-              "properties": {
-                "metadata": {
-                  "$ref": "#/components/schemas/SchemasSearchModelMetadataResponse"
-                },
-                "model": {
-                  "$ref": "#/components/schemas/SchemasModelResponse"
-                }
-              }
+              "$ref": "#/components/schemas/SchemasSearchResponseModelsItem"
             },
             "description": "Array of models that match the search query, each containing model data and extra metadata"
           },
@@ -2092,11 +1912,10 @@
         "properties": {
           "destination": {
             "type": "string",
-            "description": "A string representing the desired model to push to in the format `{destination_model_owner}/{destination_model_name}`. This should be an existing model owned by the user or organization making the API request. If the destination is invalid, the server will return an appropriate 4XX response.\n"
+            "description": "A string representing the desired model to push to in the format \u0060{destination_model_owner}/{destination_model_name}\u0060. This should be an existing model owned by the user or organization making the API request. If the destination is invalid, the server will return an appropriate 4XX response.\n"
           },
           "input": {
-            "type": "object",
-            "description": "An object containing inputs to the Cog model's `train()` function.\n"
+            "$ref": "#/components/schemas/SchemasTrainingRequestInputProperty"
           },
           "webhook": {
             "type": "string",
@@ -2105,16 +1924,9 @@
           "webhook_events_filter": {
             "type": "array",
             "items": {
-              "enum": [
-                "start",
-                "output",
-                "logs",
-                "completed"
-              ],
-              "type": "string",
-              "additionalProperties": false
+              "$ref": "#/components/schemas/SchemasTrainingRequestWebhookEventsFilterItem"
             },
-            "description": "\"By default, we will send requests to your webhook URL whenever there are new outputs or the training has finished. You can change which events trigger webhook requests by specifying `webhook_events_filter` in the training request:\n\n- `start`: immediately on training start\n- `output`: each time a training generates an output (note that trainings can generate multiple outputs)\n- `logs`: each time log output is generated by a training\n- `completed`: when the training reaches a terminal state (succeeded/canceled/failed)\n\nFor example, if you only wanted requests to be sent at the start and end of the training, you would provide:\n\n```json\n{\n  \\\"destination\\\": \\\"my-organization/my-model\\\",\n  \\\"input\\\": {\n    \\\"text\\\": \\\"Alice\\\"\n  },\n  \\\"webhook\\\": \\\"https://example.com/my-webhook\\\",\n  \\\"webhook_events_filter\\\": [\\\"start\\\", \\\"completed\\\"]\n}\n```\n\nRequests for event types `output` and `logs` will be sent at most once every 500ms. If you request `start` and `completed` webhooks, then they'll always be sent regardless of throttling.\n\""
+            "description": "\u0022By default, we will send requests to your webhook URL whenever there are new outputs or the training has finished. You can change which events trigger webhook requests by specifying \u0060webhook_events_filter\u0060 in the training request:\n\n- \u0060start\u0060: immediately on training start\n- \u0060output\u0060: each time a training generates an output (note that trainings can generate multiple outputs)\n- \u0060logs\u0060: each time log output is generated by a training\n- \u0060completed\u0060: when the training reaches a terminal state (succeeded/canceled/failed)\n\nFor example, if you only wanted requests to be sent at the start and end of the training, you would provide:\n\n\u0060\u0060\u0060json\n{\n  \\\u0022destination\\\u0022: \\\u0022my-organization/my-model\\\u0022,\n  \\\u0022input\\\u0022: {\n    \\\u0022text\\\u0022: \\\u0022Alice\\\u0022\n  },\n  \\\u0022webhook\\\u0022: \\\u0022https://example.com/my-webhook\\\u0022,\n  \\\u0022webhook_events_filter\\\u0022: [\\\u0022start\\\u0022, \\\u0022completed\\\u0022]\n}\n\u0060\u0060\u0060\n\nRequests for event types \u0060output\u0060 and \u0060logs\u0060 will be sent at most once every 500ms. If you request \u0060start\u0060 and \u0060completed\u0060 webhooks, then they\u0027ll always be sent regardless of throttling.\n\u0022"
           }
         }
       },
@@ -2141,8 +1953,7 @@
             "description": "The unique ID of the training"
           },
           "input": {
-            "type": "object",
-            "description": "The input parameters used for the training"
+            "$ref": "#/components/schemas/SchemasTrainingResponseInputProperty"
           },
           "logs": {
             "type": "string",
@@ -2159,13 +1970,7 @@
             "$ref": "#/components/schemas/SchemasTrainingResponseOutput"
           },
           "source": {
-            "enum": [
-              "web",
-              "api"
-            ],
-            "type": "string",
-            "additionalProperties": false,
-            "description": "How the training was created"
+            "$ref": "#/components/schemas/SchemasTrainingResponseSource"
           },
           "started_at": {
             "type": "string",
@@ -2173,17 +1978,7 @@
             "format": "date-time"
           },
           "status": {
-            "enum": [
-              "starting",
-              "processing",
-              "succeeded",
-              "failed",
-              "canceled",
-              "aborted"
-            ],
-            "type": "string",
-            "additionalProperties": false,
-            "description": "The current status of the training. `canceled` means the training was canceled (either by the user or because it reached its deadline while running). `aborted` means the training was terminated before it started running (for example, when a deadline is reached before the training starts).\n"
+            "$ref": "#/components/schemas/SchemasTrainingResponseStatus"
           },
           "urls": {
             "$ref": "#/components/schemas/SchemasTrainingResponseUrls"
@@ -2202,19 +1997,15 @@
         "type": "object",
         "properties": {
           "input": {
-            "type": "object",
-            "description": "The model's input as a JSON object. The input schema depends on what model you are running. To see the available inputs, click the \"API\" tab on the model you are running or [get the model version](#models.versions.get) and look at its `openapi_schema` property. For example, [stability-ai/sdxl](https://replicate.com/stability-ai/sdxl) takes `prompt` as an input.\n\nFiles should be passed as HTTP URLs or data URLs.\n\nUse an HTTP URL when:\n\n- you have a large file > 256kb\n- you want to be able to use the file multiple times\n- you want your prediction metadata to be associable with your input files\n\nUse a data URL when:\n\n- you have a small file <= 256kb\n- you don't want to upload and host the file somewhere\n- you don't need to use the file again (Replicate will not store it)\n",
-            "example": {
-              "text": "Alice"
-            }
+            "$ref": "#/components/schemas/SchemasVersionPredictionRequestInputProperty"
           },
           "stream": {
             "type": "boolean",
-            "description": "**This field is deprecated.**\n\nRequest a URL to receive streaming output using [server-sent events (SSE)](https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events).\n\nThis field is no longer needed as the returned prediction will always have a `stream` entry in its `urls` property if the model supports streaming.\n"
+            "description": "**This field is deprecated.**\n\nRequest a URL to receive streaming output using [server-sent events (SSE)](https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events).\n\nThis field is no longer needed as the returned prediction will always have a \u0060stream\u0060 entry in its \u0060urls\u0060 property if the model supports streaming.\n"
           },
           "version": {
             "type": "string",
-            "description": "The identifier for the model or model version that you want to run. This can be specified in a few different formats:\n\n- `{owner_name}/{model_name}` - Use this format for [official models](https://replicate.com/docs/topics/models/official-models). For example, `black-forest-labs/flux-schnell`. For all other models, the specific version is required.\n- `{owner_name}/{model_name}:{version_id}` - The owner and model name, plus the full 64-character version ID. For example, `replicate/hello-world:9dcd6d78e7c6560c340d916fe32e9f24aabfa331e5cce95fe31f77fb03121426`.\n- `{version_id}` - Just the 64-character version ID. For example, `9dcd6d78e7c6560c340d916fe32e9f24aabfa331e5cce95fe31f77fb03121426`\n",
+            "description": "The identifier for the model or model version that you want to run. This can be specified in a few different formats:\n\n- \u0060{owner_name}/{model_name}\u0060 - Use this format for [official models](https://replicate.com/docs/topics/models/official-models). For example, \u0060black-forest-labs/flux-schnell\u0060. For all other models, the specific version is required.\n- \u0060{owner_name}/{model_name}:{version_id}\u0060 - The owner and model name, plus the full 64-character version ID. For example, \u0060replicate/hello-world:9dcd6d78e7c6560c340d916fe32e9f24aabfa331e5cce95fe31f77fb03121426\u0060.\n- \u0060{version_id}\u0060 - Just the 64-character version ID. For example, \u00609dcd6d78e7c6560c340d916fe32e9f24aabfa331e5cce95fe31f77fb03121426\u0060\n",
             "example": "replicate/hello-world:9dcd6d78e7c6560c340d916fe32e9f24aabfa331e5cce95fe31f77fb03121426"
           },
           "webhook": {
@@ -2225,16 +2016,9 @@
           "webhook_events_filter": {
             "type": "array",
             "items": {
-              "enum": [
-                "start",
-                "output",
-                "logs",
-                "completed"
-              ],
-              "type": "string",
-              "additionalProperties": false
+              "$ref": "#/components/schemas/SchemasVersionPredictionRequestWebhookEventsFilterItem"
             },
-            "description": "\"By default, we will send requests to your webhook URL whenever there are new outputs or the prediction has finished. You can change which events trigger webhook requests by specifying `webhook_events_filter` in the prediction request:\n\n- `start`: immediately on prediction start\n- `output`: each time a prediction generates an output (note that predictions can generate multiple outputs)\n- `logs`: each time log output is generated by a prediction\n- `completed`: when the prediction reaches a terminal state (succeeded/canceled/failed)\n\nFor example, if you only wanted requests to be sent at the start and end of the prediction, you would provide:\n\n```json\n{\n  \\\"version\\\": \\\"5c7d5dc6dd8bf75c1acaa8565735e7986bc5b66206b55cca93cb72c9bf15ccaa\\\",\n  \\\"input\\\": {\n    \\\"text\\\": \\\"Alice\\\"\n  },\n  \\\"webhook\\\": \\\"https://example.com/my-webhook\\\",\n  \\\"webhook_events_filter\\\": [\\\"start\\\", \\\"completed\\\"]\n}\n```\n\nRequests for event types `output` and `logs` will be sent at most once every 500ms. If you request `start` and `completed` webhooks, then they'll always be sent regardless of throttling.\n\""
+            "description": "\u0022By default, we will send requests to your webhook URL whenever there are new outputs or the prediction has finished. You can change which events trigger webhook requests by specifying \u0060webhook_events_filter\u0060 in the prediction request:\n\n- \u0060start\u0060: immediately on prediction start\n- \u0060output\u0060: each time a prediction generates an output (note that predictions can generate multiple outputs)\n- \u0060logs\u0060: each time log output is generated by a prediction\n- \u0060completed\u0060: when the prediction reaches a terminal state (succeeded/canceled/failed)\n\nFor example, if you only wanted requests to be sent at the start and end of the prediction, you would provide:\n\n\u0060\u0060\u0060json\n{\n  \\\u0022version\\\u0022: \\\u00225c7d5dc6dd8bf75c1acaa8565735e7986bc5b66206b55cca93cb72c9bf15ccaa\\\u0022,\n  \\\u0022input\\\u0022: {\n    \\\u0022text\\\u0022: \\\u0022Alice\\\u0022\n  },\n  \\\u0022webhook\\\u0022: \\\u0022https://example.com/my-webhook\\\u0022,\n  \\\u0022webhook_events_filter\\\u0022: [\\\u0022start\\\u0022, \\\u0022completed\\\u0022]\n}\n\u0060\u0060\u0060\n\nRequests for event types \u0060output\u0060 and \u0060logs\u0060 will be sent at most once every 500ms. If you request \u0060start\u0060 and \u0060completed\u0060 webhooks, then they\u0027ll always be sent regardless of throttling.\n\u0022"
           }
         },
         "additionalProperties": false
@@ -2257,11 +2041,20 @@
             "description": "The ID of the version"
           },
           "openapi_schema": {
-            "type": "object",
-            "description": "The OpenAPI schema for the model's inputs and outputs",
-            "nullable": true
+            "$ref": "#/components/schemas/SchemasVersionResponseOpenApiSchema"
           }
         }
+      },
+      "SchemasPredictionResponseVersion": {
+        "type": "object",
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/SchemasPredictionResponseVersionBranch1"
+          },
+          {
+            "$ref": "#/components/schemas/SchemasPredictionResponseVersionWrapper"
+          }
+        ]
       },
       "SchemasDeploymentResponseCurrentRelease": {
         "type": "object",
@@ -2279,7 +2072,7 @@
           },
           "model": {
             "type": "string",
-            "description": "The model identifier string in the format of `{model_owner}/{model_name}`."
+            "description": "The model identifier string in the format of \u0060{model_owner}/{model_name}\u0060."
           },
           "number": {
             "type": "integer",
@@ -2302,6 +2095,13 @@
         },
         "description": "A dictionary of checksums for the file keyed by the algorithm name"
       },
+      "SchemasFileResponseMetadata": {
+        "type": "object",
+        "description": "Metadata provided by user when the file was created",
+        "example": {
+          "customer_reference_id": 123
+        }
+      },
       "SchemasFileResponseUrls": {
         "type": "object",
         "properties": {
@@ -2313,6 +2113,28 @@
           }
         },
         "description": "A dictionary of URLs associated with the file resource"
+      },
+      "SchemasModelResponseDefaultExample": {
+        "type": "object",
+        "description": "The model\u0027s default example prediction",
+        "nullable": true
+      },
+      "SchemasModelResponseLatestVersion": {
+        "type": "object",
+        "description": "The model\u0027s latest version",
+        "nullable": true
+      },
+      "SchemasPredictionRequestInput": {
+        "type": "object",
+        "description": "The model\u0027s input as a JSON object. The input schema depends on what model you are running. To see the available inputs, click the \u0022API\u0022 tab on the model you are running or [get the model version](#models.versions.get) and look at its \u0060openapi_schema\u0060 property. For example, [stability-ai/sdxl](https://replicate.com/stability-ai/sdxl) takes \u0060prompt\u0060 as an input.\n\nFiles should be passed as HTTP URLs or data URLs.\n\nUse an HTTP URL when:\n\n- you have a large file \u003E 256kb\n- you want to be able to use the file multiple times\n- you want your prediction metadata to be associable with your input files\n\nUse a data URL when:\n\n- you have a small file \u003C= 256kb\n- you don\u0027t want to upload and host the file somewhere\n- you don\u0027t need to use the file again (Replicate will not store it)\n",
+        "example": {
+          "prompt": "Tell me a joke",
+          "system_prompt": "You are a helpful assistant"
+        }
+      },
+      "SchemasPredictionResponseInput": {
+        "type": "object",
+        "description": "The prediction input"
       },
       "SchemasPredictionResponseMetrics": {
         "type": "object",
@@ -2354,6 +2176,29 @@
           }
         },
         "description": "URLs for working with the prediction"
+      },
+      "SchemasSearchResponseModelsItem": {
+        "required": [
+          "model",
+          "metadata"
+        ],
+        "type": "object",
+        "properties": {
+          "metadata": {
+            "$ref": "#/components/schemas/SchemasSearchModelMetadataResponse"
+          },
+          "model": {
+            "$ref": "#/components/schemas/SchemasModelResponse"
+          }
+        }
+      },
+      "SchemasTrainingRequestInput": {
+        "type": "object",
+        "description": "An object containing inputs to the Cog model\u0027s \u0060train()\u0060 function.\n"
+      },
+      "SchemasTrainingResponseInput": {
+        "type": "object",
+        "description": "The input parameters used for the training"
       },
       "SchemasTrainingResponseMetrics": {
         "type": "object",
@@ -2399,6 +2244,18 @@
         },
         "description": "URLs for interacting with the training"
       },
+      "SchemasVersionPredictionRequestInput": {
+        "type": "object",
+        "description": "The model\u0027s input as a JSON object. The input schema depends on what model you are running. To see the available inputs, click the \u0022API\u0022 tab on the model you are running or [get the model version](#models.versions.get) and look at its \u0060openapi_schema\u0060 property. For example, [stability-ai/sdxl](https://replicate.com/stability-ai/sdxl) takes \u0060prompt\u0060 as an input.\n\nFiles should be passed as HTTP URLs or data URLs.\n\nUse an HTTP URL when:\n\n- you have a large file \u003E 256kb\n- you want to be able to use the file multiple times\n- you want your prediction metadata to be associable with your input files\n\nUse a data URL when:\n\n- you have a small file \u003C= 256kb\n- you don\u0027t want to upload and host the file somewhere\n- you don\u0027t need to use the file again (Replicate will not store it)\n",
+        "example": {
+          "text": "Alice"
+        }
+      },
+      "SchemasVersionResponseOpenApiSchema": {
+        "type": "object",
+        "description": "The OpenAPI schema for the model\u0027s inputs and outputs",
+        "nullable": true
+      },
       "SchemasDeploymentResponseCurrentReleaseConfiguration": {
         "type": "object",
         "properties": {
@@ -2438,13 +2295,7 @@
             "description": "The name of the account that created the release."
           },
           "type": {
-            "enum": [
-              "organization",
-              "user"
-            ],
-            "type": "string",
-            "additionalProperties": false,
-            "description": "The account type of the creator. Can be a user or an organization."
+            "$ref": "#/components/schemas/SchemasDeploymentResponseCurrentReleaseCreatedByType"
           },
           "username": {
             "type": "string",
@@ -2452,7 +2303,7 @@
           }
         }
       },
-      "AccountGet200": {
+      "AccountGet200Response": {
         "required": [
           "type",
           "username"
@@ -2474,13 +2325,7 @@
             "description": "The name of the account."
           },
           "type": {
-            "enum": [
-              "organization",
-              "user"
-            ],
-            "type": "string",
-            "additionalProperties": false,
-            "description": "The account type. Can be a user or an organization."
+            "$ref": "#/components/schemas/AccountGet200ResponseType"
           },
           "username": {
             "type": "string",
@@ -2488,7 +2333,7 @@
           }
         }
       },
-      "DeploymentsCreate": {
+      "DeploymentsCreateRequest": {
         "required": [
           "name",
           "model",
@@ -2501,7 +2346,7 @@
         "properties": {
           "hardware": {
             "type": "string",
-            "description": "The SKU for the hardware used to run the model. Possible values can be retrieved from the `hardware.list` endpoint."
+            "description": "The SKU for the hardware used to run the model. Possible values can be retrieved from the \u0060hardware.list\u0060 endpoint."
           },
           "max_instances": {
             "maximum": 20,
@@ -2529,12 +2374,12 @@
           }
         }
       },
-      "DeploymentsUpdate": {
+      "DeploymentsUpdateRequest": {
         "type": "object",
         "properties": {
           "hardware": {
             "type": "string",
-            "description": "The SKU for the hardware used to run the model. Possible values can be retrieved from the `hardware.list` endpoint."
+            "description": "The SKU for the hardware used to run the model. Possible values can be retrieved from the \u0060hardware.list\u0060 endpoint."
           },
           "max_instances": {
             "maximum": 20,
@@ -2554,7 +2399,7 @@
           }
         }
       },
-      "FilesCreate": {
+      "FilesCreateFormDataRequest": {
         "required": [
           "content"
         ],
@@ -2571,8 +2416,7 @@
             "description": "The filename"
           },
           "metadata": {
-            "type": "object",
-            "description": "User-provided metadata associated with the file"
+            "$ref": "#/components/schemas/FilesCreateFormDataRequestMetadata"
           },
           "type": {
             "type": "string",
@@ -2581,7 +2425,7 @@
           }
         }
       },
-      "FilesCreate413": {
+      "FilesCreate413Response": {
         "type": "object",
         "properties": {
           "detail": {
@@ -2590,7 +2434,7 @@
           }
         }
       },
-      "FilesDelete404": {
+      "FilesDelete404Response": {
         "type": "object",
         "properties": {
           "detail": {
@@ -2599,7 +2443,7 @@
           }
         }
       },
-      "FilesGet404": {
+      "FilesGet404Response": {
         "type": "object",
         "properties": {
           "detail": {
@@ -2608,11 +2452,11 @@
           }
         }
       },
-      "FilesDownload200": {
+      "FilesDownload200Response": {
         "type": "string",
         "format": "binary"
       },
-      "FilesDownload404": {
+      "FilesDownload404Response": {
         "type": "object",
         "properties": {
           "detail": {
@@ -2621,23 +2465,13 @@
           }
         }
       },
-      "HardwareList200": {
+      "HardwareList200Response": {
         "type": "array",
         "items": {
-          "type": "object",
-          "properties": {
-            "name": {
-              "type": "string",
-              "description": "The name of the hardware."
-            },
-            "sku": {
-              "type": "string",
-              "description": "The SKU of the hardware."
-            }
-          }
+          "$ref": "#/components/schemas/HardwareList200ResponseItem"
         }
       },
-      "ModelsCreate": {
+      "ModelsCreateRequest": {
         "required": [
           "owner",
           "name",
@@ -2648,7 +2482,7 @@
         "properties": {
           "cover_image_url": {
             "type": "string",
-            "description": "A URL for the model's cover image. This should be an image file."
+            "description": "A URL for the model\u0027s cover image. This should be an image file."
           },
           "description": {
             "type": "string",
@@ -2657,17 +2491,17 @@
           },
           "github_url": {
             "type": "string",
-            "description": "A URL for the model's source code on GitHub.",
+            "description": "A URL for the model\u0027s source code on GitHub.",
             "example": "https://github.com/alice/hot-dog-detector"
           },
           "hardware": {
             "type": "string",
-            "description": "The SKU for the hardware used to run the model. Possible values can be retrieved from the `hardware.list` endpoint.",
+            "description": "The SKU for the hardware used to run the model. Possible values can be retrieved from the \u0060hardware.list\u0060 endpoint.",
             "example": "cpu"
           },
           "license_url": {
             "type": "string",
-            "description": "A URL for the model's license."
+            "description": "A URL for the model\u0027s license."
           },
           "name": {
             "type": "string",
@@ -2681,22 +2515,15 @@
           },
           "paper_url": {
             "type": "string",
-            "description": "A URL for the model's paper.",
+            "description": "A URL for the model\u0027s paper.",
             "example": "https://arxiv.org/abs/2504.17639"
           },
           "visibility": {
-            "enum": [
-              "public",
-              "private"
-            ],
-            "type": "string",
-            "additionalProperties": false,
-            "description": "Whether the model should be public or private. A public model can be viewed and run by anyone, whereas a private model can be viewed and run only by the user or organization members that own the model.",
-            "example": "public"
+            "$ref": "#/components/schemas/ModelsCreateRequestVisibility"
           }
         }
       },
-      "ModelsUpdate": {
+      "ModelsUpdateRequest": {
         "type": "object",
         "properties": {
           "description": {
@@ -2706,16 +2533,16 @@
           },
           "github_url": {
             "type": "string",
-            "description": "A URL for the model's source code on GitHub.",
+            "description": "A URL for the model\u0027s source code on GitHub.",
             "example": "https://github.com/alice/hot-dog-detector"
           },
           "license_url": {
             "type": "string",
-            "description": "A URL for the model's license."
+            "description": "A URL for the model\u0027s license."
           },
           "paper_url": {
             "type": "string",
-            "description": "A URL for the model's paper.",
+            "description": "A URL for the model\u0027s paper.",
             "example": "https://arxiv.org/abs/2504.17639"
           },
           "readme": {
@@ -2725,25 +2552,25 @@
           },
           "weights_url": {
             "type": "string",
-            "description": "A URL for the model's weights.",
+            "description": "A URL for the model\u0027s weights.",
             "example": "https://huggingface.co/alice/hot-dog-detector"
           }
         }
       },
-      "ModelsReadmeGet200": {
+      "ModelsReadmeGet200Response": {
         "type": "string",
         "description": "The README content in Markdown format"
       },
-      "Search400": {
+      "Search400Response": {
         "type": "object",
         "properties": {
           "detail": {
             "type": "string",
-            "example": "Query parameter \"query\" is required"
+            "example": "Query parameter \u0022query\u0022 is required"
           }
         }
       },
-      "Search500": {
+      "Search500Response": {
         "type": "object",
         "properties": {
           "detail": {
@@ -2752,7 +2579,7 @@
           }
         }
       },
-      "WebhooksDefaultSecretGet200": {
+      "WebhooksDefaultSecretGet200Response": {
         "type": "object",
         "properties": {
           "key": {
@@ -2761,16 +2588,613 @@
           }
         }
       },
+      "SchemasPredictionResponseVersionWrapper": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "$ref": "#/components/schemas/SchemasPredictionResponseVersionWrapperValue"
+          }
+        }
+      },
       "ExamplePayload": {
         "type": "object",
         "description": "Placeholder schema for path example refs"
+      },
+      "SchemasPredictionResponseVersionBranch1": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string",
+            "description": "The ID of the model version that created the prediction"
+          }
+        }
+      },
+      "DeploymentsList200Response": {
+        "type": "object",
+        "properties": {
+          "next": {
+            "type": "string",
+            "description": "A URL pointing to the next page of deployment objects if any",
+            "nullable": true
+          },
+          "previous": {
+            "type": "string",
+            "description": "A URL pointing to the previous page of deployment objects if any",
+            "nullable": true
+          },
+          "results": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SchemasDeploymentResponse"
+            },
+            "description": "An array containing a page of deployment objects"
+          }
+        }
+      },
+      "DefaultResponse": {
+        "title": "DefaultResponse",
+        "type": "object",
+        "description": "Default response schema"
+      },
+      "FilesList200Response": {
+        "type": "object",
+        "properties": {
+          "next": {
+            "type": "string",
+            "format": "uri",
+            "nullable": true
+          },
+          "previous": {
+            "type": "string",
+            "format": "uri",
+            "nullable": true
+          },
+          "results": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SchemasFileResponse"
+            }
+          }
+        }
+      },
+      "FilesDownload200ResponseResponseOctetStream": {
+        "type": "string",
+        "format": "binary"
+      },
+      "HardwareList200ResponseResponseJson": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/HardwareList200ResponseResponseJsonItem"
+        }
+      },
+      "DefaultResponseResponseJson": {
+        "title": "DefaultResponse",
+        "type": "object",
+        "description": "Default response schema"
+      },
+      "ModelsReadmeGet200ResponseResponsePlain": {
+        "type": "string",
+        "description": "The README content in Markdown format"
+      },
+      "DefaultResponseResponseJson2": {
+        "title": "DefaultResponse",
+        "type": "object",
+        "description": "Default response schema"
+      },
+      "PredictionsList200Response": {
+        "type": "object",
+        "properties": {
+          "next": {
+            "type": "string",
+            "format": "uri",
+            "nullable": true
+          },
+          "previous": {
+            "type": "string",
+            "format": "uri",
+            "nullable": true
+          },
+          "results": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SchemasPredictionResponse"
+            }
+          }
+        }
+      },
+      "TrainingsList200Response": {
+        "type": "object",
+        "properties": {
+          "next": {
+            "type": "string",
+            "description": "URL to the next page of results",
+            "nullable": true
+          },
+          "previous": {
+            "type": "string",
+            "description": "URL to the previous page of results",
+            "nullable": true
+          },
+          "results": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SchemasTrainingResponse"
+            }
+          }
+        }
+      },
+      "SchemasFileResponseMetadataProperty": {
+        "type": "object",
+        "description": "Metadata provided by user when the file was created"
+      },
+      "SchemasPredictionRequestInputProperty": {
+        "type": "object",
+        "description": "The model\u0027s input as a JSON object. The input schema depends on what model you are running. To see the available inputs, click the \u0022API\u0022 tab on the model you are running or [get the model version](#models.versions.get) and look at its \u0060openapi_schema\u0060 property. For example, [stability-ai/sdxl](https://replicate.com/stability-ai/sdxl) takes \u0060prompt\u0060 as an input.\n\nFiles should be passed as HTTP URLs or data URLs.\n\nUse an HTTP URL when:\n\n- you have a large file \u003E 256kb\n- you want to be able to use the file multiple times\n- you want your prediction metadata to be associable with your input files\n\nUse a data URL when:\n\n- you have a small file \u003C= 256kb\n- you don\u0027t want to upload and host the file somewhere\n- you don\u0027t need to use the file again (Replicate will not store it)\n"
+      },
+      "SchemasPredictionResponseInputProperty": {
+        "type": "object",
+        "description": "The prediction input"
+      },
+      "SchemasPredictionResponseOutput": {
+        "type": "object",
+        "description": "The prediction output, which can be any JSON-serializable value, depending on the model"
+      },
+      "SchemasTrainingRequestInputProperty": {
+        "type": "object",
+        "description": "An object containing inputs to the Cog model\u0027s \u0060train()\u0060 function.\n"
+      },
+      "SchemasTrainingResponseInputProperty": {
+        "type": "object",
+        "description": "The input parameters used for the training"
+      },
+      "SchemasVersionPredictionRequestInputProperty": {
+        "type": "object",
+        "description": "The model\u0027s input as a JSON object. The input schema depends on what model you are running. To see the available inputs, click the \u0022API\u0022 tab on the model you are running or [get the model version](#models.versions.get) and look at its \u0060openapi_schema\u0060 property. For example, [stability-ai/sdxl](https://replicate.com/stability-ai/sdxl) takes \u0060prompt\u0060 as an input.\n\nFiles should be passed as HTTP URLs or data URLs.\n\nUse an HTTP URL when:\n\n- you have a large file \u003E 256kb\n- you want to be able to use the file multiple times\n- you want your prediction metadata to be associable with your input files\n\nUse a data URL when:\n\n- you have a small file \u003C= 256kb\n- you don\u0027t want to upload and host the file somewhere\n- you don\u0027t need to use the file again (Replicate will not store it)\n"
+      },
+      "FilesCreateFormDataRequestMetadata": {
+        "type": "object",
+        "description": "User-provided metadata associated with the file"
+      },
+      "HardwareList200ResponseItem": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "The name of the hardware."
+          },
+          "sku": {
+            "type": "string",
+            "description": "The SKU of the hardware."
+          }
+        }
+      },
+      "HardwareList200ResponseResponseJsonItem": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "The name of the hardware."
+          },
+          "sku": {
+            "type": "string",
+            "description": "The SKU of the hardware."
+          }
+        }
+      },
+      "SchemasModelResponseVisibility": {
+        "enum": [
+          "public",
+          "private"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "Whether the model is public or private",
+        "x-ms-enum": {
+          "name": "SchemasModelResponseVisibility",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "public",
+              "name": "PublicValue"
+            },
+            {
+              "value": "private",
+              "name": "PrivateValue"
+            }
+          ]
+        }
+      },
+      "SchemasPredictionRequestWebhookEventsFilterItem": {
+        "enum": [
+          "start",
+          "output",
+          "logs",
+          "completed"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-ms-enum": {
+          "name": "SchemasPredictionRequestWebhookEventsFilterItem",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "start",
+              "name": "Start"
+            },
+            {
+              "value": "output",
+              "name": "Output"
+            },
+            {
+              "value": "logs",
+              "name": "Logs"
+            },
+            {
+              "value": "completed",
+              "name": "Completed"
+            }
+          ]
+        }
+      },
+      "SchemasPredictionResponseSource": {
+        "enum": [
+          "web",
+          "api"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "Indicates how the prediction was created",
+        "x-ms-enum": {
+          "name": "SchemasPredictionResponseSource",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "web",
+              "name": "Web"
+            },
+            {
+              "value": "api",
+              "name": "Api"
+            }
+          ]
+        }
+      },
+      "SchemasPredictionResponseStatus": {
+        "enum": [
+          "starting",
+          "processing",
+          "succeeded",
+          "failed",
+          "canceled",
+          "aborted"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "The prediction status. \u0060canceled\u0060 means the prediction was canceled (either by the user or because it reached its deadline while running). \u0060aborted\u0060 means the prediction was terminated before it started running (for example, when a deadline is reached before the prediction starts).\n",
+        "x-ms-enum": {
+          "name": "SchemasPredictionResponseStatus",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "starting",
+              "name": "Starting"
+            },
+            {
+              "value": "processing",
+              "name": "Processing"
+            },
+            {
+              "value": "succeeded",
+              "name": "Succeeded"
+            },
+            {
+              "value": "failed",
+              "name": "Failed"
+            },
+            {
+              "value": "canceled",
+              "name": "Canceled"
+            },
+            {
+              "value": "aborted",
+              "name": "Aborted"
+            }
+          ]
+        }
+      },
+      "SchemasTrainingRequestWebhookEventsFilterItem": {
+        "enum": [
+          "start",
+          "output",
+          "logs",
+          "completed"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-ms-enum": {
+          "name": "SchemasTrainingRequestWebhookEventsFilterItem",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "start",
+              "name": "Start"
+            },
+            {
+              "value": "output",
+              "name": "Output"
+            },
+            {
+              "value": "logs",
+              "name": "Logs"
+            },
+            {
+              "value": "completed",
+              "name": "Completed"
+            }
+          ]
+        }
+      },
+      "SchemasTrainingResponseSource": {
+        "enum": [
+          "web",
+          "api"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "How the training was created",
+        "x-ms-enum": {
+          "name": "SchemasTrainingResponseSource",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "web",
+              "name": "Web"
+            },
+            {
+              "value": "api",
+              "name": "Api"
+            }
+          ]
+        }
+      },
+      "SchemasTrainingResponseStatus": {
+        "enum": [
+          "starting",
+          "processing",
+          "succeeded",
+          "failed",
+          "canceled",
+          "aborted"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "The current status of the training. \u0060canceled\u0060 means the training was canceled (either by the user or because it reached its deadline while running). \u0060aborted\u0060 means the training was terminated before it started running (for example, when a deadline is reached before the training starts).\n",
+        "x-ms-enum": {
+          "name": "SchemasTrainingResponseStatus",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "starting",
+              "name": "Starting"
+            },
+            {
+              "value": "processing",
+              "name": "Processing"
+            },
+            {
+              "value": "succeeded",
+              "name": "Succeeded"
+            },
+            {
+              "value": "failed",
+              "name": "Failed"
+            },
+            {
+              "value": "canceled",
+              "name": "Canceled"
+            },
+            {
+              "value": "aborted",
+              "name": "Aborted"
+            }
+          ]
+        }
+      },
+      "SchemasVersionPredictionRequestWebhookEventsFilterItem": {
+        "enum": [
+          "start",
+          "output",
+          "logs",
+          "completed"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-ms-enum": {
+          "name": "SchemasVersionPredictionRequestWebhookEventsFilterItem",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "start",
+              "name": "Start"
+            },
+            {
+              "value": "output",
+              "name": "Output"
+            },
+            {
+              "value": "logs",
+              "name": "Logs"
+            },
+            {
+              "value": "completed",
+              "name": "Completed"
+            }
+          ]
+        }
+      },
+      "SchemasDeploymentResponseCurrentReleaseCreatedByType": {
+        "enum": [
+          "organization",
+          "user"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "The account type of the creator. Can be a user or an organization.",
+        "x-ms-enum": {
+          "name": "SchemasDeploymentResponseCurrentReleaseCreatedByType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "organization",
+              "name": "Organization"
+            },
+            {
+              "value": "user",
+              "name": "User"
+            }
+          ]
+        }
+      },
+      "AccountGet200ResponseType": {
+        "enum": [
+          "organization",
+          "user"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "The account type. Can be a user or an organization.",
+        "x-ms-enum": {
+          "name": "AccountGet200ResponseType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "organization",
+              "name": "Organization"
+            },
+            {
+              "value": "user",
+              "name": "User"
+            }
+          ]
+        }
+      },
+      "ModelsCreateRequestVisibility": {
+        "enum": [
+          "public",
+          "private"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "Whether the model should be public or private. A public model can be viewed and run by anyone, whereas a private model can be viewed and run only by the user or organization members that own the model.",
+        "example": "public",
+        "x-ms-enum": {
+          "name": "ModelsCreateRequestVisibility",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "public",
+              "name": "PublicValue"
+            },
+            {
+              "value": "private",
+              "name": "PrivateValue"
+            }
+          ]
+        }
+      },
+      "SchemasPredictionResponseVersionWrapperValue": {
+        "enum": [
+          "hidden"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "The model does not support versions, used by official models.",
+        "x-ms-enum": {
+          "name": "SchemasPredictionResponseVersionWrapperValue",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "hidden",
+              "name": "Hidden"
+            }
+          ]
+        }
+      },
+      "ModelsListSortByParameter": {
+        "enum": [
+          "model_created_at",
+          "latest_version_created_at"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "default": "latest_version_created_at",
+        "x-ms-enum": {
+          "name": "ModelsListSortByParameter",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "model_created_at",
+              "name": "ModelCreatedAt"
+            },
+            {
+              "value": "latest_version_created_at",
+              "name": "LatestVersionCreatedAt"
+            }
+          ]
+        }
+      },
+      "ModelsListSortDirectionParameter": {
+        "enum": [
+          "asc",
+          "desc"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "default": "desc",
+        "x-ms-enum": {
+          "name": "ModelsListSortDirectionParameter",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "asc",
+              "name": "Asc"
+            },
+            {
+              "value": "desc",
+              "name": "Desc"
+            }
+          ]
+        }
+      },
+      "PredictionsListSourceParameter": {
+        "enum": [
+          "web"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-ms-enum": {
+          "name": "PredictionsListSourceParameter",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "web",
+              "name": "Web"
+            }
+          ]
+        }
       }
     },
     "parameters": {
       "parameters_cancel_after_header": {
         "name": "Cancel-After",
         "in": "header",
-        "description": "The maximum time the prediction can run before it is automatically canceled. The lifetime is measured from when the prediction is created.\n\nThe duration can be specified as string with an optional unit suffix:\n- `s` for seconds (e.g., `30s`, `90s`)\n- `m` for minutes (e.g., `5m`, `15m`)\n- `h` for hours (e.g., `1h`, `2h30m`)\n- defaults to seconds if no unit suffix is provided (e.g. `30` is the same as `30s`)\n\nYou can combine units for more precision (e.g., `1h30m45s`).\n\nThe minimum allowed duration is 5 seconds.\n",
+        "description": "The maximum time the prediction can run before it is automatically canceled. The lifetime is measured from when the prediction is created.\n\nThe duration can be specified as string with an optional unit suffix:\n- \u0060s\u0060 for seconds (e.g., \u006030s\u0060, \u006090s\u0060)\n- \u0060m\u0060 for minutes (e.g., \u00605m\u0060, \u006015m\u0060)\n- \u0060h\u0060 for hours (e.g., \u00601h\u0060, \u00602h30m\u0060)\n- defaults to seconds if no unit suffix is provided (e.g. \u006030\u0060 is the same as \u006030s\u0060)\n\nYou can combine units for more precision (e.g., \u00601h30m45s\u0060).\n\nThe minimum allowed duration is 5 seconds.\n",
         "schema": {
           "type": "string",
           "example": "5m"
@@ -2779,7 +3203,7 @@
       "parameters_prefer_header": {
         "name": "Prefer",
         "in": "header",
-        "description": "Leave the request open and wait for the model to finish generating output. Set to `wait=n` where n is a number of seconds between 1 and 60.\n\nSee [sync mode](https://replicate.com/docs/topics/predictions/create-a-prediction#sync-mode) for more information.\n",
+        "description": "Leave the request open and wait for the model to finish generating output. Set to \u0060wait=n\u0060 where n is a number of seconds between 1 and 60.\n\nSee [sync mode](https://replicate.com/docs/topics/predictions/create-a-prediction#sync-mode) for more information.\n",
         "schema": {
           "pattern": "^wait(=([1-9]|[1-9][0-9]|60))?$",
           "type": "string",
@@ -2791,7 +3215,7 @@
       "bearerAuth": {
         "type": "http",
         "scheme": "bearer",
-        "bearerFormat": "All API requests must include a valid API token in the `Authorization` request header. The token must be prefixed by \"Bearer\", followed by a space and the token value.\nExample: `Authorization: Bearer r8_Hw***********************************`\nFind your tokens at https://replicate.com/account/api-tokens\n"
+        "bearerFormat": "All API requests must include a valid API token in the \u0060Authorization\u0060 request header. The token must be prefixed by \u0022Bearer\u0022, followed by a space and the token value.\nExample: \u0060Authorization: Bearer r8_Hw***********************************\u0060\nFind your tokens at https://replicate.com/account/api-tokens\n"
       },
       "assets_jwt": {
         "type": "http",
@@ -2803,7 +3227,7 @@
   },
   "security": [
     {
-      "bearerAuth": [ ]
+      "bearerAuth": []
     }
   ],
   "externalDocs": {

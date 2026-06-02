@@ -25,10 +25,10 @@ namespace Soenneker.Replicate.OpenApiClient.Models
         /// <summary>Array of models that match the search query, each containing model data and extra metadata</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Replicate.OpenApiClient.Models.SchemasSearchResponse_models>? Models { get; set; }
+        public List<global::Soenneker.Replicate.OpenApiClient.Models.SchemasSearchResponseModelsItem>? Models { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Replicate.OpenApiClient.Models.SchemasSearchResponse_models> Models { get; set; }
+        public List<global::Soenneker.Replicate.OpenApiClient.Models.SchemasSearchResponseModelsItem> Models { get; set; }
 #endif
         /// <summary>Array of Replicate documentation pages that match the search query</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -72,7 +72,7 @@ namespace Soenneker.Replicate.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "collections", n => { Collections = n.GetCollectionOfObjectValues<global::Soenneker.Replicate.OpenApiClient.Models.SchemasSearchCollectionResponse>(global::Soenneker.Replicate.OpenApiClient.Models.SchemasSearchCollectionResponse.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "models", n => { Models = n.GetCollectionOfObjectValues<global::Soenneker.Replicate.OpenApiClient.Models.SchemasSearchResponse_models>(global::Soenneker.Replicate.OpenApiClient.Models.SchemasSearchResponse_models.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "models", n => { Models = n.GetCollectionOfObjectValues<global::Soenneker.Replicate.OpenApiClient.Models.SchemasSearchResponseModelsItem>(global::Soenneker.Replicate.OpenApiClient.Models.SchemasSearchResponseModelsItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "pages", n => { Pages = n.GetCollectionOfObjectValues<global::Soenneker.Replicate.OpenApiClient.Models.SchemasPageResponse>(global::Soenneker.Replicate.OpenApiClient.Models.SchemasPageResponse.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "query", n => { Query = n.GetStringValue(); } },
             };
@@ -85,7 +85,7 @@ namespace Soenneker.Replicate.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfObjectValues<global::Soenneker.Replicate.OpenApiClient.Models.SchemasSearchCollectionResponse>("collections", Collections);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Replicate.OpenApiClient.Models.SchemasSearchResponse_models>("models", Models);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Replicate.OpenApiClient.Models.SchemasSearchResponseModelsItem>("models", Models);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Replicate.OpenApiClient.Models.SchemasPageResponse>("pages", Pages);
             writer.WriteStringValue("query", Query);
             writer.WriteAdditionalData(AdditionalData);

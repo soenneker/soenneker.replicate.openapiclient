@@ -3,6 +3,7 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
+using Soenneker.Replicate.OpenApiClient.Models;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -35,20 +36,20 @@ namespace Soenneker.Replicate.OpenApiClient.Hardware
         /// <summary>
         /// &quot;Example cURL request:```consolecurl -s \  -H \&quot;Authorization: Bearer $REPLICATE_API_TOKEN\&quot; \  https://api.replicate.com/v1/hardware```The response will be a JSON array of hardware objects:```json[    {\&quot;name\&quot;: \&quot;CPU\&quot;, \&quot;sku\&quot;: \&quot;cpu\&quot;},    {\&quot;name\&quot;: \&quot;Nvidia T4 GPU\&quot;, \&quot;sku\&quot;: \&quot;gpu-t4\&quot;},    {\&quot;name\&quot;: \&quot;Nvidia A40 GPU\&quot;, \&quot;sku\&quot;: \&quot;gpu-a40-small\&quot;},    {\&quot;name\&quot;: \&quot;Nvidia A40 (Large) GPU\&quot;, \&quot;sku\&quot;: \&quot;gpu-a40-large\&quot;},]```&quot;
         /// </summary>
-        /// <returns>A List&lt;global::Soenneker.Replicate.OpenApiClient.Hardware.Hardware&gt;</returns>
+        /// <returns>A List&lt;global::Soenneker.Replicate.OpenApiClient.Models.HardwareList200ResponseResponseJsonItem&gt;</returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<List<global::Soenneker.Replicate.OpenApiClient.Hardware.Hardware>?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<List<global::Soenneker.Replicate.OpenApiClient.Models.HardwareList200ResponseResponseJsonItem>?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<List<global::Soenneker.Replicate.OpenApiClient.Hardware.Hardware>> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<List<global::Soenneker.Replicate.OpenApiClient.Models.HardwareList200ResponseResponseJsonItem>> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            var collectionResult = await RequestAdapter.SendCollectionAsync<global::Soenneker.Replicate.OpenApiClient.Hardware.Hardware>(requestInfo, global::Soenneker.Replicate.OpenApiClient.Hardware.Hardware.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            var collectionResult = await RequestAdapter.SendCollectionAsync<global::Soenneker.Replicate.OpenApiClient.Models.HardwareList200ResponseResponseJsonItem>(requestInfo, global::Soenneker.Replicate.OpenApiClient.Models.HardwareList200ResponseResponseJsonItem.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
             return collectionResult?.AsList();
         }
         /// <summary>

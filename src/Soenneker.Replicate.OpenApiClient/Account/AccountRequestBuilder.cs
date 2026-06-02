@@ -36,20 +36,20 @@ namespace Soenneker.Replicate.OpenApiClient.Account
         /// <summary>
         /// &quot;Returns information about the user or organization associated with the provided API token.Example cURL request:```consolecurl -s \  -H \&quot;Authorization: Bearer $REPLICATE_API_TOKEN\&quot; \  https://api.replicate.com/v1/account```The response will be a JSON object describing the account:```json{  \&quot;type\&quot;: \&quot;organization\&quot;,  \&quot;username\&quot;: \&quot;acme\&quot;,  \&quot;name\&quot;: \&quot;Acme Corp, Inc.\&quot;,  \&quot;github_url\&quot;: \&quot;https://github.com/acme\&quot;,}```&quot;
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Replicate.OpenApiClient.Models.AccountGet200"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Replicate.OpenApiClient.Models.AccountGet200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Replicate.OpenApiClient.Models.AccountGet200?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Replicate.OpenApiClient.Models.AccountGet200Response?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Replicate.OpenApiClient.Models.AccountGet200> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Replicate.OpenApiClient.Models.AccountGet200Response> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Replicate.OpenApiClient.Models.AccountGet200>(requestInfo, global::Soenneker.Replicate.OpenApiClient.Models.AccountGet200.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Replicate.OpenApiClient.Models.AccountGet200Response>(requestInfo, global::Soenneker.Replicate.OpenApiClient.Models.AccountGet200Response.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// &quot;Returns information about the user or organization associated with the provided API token.Example cURL request:```consolecurl -s \  -H \&quot;Authorization: Bearer $REPLICATE_API_TOKEN\&quot; \  https://api.replicate.com/v1/account```The response will be a JSON object describing the account:```json{  \&quot;type\&quot;: \&quot;organization\&quot;,  \&quot;username\&quot;: \&quot;acme\&quot;,  \&quot;name\&quot;: \&quot;Acme Corp, Inc.\&quot;,  \&quot;github_url\&quot;: \&quot;https://github.com/acme\&quot;,}```&quot;

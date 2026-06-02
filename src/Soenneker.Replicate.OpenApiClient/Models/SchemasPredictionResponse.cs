@@ -49,10 +49,10 @@ namespace Soenneker.Replicate.OpenApiClient.Models
         /// <summary>The prediction input</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Replicate.OpenApiClient.Models.SchemasPredictionResponse_input? Input { get; set; }
+        public global::Soenneker.Replicate.OpenApiClient.Models.SchemasPredictionResponseInputProperty? Input { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Replicate.OpenApiClient.Models.SchemasPredictionResponse_input Input { get; set; }
+        public global::Soenneker.Replicate.OpenApiClient.Models.SchemasPredictionResponseInputProperty Input { get; set; }
 #endif
         /// <summary>The log output from the model</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -81,17 +81,17 @@ namespace Soenneker.Replicate.OpenApiClient.Models
         /// <summary>The prediction output, which can be any JSON-serializable value, depending on the model</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Replicate.OpenApiClient.Models.SchemasPredictionResponse_output? Output { get; set; }
+        public global::Soenneker.Replicate.OpenApiClient.Models.SchemasPredictionResponseOutput? Output { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Replicate.OpenApiClient.Models.SchemasPredictionResponse_output Output { get; set; }
+        public global::Soenneker.Replicate.OpenApiClient.Models.SchemasPredictionResponseOutput Output { get; set; }
 #endif
         /// <summary>Indicates how the prediction was created</summary>
-        public global::Soenneker.Replicate.OpenApiClient.Models.SchemasPredictionResponse_source? Source { get; set; }
+        public global::Soenneker.Replicate.OpenApiClient.Models.SchemasPredictionResponseSource? Source { get; set; }
         /// <summary>The time that the model began the prediction</summary>
         public DateTimeOffset? StartedAt { get; set; }
         /// <summary>The prediction status. `canceled` means the prediction was canceled (either by the user or because it reached its deadline while running). `aborted` means the prediction was terminated before it started running (for example, when a deadline is reached before the prediction starts).</summary>
-        public global::Soenneker.Replicate.OpenApiClient.Models.SchemasPredictionResponse_status? Status { get; set; }
+        public global::Soenneker.Replicate.OpenApiClient.Models.SchemasPredictionResponseStatus? Status { get; set; }
         /// <summary>URLs for working with the prediction</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -103,10 +103,10 @@ namespace Soenneker.Replicate.OpenApiClient.Models
         /// <summary>The version property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Replicate.OpenApiClient.Models.SchemasPredictionResponse.SchemasPredictionResponse_version? Version { get; set; }
+        public global::Soenneker.Replicate.OpenApiClient.Models.SchemasPredictionResponseVersion? Version { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Replicate.OpenApiClient.Models.SchemasPredictionResponse.SchemasPredictionResponse_version Version { get; set; }
+        public global::Soenneker.Replicate.OpenApiClient.Models.SchemasPredictionResponseVersion Version { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Replicate.OpenApiClient.Models.SchemasPredictionResponse"/> and sets the default values.
@@ -140,16 +140,16 @@ namespace Soenneker.Replicate.OpenApiClient.Models
                 { "deployment", n => { Deployment = n.GetStringValue(); } },
                 { "error", n => { Error = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
-                { "input", n => { Input = n.GetObjectValue<global::Soenneker.Replicate.OpenApiClient.Models.SchemasPredictionResponse_input>(global::Soenneker.Replicate.OpenApiClient.Models.SchemasPredictionResponse_input.CreateFromDiscriminatorValue); } },
+                { "input", n => { Input = n.GetObjectValue<global::Soenneker.Replicate.OpenApiClient.Models.SchemasPredictionResponseInputProperty>(global::Soenneker.Replicate.OpenApiClient.Models.SchemasPredictionResponseInputProperty.CreateFromDiscriminatorValue); } },
                 { "logs", n => { Logs = n.GetStringValue(); } },
                 { "metrics", n => { Metrics = n.GetObjectValue<global::Soenneker.Replicate.OpenApiClient.Models.SchemasPredictionResponseMetrics>(global::Soenneker.Replicate.OpenApiClient.Models.SchemasPredictionResponseMetrics.CreateFromDiscriminatorValue); } },
                 { "model", n => { Model = n.GetStringValue(); } },
-                { "output", n => { Output = n.GetObjectValue<global::Soenneker.Replicate.OpenApiClient.Models.SchemasPredictionResponse_output>(global::Soenneker.Replicate.OpenApiClient.Models.SchemasPredictionResponse_output.CreateFromDiscriminatorValue); } },
-                { "source", n => { Source = n.GetEnumValue<global::Soenneker.Replicate.OpenApiClient.Models.SchemasPredictionResponse_source>(); } },
+                { "output", n => { Output = n.GetObjectValue<global::Soenneker.Replicate.OpenApiClient.Models.SchemasPredictionResponseOutput>(global::Soenneker.Replicate.OpenApiClient.Models.SchemasPredictionResponseOutput.CreateFromDiscriminatorValue); } },
+                { "source", n => { Source = n.GetEnumValue<global::Soenneker.Replicate.OpenApiClient.Models.SchemasPredictionResponseSource>(); } },
                 { "started_at", n => { StartedAt = n.GetDateTimeOffsetValue(); } },
-                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Replicate.OpenApiClient.Models.SchemasPredictionResponse_status>(); } },
+                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Replicate.OpenApiClient.Models.SchemasPredictionResponseStatus>(); } },
                 { "urls", n => { Urls = n.GetObjectValue<global::Soenneker.Replicate.OpenApiClient.Models.SchemasPredictionResponseUrls>(global::Soenneker.Replicate.OpenApiClient.Models.SchemasPredictionResponseUrls.CreateFromDiscriminatorValue); } },
-                { "version", n => { Version = n.GetObjectValue<global::Soenneker.Replicate.OpenApiClient.Models.SchemasPredictionResponse.SchemasPredictionResponse_version>(global::Soenneker.Replicate.OpenApiClient.Models.SchemasPredictionResponse.SchemasPredictionResponse_version.CreateFromDiscriminatorValue); } },
+                { "version", n => { Version = n.GetObjectValue<global::Soenneker.Replicate.OpenApiClient.Models.SchemasPredictionResponseVersion>(global::Soenneker.Replicate.OpenApiClient.Models.SchemasPredictionResponseVersion.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -166,68 +166,17 @@ namespace Soenneker.Replicate.OpenApiClient.Models
             writer.WriteStringValue("deployment", Deployment);
             writer.WriteStringValue("error", Error);
             writer.WriteStringValue("id", Id);
-            writer.WriteObjectValue<global::Soenneker.Replicate.OpenApiClient.Models.SchemasPredictionResponse_input>("input", Input);
+            writer.WriteObjectValue<global::Soenneker.Replicate.OpenApiClient.Models.SchemasPredictionResponseInputProperty>("input", Input);
             writer.WriteStringValue("logs", Logs);
             writer.WriteObjectValue<global::Soenneker.Replicate.OpenApiClient.Models.SchemasPredictionResponseMetrics>("metrics", Metrics);
             writer.WriteStringValue("model", Model);
-            writer.WriteObjectValue<global::Soenneker.Replicate.OpenApiClient.Models.SchemasPredictionResponse_output>("output", Output);
-            writer.WriteEnumValue<global::Soenneker.Replicate.OpenApiClient.Models.SchemasPredictionResponse_source>("source", Source);
+            writer.WriteObjectValue<global::Soenneker.Replicate.OpenApiClient.Models.SchemasPredictionResponseOutput>("output", Output);
+            writer.WriteEnumValue<global::Soenneker.Replicate.OpenApiClient.Models.SchemasPredictionResponseSource>("source", Source);
             writer.WriteDateTimeOffsetValue("started_at", StartedAt);
-            writer.WriteEnumValue<global::Soenneker.Replicate.OpenApiClient.Models.SchemasPredictionResponse_status>("status", Status);
+            writer.WriteEnumValue<global::Soenneker.Replicate.OpenApiClient.Models.SchemasPredictionResponseStatus>("status", Status);
             writer.WriteObjectValue<global::Soenneker.Replicate.OpenApiClient.Models.SchemasPredictionResponseUrls>("urls", Urls);
-            writer.WriteObjectValue<global::Soenneker.Replicate.OpenApiClient.Models.SchemasPredictionResponse.SchemasPredictionResponse_version>("version", Version);
+            writer.WriteObjectValue<global::Soenneker.Replicate.OpenApiClient.Models.SchemasPredictionResponseVersion>("version", Version);
             writer.WriteAdditionalData(AdditionalData);
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="string"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class SchemasPredictionResponse_version : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="string"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? String { get; set; }
-#nullable restore
-#else
-            public string String { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.Replicate.OpenApiClient.Models.SchemasPredictionResponse.SchemasPredictionResponse_version"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.Replicate.OpenApiClient.Models.SchemasPredictionResponse.SchemasPredictionResponse_version CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
-                var result = new global::Soenneker.Replicate.OpenApiClient.Models.SchemasPredictionResponse.SchemasPredictionResponse_version();
-                if(parseNode.GetStringValue() is string stringValue)
-                {
-                    result.String = stringValue;
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(String != null)
-                {
-                    writer.WriteStringValue(null, String);
-                }
-            }
         }
     }
 }

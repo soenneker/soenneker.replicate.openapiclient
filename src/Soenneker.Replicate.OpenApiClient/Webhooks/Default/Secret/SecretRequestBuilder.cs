@@ -36,20 +36,20 @@ namespace Soenneker.Replicate.OpenApiClient.Webhooks.Default.Secret
         /// <summary>
         /// &quot;Get the signing secret for the default webhook endpoint. This is used to verify that webhook requests are coming from Replicate.Example cURL request:```consolecurl -s \  -H \&quot;Authorization: Bearer $REPLICATE_API_TOKEN\&quot; \  https://api.replicate.com/v1/webhooks/default/secret```The response will be a JSON object with a `key` property:```json{  \&quot;key\&quot;: \&quot;...\&quot;}```&quot;
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Replicate.OpenApiClient.Models.WebhooksDefaultSecretGet200"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Replicate.OpenApiClient.Models.WebhooksDefaultSecretGet200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Replicate.OpenApiClient.Models.WebhooksDefaultSecretGet200?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Replicate.OpenApiClient.Models.WebhooksDefaultSecretGet200Response?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Replicate.OpenApiClient.Models.WebhooksDefaultSecretGet200> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Replicate.OpenApiClient.Models.WebhooksDefaultSecretGet200Response> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Replicate.OpenApiClient.Models.WebhooksDefaultSecretGet200>(requestInfo, global::Soenneker.Replicate.OpenApiClient.Models.WebhooksDefaultSecretGet200.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Replicate.OpenApiClient.Models.WebhooksDefaultSecretGet200Response>(requestInfo, global::Soenneker.Replicate.OpenApiClient.Models.WebhooksDefaultSecretGet200Response.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// &quot;Get the signing secret for the default webhook endpoint. This is used to verify that webhook requests are coming from Replicate.Example cURL request:```consolecurl -s \  -H \&quot;Authorization: Bearer $REPLICATE_API_TOKEN\&quot; \  https://api.replicate.com/v1/webhooks/default/secret```The response will be a JSON object with a `key` property:```json{  \&quot;key\&quot;: \&quot;...\&quot;}```&quot;

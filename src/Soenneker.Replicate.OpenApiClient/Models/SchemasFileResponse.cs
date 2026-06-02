@@ -46,10 +46,10 @@ namespace Soenneker.Replicate.OpenApiClient.Models
         /// <summary>Metadata provided by user when the file was created</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Replicate.OpenApiClient.Models.SchemasFileResponse_metadata? Metadata { get; set; }
+        public global::Soenneker.Replicate.OpenApiClient.Models.SchemasFileResponseMetadataProperty? Metadata { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Replicate.OpenApiClient.Models.SchemasFileResponse_metadata Metadata { get; set; }
+        public global::Soenneker.Replicate.OpenApiClient.Models.SchemasFileResponseMetadataProperty Metadata { get; set; }
 #endif
         /// <summary>The length of the file in bytes</summary>
         public int? Size { get; set; }
@@ -91,7 +91,7 @@ namespace Soenneker.Replicate.OpenApiClient.Models
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "expires_at", n => { ExpiresAt = n.GetDateTimeOffsetValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
-                { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.Replicate.OpenApiClient.Models.SchemasFileResponse_metadata>(global::Soenneker.Replicate.OpenApiClient.Models.SchemasFileResponse_metadata.CreateFromDiscriminatorValue); } },
+                { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.Replicate.OpenApiClient.Models.SchemasFileResponseMetadataProperty>(global::Soenneker.Replicate.OpenApiClient.Models.SchemasFileResponseMetadataProperty.CreateFromDiscriminatorValue); } },
                 { "size", n => { Size = n.GetIntValue(); } },
                 { "urls", n => { Urls = n.GetObjectValue<global::Soenneker.Replicate.OpenApiClient.Models.SchemasFileResponseUrls>(global::Soenneker.Replicate.OpenApiClient.Models.SchemasFileResponseUrls.CreateFromDiscriminatorValue); } },
             };
@@ -108,7 +108,7 @@ namespace Soenneker.Replicate.OpenApiClient.Models
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
             writer.WriteDateTimeOffsetValue("expires_at", ExpiresAt);
             writer.WriteStringValue("id", Id);
-            writer.WriteObjectValue<global::Soenneker.Replicate.OpenApiClient.Models.SchemasFileResponse_metadata>("metadata", Metadata);
+            writer.WriteObjectValue<global::Soenneker.Replicate.OpenApiClient.Models.SchemasFileResponseMetadataProperty>("metadata", Metadata);
             writer.WriteIntValue("size", Size);
             writer.WriteObjectValue<global::Soenneker.Replicate.OpenApiClient.Models.SchemasFileResponseUrls>("urls", Urls);
             writer.WriteAdditionalData(AdditionalData);

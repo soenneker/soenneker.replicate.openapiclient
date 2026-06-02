@@ -12,7 +12,7 @@ using System;
 namespace Soenneker.Replicate.OpenApiClient.ModelsRequests.Item.Item.Versions.Item.Trainings
 {
     /// <summary>
-    /// Builds and executes requests for operations under \models\{model_owner}\{model_name}\versions\{version_id}\trainings
+    /// Builds and executes requests for operations under \models\{modelOwner}\{modelName}\versions\{versionId}\trainings
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class TrainingsRequestBuilder : BaseRequestBuilder
@@ -22,7 +22,7 @@ namespace Soenneker.Replicate.OpenApiClient.ModelsRequests.Item.Item.Versions.It
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public TrainingsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/models/{model_owner}/{model_name}/versions/{version_id}/trainings", pathParameters)
+        public TrainingsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/models/{modelOwner}/{modelName}/versions/{versionId}/trainings", pathParameters)
         {
         }
         /// <summary>
@@ -30,7 +30,7 @@ namespace Soenneker.Replicate.OpenApiClient.ModelsRequests.Item.Item.Versions.It
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public TrainingsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/models/{model_owner}/{model_name}/versions/{version_id}/trainings", rawUrl)
+        public TrainingsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/models/{modelOwner}/{modelName}/versions/{versionId}/trainings", rawUrl)
         {
         }
         /// <summary>
