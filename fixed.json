@@ -3133,7 +3133,6 @@
         ],
         "type": "string",
         "additionalProperties": false,
-        "default": "latest_version_created_at",
         "x-ms-enum": {
           "name": "ModelsListSortByParameter",
           "modelAsString": false,
@@ -3156,7 +3155,6 @@
         ],
         "type": "string",
         "additionalProperties": false,
-        "default": "desc",
         "x-ms-enum": {
           "name": "ModelsListSortDirectionParameter",
           "modelAsString": false,
