@@ -25,10 +25,10 @@ namespace Soenneker.Replicate.OpenApiClient.Models
         /// <summary>The model&apos;s default example prediction</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Replicate.OpenApiClient.Models.SchemasModelResponseDefaultExample? DefaultExample { get; set; }
+        public global::Soenneker.Replicate.OpenApiClient.Models.SchemasModelResponseDefaultExampleProperty? DefaultExample { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Replicate.OpenApiClient.Models.SchemasModelResponseDefaultExample DefaultExample { get; set; }
+        public global::Soenneker.Replicate.OpenApiClient.Models.SchemasModelResponseDefaultExampleProperty DefaultExample { get; set; }
 #endif
         /// <summary>A description of the model</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -51,10 +51,10 @@ namespace Soenneker.Replicate.OpenApiClient.Models
         /// <summary>The model&apos;s latest version</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Replicate.OpenApiClient.Models.SchemasModelResponseLatestVersion? LatestVersion { get; set; }
+        public global::Soenneker.Replicate.OpenApiClient.Models.SchemasModelResponseLatestVersionProperty? LatestVersion { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Replicate.OpenApiClient.Models.SchemasModelResponseLatestVersion LatestVersion { get; set; }
+        public global::Soenneker.Replicate.OpenApiClient.Models.SchemasModelResponseLatestVersionProperty LatestVersion { get; set; }
 #endif
         /// <summary>A URL for the model&apos;s license</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -126,11 +126,11 @@ namespace Soenneker.Replicate.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "cover_image_url", n => { CoverImageUrl = n.GetStringValue(); } },
-                { "default_example", n => { DefaultExample = n.GetObjectValue<global::Soenneker.Replicate.OpenApiClient.Models.SchemasModelResponseDefaultExample>(global::Soenneker.Replicate.OpenApiClient.Models.SchemasModelResponseDefaultExample.CreateFromDiscriminatorValue); } },
+                { "default_example", n => { DefaultExample = n.GetObjectValue<global::Soenneker.Replicate.OpenApiClient.Models.SchemasModelResponseDefaultExampleProperty>(global::Soenneker.Replicate.OpenApiClient.Models.SchemasModelResponseDefaultExampleProperty.CreateFromDiscriminatorValue); } },
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "github_url", n => { GithubUrl = n.GetStringValue(); } },
                 { "is_official", n => { IsOfficial = n.GetBoolValue(); } },
-                { "latest_version", n => { LatestVersion = n.GetObjectValue<global::Soenneker.Replicate.OpenApiClient.Models.SchemasModelResponseLatestVersion>(global::Soenneker.Replicate.OpenApiClient.Models.SchemasModelResponseLatestVersion.CreateFromDiscriminatorValue); } },
+                { "latest_version", n => { LatestVersion = n.GetObjectValue<global::Soenneker.Replicate.OpenApiClient.Models.SchemasModelResponseLatestVersionProperty>(global::Soenneker.Replicate.OpenApiClient.Models.SchemasModelResponseLatestVersionProperty.CreateFromDiscriminatorValue); } },
                 { "license_url", n => { LicenseUrl = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "owner", n => { Owner = n.GetStringValue(); } },
@@ -148,11 +148,11 @@ namespace Soenneker.Replicate.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("cover_image_url", CoverImageUrl);
-            writer.WriteObjectValue<global::Soenneker.Replicate.OpenApiClient.Models.SchemasModelResponseDefaultExample>("default_example", DefaultExample);
+            writer.WriteObjectValue<global::Soenneker.Replicate.OpenApiClient.Models.SchemasModelResponseDefaultExampleProperty>("default_example", DefaultExample);
             writer.WriteStringValue("description", Description);
             writer.WriteStringValue("github_url", GithubUrl);
             writer.WriteBoolValue("is_official", IsOfficial);
-            writer.WriteObjectValue<global::Soenneker.Replicate.OpenApiClient.Models.SchemasModelResponseLatestVersion>("latest_version", LatestVersion);
+            writer.WriteObjectValue<global::Soenneker.Replicate.OpenApiClient.Models.SchemasModelResponseLatestVersionProperty>("latest_version", LatestVersion);
             writer.WriteStringValue("license_url", LicenseUrl);
             writer.WriteStringValue("name", Name);
             writer.WriteStringValue("owner", Owner);

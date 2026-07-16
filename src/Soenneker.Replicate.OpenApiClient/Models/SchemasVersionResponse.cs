@@ -35,10 +35,10 @@ namespace Soenneker.Replicate.OpenApiClient.Models
         /// <summary>The OpenAPI schema for the model&apos;s inputs and outputs</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Replicate.OpenApiClient.Models.SchemasVersionResponseOpenApiSchema? OpenapiSchema { get; set; }
+        public global::Soenneker.Replicate.OpenApiClient.Models.SchemasVersionResponseOpenApiSchemaProperty? OpenapiSchema { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Replicate.OpenApiClient.Models.SchemasVersionResponseOpenApiSchema OpenapiSchema { get; set; }
+        public global::Soenneker.Replicate.OpenApiClient.Models.SchemasVersionResponseOpenApiSchemaProperty OpenapiSchema { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Replicate.OpenApiClient.Models.SchemasVersionResponse"/> and sets the default values.
@@ -68,7 +68,7 @@ namespace Soenneker.Replicate.OpenApiClient.Models
                 { "cog_version", n => { CogVersion = n.GetStringValue(); } },
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
-                { "openapi_schema", n => { OpenapiSchema = n.GetObjectValue<global::Soenneker.Replicate.OpenApiClient.Models.SchemasVersionResponseOpenApiSchema>(global::Soenneker.Replicate.OpenApiClient.Models.SchemasVersionResponseOpenApiSchema.CreateFromDiscriminatorValue); } },
+                { "openapi_schema", n => { OpenapiSchema = n.GetObjectValue<global::Soenneker.Replicate.OpenApiClient.Models.SchemasVersionResponseOpenApiSchemaProperty>(global::Soenneker.Replicate.OpenApiClient.Models.SchemasVersionResponseOpenApiSchemaProperty.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -81,7 +81,7 @@ namespace Soenneker.Replicate.OpenApiClient.Models
             writer.WriteStringValue("cog_version", CogVersion);
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
             writer.WriteStringValue("id", Id);
-            writer.WriteObjectValue<global::Soenneker.Replicate.OpenApiClient.Models.SchemasVersionResponseOpenApiSchema>("openapi_schema", OpenapiSchema);
+            writer.WriteObjectValue<global::Soenneker.Replicate.OpenApiClient.Models.SchemasVersionResponseOpenApiSchemaProperty>("openapi_schema", OpenapiSchema);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

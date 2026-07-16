@@ -1448,7 +1448,9 @@
           "full_description": {
             "type": "string",
             "description": "The full description of the collection in markdown format",
-            "nullable": true
+            "unrecognizedKeywords": {
+              "nullable": true
+            }
           },
           "models": {
             "type": "array",
@@ -1542,34 +1544,42 @@
             "type": "string",
             "description": "A URL for the model\u0027s cover image",
             "format": "uri",
-            "nullable": true
+            "unrecognizedKeywords": {
+              "nullable": true
+            }
           },
           "default_example": {
-            "$ref": "#/components/schemas/SchemasModelResponseDefaultExample"
+            "$ref": "#/components/schemas/SchemasModelResponseDefaultExampleProperty"
           },
           "description": {
             "type": "string",
             "description": "A description of the model",
-            "nullable": true
+            "unrecognizedKeywords": {
+              "nullable": true
+            }
           },
           "github_url": {
             "type": "string",
             "description": "A URL for the model\u0027s source code on GitHub",
             "format": "uri",
-            "nullable": true
+            "unrecognizedKeywords": {
+              "nullable": true
+            }
           },
           "is_official": {
             "type": "boolean",
             "description": "Boolean indicating whether the model is officially maintained by Replicate. Official models are always on, have stable API interfaces, and predictable pricing."
           },
           "latest_version": {
-            "$ref": "#/components/schemas/SchemasModelResponseLatestVersion"
+            "$ref": "#/components/schemas/SchemasModelResponseLatestVersionProperty"
           },
           "license_url": {
             "type": "string",
             "description": "A URL for the model\u0027s license",
             "format": "uri",
-            "nullable": true
+            "unrecognizedKeywords": {
+              "nullable": true
+            }
           },
           "name": {
             "type": "string",
@@ -1583,7 +1593,9 @@
             "type": "string",
             "description": "A URL for the model\u0027s paper",
             "format": "uri",
-            "nullable": true
+            "unrecognizedKeywords": {
+              "nullable": true
+            }
           },
           "run_count": {
             "type": "integer",
@@ -1622,12 +1634,16 @@
           "next": {
             "type": "string",
             "description": "A URL pointing to the next page of collection objects, if any",
-            "nullable": true
+            "unrecognizedKeywords": {
+              "nullable": true
+            }
           },
           "previous": {
             "type": "string",
             "description": "A URL pointing to the previous page of collection objects, if any",
-            "nullable": true
+            "unrecognizedKeywords": {
+              "nullable": true
+            }
           },
           "results": {
             "type": "array",
@@ -1644,12 +1660,16 @@
           "next": {
             "type": "string",
             "description": "A URL pointing to the next page of model objects, if any",
-            "nullable": true
+            "unrecognizedKeywords": {
+              "nullable": true
+            }
           },
           "previous": {
             "type": "string",
             "description": "A URL pointing to the previous page of model objects, if any",
-            "nullable": true
+            "unrecognizedKeywords": {
+              "nullable": true
+            }
           },
           "results": {
             "type": "array",
@@ -1666,12 +1686,16 @@
           "next": {
             "type": "string",
             "description": "A URL pointing to the next page of prediction objects, if any",
-            "nullable": true
+            "unrecognizedKeywords": {
+              "nullable": true
+            }
           },
           "previous": {
             "type": "string",
             "description": "A URL pointing to the previous page of prediction objects, if any",
-            "nullable": true
+            "unrecognizedKeywords": {
+              "nullable": true
+            }
           },
           "results": {
             "type": "array",
@@ -1688,12 +1712,16 @@
           "next": {
             "type": "string",
             "description": "A URL pointing to the next page of version objects, if any",
-            "nullable": true
+            "unrecognizedKeywords": {
+              "nullable": true
+            }
           },
           "previous": {
             "type": "string",
             "description": "A URL pointing to the previous page of version objects, if any",
-            "nullable": true
+            "unrecognizedKeywords": {
+              "nullable": true
+            }
           },
           "results": {
             "type": "array",
@@ -1773,7 +1801,9 @@
           "error": {
             "type": "string",
             "description": "An error string if the model status is \u0060\u0022failed\u0022\u0060",
-            "nullable": true
+            "unrecognizedKeywords": {
+              "nullable": true
+            }
           },
           "id": {
             "type": "string"
@@ -1833,7 +1863,9 @@
               "description": "Model name in owner/name format"
             },
             "description": "Array of model names in the collection",
-            "nullable": true
+            "unrecognizedKeywords": {
+              "nullable": true
+            }
           },
           "name": {
             "type": "string",
@@ -1851,12 +1883,16 @@
           "generated_description": {
             "type": "string",
             "description": "AI-generated detailed description of the model",
-            "nullable": true
+            "unrecognizedKeywords": {
+              "nullable": true
+            }
           },
           "score": {
             "type": "number",
             "description": "Search relevance score",
-            "nullable": true
+            "unrecognizedKeywords": {
+              "nullable": true
+            }
           },
           "tags": {
             "type": "array",
@@ -1946,7 +1982,9 @@
           "error": {
             "type": "string",
             "description": "Error message if the training failed",
-            "nullable": true
+            "unrecognizedKeywords": {
+              "nullable": true
+            }
           },
           "id": {
             "type": "string",
@@ -2029,7 +2067,9 @@
           "cog_version": {
             "type": "string",
             "description": "The version of Cog used to create this version",
-            "nullable": true
+            "unrecognizedKeywords": {
+              "nullable": true
+            }
           },
           "created_at": {
             "type": "string",
@@ -2041,7 +2081,7 @@
             "description": "The ID of the version"
           },
           "openapi_schema": {
-            "$ref": "#/components/schemas/SchemasVersionResponseOpenApiSchema"
+            "$ref": "#/components/schemas/SchemasVersionResponseOpenApiSchemaProperty"
           }
         }
       },
@@ -2117,12 +2157,16 @@
       "SchemasModelResponseDefaultExample": {
         "type": "object",
         "description": "The model\u0027s default example prediction",
-        "nullable": true
+        "unrecognizedKeywords": {
+          "nullable": true
+        }
       },
       "SchemasModelResponseLatestVersion": {
         "type": "object",
         "description": "The model\u0027s latest version",
-        "nullable": true
+        "unrecognizedKeywords": {
+          "nullable": true
+        }
       },
       "SchemasPredictionRequestInput": {
         "type": "object",
@@ -2254,7 +2298,9 @@
       "SchemasVersionResponseOpenApiSchema": {
         "type": "object",
         "description": "The OpenAPI schema for the model\u0027s inputs and outputs",
-        "nullable": true
+        "unrecognizedKeywords": {
+          "nullable": true
+        }
       },
       "SchemasDeploymentResponseCurrentReleaseConfiguration": {
         "type": "object",
@@ -2621,12 +2667,16 @@
           "next": {
             "type": "string",
             "description": "A URL pointing to the next page of deployment objects if any",
-            "nullable": true
+            "unrecognizedKeywords": {
+              "nullable": true
+            }
           },
           "previous": {
             "type": "string",
             "description": "A URL pointing to the previous page of deployment objects if any",
-            "nullable": true
+            "unrecognizedKeywords": {
+              "nullable": true
+            }
           },
           "results": {
             "type": "array",
@@ -2648,12 +2698,16 @@
           "next": {
             "type": "string",
             "format": "uri",
-            "nullable": true
+            "unrecognizedKeywords": {
+              "nullable": true
+            }
           },
           "previous": {
             "type": "string",
             "format": "uri",
-            "nullable": true
+            "unrecognizedKeywords": {
+              "nullable": true
+            }
           },
           "results": {
             "type": "array",
@@ -2693,12 +2747,16 @@
           "next": {
             "type": "string",
             "format": "uri",
-            "nullable": true
+            "unrecognizedKeywords": {
+              "nullable": true
+            }
           },
           "previous": {
             "type": "string",
             "format": "uri",
-            "nullable": true
+            "unrecognizedKeywords": {
+              "nullable": true
+            }
           },
           "results": {
             "type": "array",
@@ -2714,12 +2772,16 @@
           "next": {
             "type": "string",
             "description": "URL to the next page of results",
-            "nullable": true
+            "unrecognizedKeywords": {
+              "nullable": true
+            }
           },
           "previous": {
             "type": "string",
             "description": "URL to the previous page of results",
-            "nullable": true
+            "unrecognizedKeywords": {
+              "nullable": true
+            }
           },
           "results": {
             "type": "array",
@@ -2732,6 +2794,14 @@
       "SchemasFileResponseMetadataProperty": {
         "type": "object",
         "description": "Metadata provided by user when the file was created"
+      },
+      "SchemasModelResponseDefaultExampleProperty": {
+        "type": "object",
+        "description": "The model\u0027s default example prediction"
+      },
+      "SchemasModelResponseLatestVersionProperty": {
+        "type": "object",
+        "description": "The model\u0027s latest version"
       },
       "SchemasPredictionRequestInputProperty": {
         "type": "object",
@@ -2756,6 +2826,10 @@
       "SchemasVersionPredictionRequestInputProperty": {
         "type": "object",
         "description": "The model\u0027s input as a JSON object. The input schema depends on what model you are running. To see the available inputs, click the \u0022API\u0022 tab on the model you are running or [get the model version](#models.versions.get) and look at its \u0060openapi_schema\u0060 property. For example, [stability-ai/sdxl](https://replicate.com/stability-ai/sdxl) takes \u0060prompt\u0060 as an input.\n\nFiles should be passed as HTTP URLs or data URLs.\n\nUse an HTTP URL when:\n\n- you have a large file \u003E 256kb\n- you want to be able to use the file multiple times\n- you want your prediction metadata to be associable with your input files\n\nUse a data URL when:\n\n- you have a small file \u003C= 256kb\n- you don\u0027t want to upload and host the file somewhere\n- you don\u0027t need to use the file again (Replicate will not store it)\n"
+      },
+      "SchemasVersionResponseOpenApiSchemaProperty": {
+        "type": "object",
+        "description": "The OpenAPI schema for the model\u0027s inputs and outputs"
       },
       "FilesCreateFormDataRequestMetadata": {
         "type": "object",
