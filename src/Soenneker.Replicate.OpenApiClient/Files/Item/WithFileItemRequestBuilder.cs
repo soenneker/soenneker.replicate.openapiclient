@@ -45,7 +45,7 @@ namespace Soenneker.Replicate.OpenApiClient.Files.Item
         /// <returns>A <see cref="Stream"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Replicate.OpenApiClient.Models.FilesDelete404Response">When receiving a 404 status code</exception>
+        /// <exception cref="global::Soenneker.Replicate.OpenApiClient.Models.FilesDelete404ProblemJsonResponse">When receiving a 404 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<Stream?> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -58,7 +58,7 @@ namespace Soenneker.Replicate.OpenApiClient.Files.Item
             var requestInfo = ToDeleteRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "404", global::Soenneker.Replicate.OpenApiClient.Models.FilesDelete404Response.CreateFromDiscriminatorValue },
+                { "404", global::Soenneker.Replicate.OpenApiClient.Models.FilesDelete404ProblemJsonResponse.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendPrimitiveAsync<Stream>(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
         }
@@ -68,7 +68,7 @@ namespace Soenneker.Replicate.OpenApiClient.Files.Item
         /// <returns>A <see cref="global::Soenneker.Replicate.OpenApiClient.Models.SchemasFileResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Replicate.OpenApiClient.Models.FilesGet404Response">When receiving a 404 status code</exception>
+        /// <exception cref="global::Soenneker.Replicate.OpenApiClient.Models.FilesGet404ProblemJsonResponse">When receiving a 404 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.Replicate.OpenApiClient.Models.SchemasFileResponse?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -81,7 +81,7 @@ namespace Soenneker.Replicate.OpenApiClient.Files.Item
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "404", global::Soenneker.Replicate.OpenApiClient.Models.FilesGet404Response.CreateFromDiscriminatorValue },
+                { "404", global::Soenneker.Replicate.OpenApiClient.Models.FilesGet404ProblemJsonResponse.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Replicate.OpenApiClient.Models.SchemasFileResponse>(requestInfo, global::Soenneker.Replicate.OpenApiClient.Models.SchemasFileResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

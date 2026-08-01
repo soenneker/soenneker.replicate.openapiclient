@@ -159,7 +159,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/DefaultResponse"
+                  "$ref": "#/components/schemas/DeploymentsDelete204Response"
                 }
               }
             }
@@ -361,7 +361,7 @@
             "content": {
               "application/problem\u002Bjson": {
                 "schema": {
-                  "$ref": "#/components/schemas/FilesCreate413Response"
+                  "$ref": "#/components/schemas/FilesCreate413ProblemJsonResponse"
                 }
               }
             }
@@ -391,7 +391,7 @@
             "content": {
               "application/problem\u002Bjson": {
                 "schema": {
-                  "$ref": "#/components/schemas/FilesDelete404Response"
+                  "$ref": "#/components/schemas/FilesDelete404ProblemJsonResponse"
                 }
               }
             }
@@ -429,7 +429,7 @@
             "content": {
               "application/problem\u002Bjson": {
                 "schema": {
-                  "$ref": "#/components/schemas/FilesGet404Response"
+                  "$ref": "#/components/schemas/FilesGet404ProblemJsonResponse"
                 }
               }
             }
@@ -487,7 +487,7 @@
             "content": {
               "application/octet-stream": {
                 "schema": {
-                  "$ref": "#/components/schemas/FilesDownload200ResponseResponseOctetStream"
+                  "$ref": "#/components/schemas/FilesDownload200OctetStreamResponseSchema"
                 }
               }
             }
@@ -497,7 +497,7 @@
             "content": {
               "application/problem\u002Bjson": {
                 "schema": {
-                  "$ref": "#/components/schemas/FilesDownload404Response"
+                  "$ref": "#/components/schemas/FilesDownload404ProblemJsonResponse"
                 }
               }
             }
@@ -516,7 +516,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/HardwareList200ResponseResponseJson"
+                  "$ref": "#/components/schemas/HardwareList200ResponseSchema"
                 }
               }
             }
@@ -618,7 +618,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/DefaultResponseResponseJson"
+                  "$ref": "#/components/schemas/ModelsDelete204Response"
                 }
               }
             }
@@ -843,7 +843,7 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/ModelsReadmeGet200ResponseResponsePlain"
+                  "$ref": "#/components/schemas/ModelsReadmeGet200PlainResponseSchema"
                 }
               }
             }
@@ -930,7 +930,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/DefaultResponseResponseJson2"
+                  "$ref": "#/components/schemas/ModelsVersionsDelete204Response"
                 }
               }
             }
@@ -2471,7 +2471,7 @@
           }
         }
       },
-      "FilesCreate413Response": {
+      "FilesCreate413ProblemJsonResponse": {
         "type": "object",
         "properties": {
           "detail": {
@@ -2480,7 +2480,7 @@
           }
         }
       },
-      "FilesDelete404Response": {
+      "FilesDelete404ProblemJsonResponse": {
         "type": "object",
         "properties": {
           "detail": {
@@ -2489,7 +2489,7 @@
           }
         }
       },
-      "FilesGet404Response": {
+      "FilesGet404ProblemJsonResponse": {
         "type": "object",
         "properties": {
           "detail": {
@@ -2498,11 +2498,11 @@
           }
         }
       },
-      "FilesDownload200Response": {
+      "FilesDownload200OctetStreamResponse": {
         "type": "string",
         "format": "binary"
       },
-      "FilesDownload404Response": {
+      "FilesDownload404ProblemJsonResponse": {
         "type": "object",
         "properties": {
           "detail": {
@@ -2603,7 +2603,7 @@
           }
         }
       },
-      "ModelsReadmeGet200Response": {
+      "ModelsReadmeGet200PlainResponse": {
         "type": "string",
         "description": "The README content in Markdown format"
       },
@@ -2687,7 +2687,7 @@
           }
         }
       },
-      "DefaultResponse": {
+      "DeploymentsDelete204Response": {
         "title": "DefaultResponse",
         "type": "object",
         "description": "Default response schema"
@@ -2717,26 +2717,26 @@
           }
         }
       },
-      "FilesDownload200ResponseResponseOctetStream": {
+      "FilesDownload200OctetStreamResponseSchema": {
         "type": "string",
         "format": "binary"
       },
-      "HardwareList200ResponseResponseJson": {
+      "HardwareList200ResponseSchema": {
         "type": "array",
         "items": {
-          "$ref": "#/components/schemas/HardwareList200ResponseResponseJsonItem"
+          "$ref": "#/components/schemas/HardwareList200ResponseSchemaItem"
         }
       },
-      "DefaultResponseResponseJson": {
+      "ModelsDelete204Response": {
         "title": "DefaultResponse",
         "type": "object",
         "description": "Default response schema"
       },
-      "ModelsReadmeGet200ResponseResponsePlain": {
+      "ModelsReadmeGet200PlainResponseSchema": {
         "type": "string",
         "description": "The README content in Markdown format"
       },
-      "DefaultResponseResponseJson2": {
+      "ModelsVersionsDelete204Response": {
         "title": "DefaultResponse",
         "type": "object",
         "description": "Default response schema"
@@ -2848,7 +2848,7 @@
           }
         }
       },
-      "HardwareList200ResponseResponseJsonItem": {
+      "HardwareList200ResponseSchemaItem": {
         "type": "object",
         "properties": {
           "name": {

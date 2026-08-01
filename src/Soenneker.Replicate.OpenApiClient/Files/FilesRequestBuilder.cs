@@ -71,7 +71,7 @@ namespace Soenneker.Replicate.OpenApiClient.Files
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Replicate.OpenApiClient.Models.FilesCreate413Response">When receiving a 413 status code</exception>
+        /// <exception cref="global::Soenneker.Replicate.OpenApiClient.Models.FilesCreate413ProblemJsonResponse">When receiving a 413 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.Replicate.OpenApiClient.Models.SchemasFileResponse?> PostAsync(MultipartBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -85,7 +85,7 @@ namespace Soenneker.Replicate.OpenApiClient.Files
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "413", global::Soenneker.Replicate.OpenApiClient.Models.FilesCreate413Response.CreateFromDiscriminatorValue },
+                { "413", global::Soenneker.Replicate.OpenApiClient.Models.FilesCreate413ProblemJsonResponse.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Replicate.OpenApiClient.Models.SchemasFileResponse>(requestInfo, global::Soenneker.Replicate.OpenApiClient.Models.SchemasFileResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
