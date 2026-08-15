@@ -11,26 +11,26 @@ namespace Soenneker.Replicate.OpenApiClient.Models
     /// The model&apos;s latest version
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class SchemasModelResponseLatestVersion : IAdditionalDataHolder, IParsable
+    public partial class SchemasModelResponseLatestVersionProperty : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Replicate.OpenApiClient.Models.SchemasModelResponseLatestVersion"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Replicate.OpenApiClient.Models.SchemasModelResponseLatestVersionProperty"/> and sets the default values.
         /// </summary>
-        public SchemasModelResponseLatestVersion()
+        public SchemasModelResponseLatestVersionProperty()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Replicate.OpenApiClient.Models.SchemasModelResponseLatestVersion"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Replicate.OpenApiClient.Models.SchemasModelResponseLatestVersionProperty"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Replicate.OpenApiClient.Models.SchemasModelResponseLatestVersion CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Replicate.OpenApiClient.Models.SchemasModelResponseLatestVersionProperty CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Replicate.OpenApiClient.Models.SchemasModelResponseLatestVersion();
+            return new global::Soenneker.Replicate.OpenApiClient.Models.SchemasModelResponseLatestVersionProperty();
         }
         /// <summary>
         /// The deserialization information for the current model
