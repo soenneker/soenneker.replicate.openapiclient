@@ -34,7 +34,7 @@ namespace Soenneker.Replicate.OpenApiClient.Account
         {
         }
         /// <summary>
-        /// &quot;Returns information about the user or organization associated with the provided API token.Example cURL request:```consolecurl -s \  -H \&quot;Authorization: Bearer $REPLICATE_API_TOKEN\&quot; \  https://api.replicate.com/v1/account```The response will be a JSON object describing the account:```json{  \&quot;type\&quot;: \&quot;organization\&quot;,  \&quot;username\&quot;: \&quot;acme\&quot;,  \&quot;name\&quot;: \&quot;Acme Corp, Inc.\&quot;,  \&quot;github_url\&quot;: \&quot;https://github.com/acme\&quot;,}```&quot;
+        /// Returns information about the user or organization associated with the provided API token.Example cURL request:```consolecurl -s \  -H &quot;Authorization: Bearer $REPLICATE_API_TOKEN&quot; \  https://api.replicate.com/v1/account```The response will be a JSON object describing the account:```json{  &quot;type&quot;: &quot;organization&quot;,  &quot;username&quot;: &quot;acme&quot;,  &quot;name&quot;: &quot;Acme Corp, Inc.&quot;,  &quot;github_url&quot;: &quot;https://github.com/acme&quot;,}```
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Replicate.OpenApiClient.Models.AccountGet200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -52,7 +52,7 @@ namespace Soenneker.Replicate.OpenApiClient.Account
             return await RequestAdapter.SendAsync<global::Soenneker.Replicate.OpenApiClient.Models.AccountGet200Response>(requestInfo, global::Soenneker.Replicate.OpenApiClient.Models.AccountGet200Response.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;Returns information about the user or organization associated with the provided API token.Example cURL request:```consolecurl -s \  -H \&quot;Authorization: Bearer $REPLICATE_API_TOKEN\&quot; \  https://api.replicate.com/v1/account```The response will be a JSON object describing the account:```json{  \&quot;type\&quot;: \&quot;organization\&quot;,  \&quot;username\&quot;: \&quot;acme\&quot;,  \&quot;name\&quot;: \&quot;Acme Corp, Inc.\&quot;,  \&quot;github_url\&quot;: \&quot;https://github.com/acme\&quot;,}```&quot;
+        /// Returns information about the user or organization associated with the provided API token.Example cURL request:```consolecurl -s \  -H &quot;Authorization: Bearer $REPLICATE_API_TOKEN&quot; \  https://api.replicate.com/v1/account```The response will be a JSON object describing the account:```json{  &quot;type&quot;: &quot;organization&quot;,  &quot;username&quot;: &quot;acme&quot;,  &quot;name&quot;: &quot;Acme Corp, Inc.&quot;,  &quot;github_url&quot;: &quot;https://github.com/acme&quot;,}```
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

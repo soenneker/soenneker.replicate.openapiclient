@@ -34,7 +34,7 @@ namespace Soenneker.Replicate.OpenApiClient.Webhooks.Default.Secret
         {
         }
         /// <summary>
-        /// &quot;Get the signing secret for the default webhook endpoint. This is used to verify that webhook requests are coming from Replicate.Example cURL request:```consolecurl -s \  -H \&quot;Authorization: Bearer $REPLICATE_API_TOKEN\&quot; \  https://api.replicate.com/v1/webhooks/default/secret```The response will be a JSON object with a `key` property:```json{  \&quot;key\&quot;: \&quot;...\&quot;}```&quot;
+        /// Get the signing secret for the default webhook endpoint. This is used to verify that webhook requests are coming from Replicate.Example cURL request:```consolecurl -s \  -H &quot;Authorization: Bearer $REPLICATE_API_TOKEN&quot; \  https://api.replicate.com/v1/webhooks/default/secret```The response will be a JSON object with a `key` property:```json{  &quot;key&quot;: &quot;...&quot;}```
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Replicate.OpenApiClient.Models.WebhooksDefaultSecretGet200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -52,7 +52,7 @@ namespace Soenneker.Replicate.OpenApiClient.Webhooks.Default.Secret
             return await RequestAdapter.SendAsync<global::Soenneker.Replicate.OpenApiClient.Models.WebhooksDefaultSecretGet200Response>(requestInfo, global::Soenneker.Replicate.OpenApiClient.Models.WebhooksDefaultSecretGet200Response.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;Get the signing secret for the default webhook endpoint. This is used to verify that webhook requests are coming from Replicate.Example cURL request:```consolecurl -s \  -H \&quot;Authorization: Bearer $REPLICATE_API_TOKEN\&quot; \  https://api.replicate.com/v1/webhooks/default/secret```The response will be a JSON object with a `key` property:```json{  \&quot;key\&quot;: \&quot;...\&quot;}```&quot;
+        /// Get the signing secret for the default webhook endpoint. This is used to verify that webhook requests are coming from Replicate.Example cURL request:```consolecurl -s \  -H &quot;Authorization: Bearer $REPLICATE_API_TOKEN&quot; \  https://api.replicate.com/v1/webhooks/default/secret```The response will be a JSON object with a `key` property:```json{  &quot;key&quot;: &quot;...&quot;}```
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

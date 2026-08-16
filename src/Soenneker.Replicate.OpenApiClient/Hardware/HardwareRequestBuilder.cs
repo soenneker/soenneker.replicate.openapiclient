@@ -34,7 +34,7 @@ namespace Soenneker.Replicate.OpenApiClient.Hardware
         {
         }
         /// <summary>
-        /// &quot;Example cURL request:```consolecurl -s \  -H \&quot;Authorization: Bearer $REPLICATE_API_TOKEN\&quot; \  https://api.replicate.com/v1/hardware```The response will be a JSON array of hardware objects:```json[    {\&quot;name\&quot;: \&quot;CPU\&quot;, \&quot;sku\&quot;: \&quot;cpu\&quot;},    {\&quot;name\&quot;: \&quot;Nvidia T4 GPU\&quot;, \&quot;sku\&quot;: \&quot;gpu-t4\&quot;},    {\&quot;name\&quot;: \&quot;Nvidia A40 GPU\&quot;, \&quot;sku\&quot;: \&quot;gpu-a40-small\&quot;},    {\&quot;name\&quot;: \&quot;Nvidia A40 (Large) GPU\&quot;, \&quot;sku\&quot;: \&quot;gpu-a40-large\&quot;},]```&quot;
+        /// Example cURL request:```consolecurl -s \  -H &quot;Authorization: Bearer $REPLICATE_API_TOKEN&quot; \  https://api.replicate.com/v1/hardware```The response will be a JSON array of hardware objects:```json[    {&quot;name&quot;: &quot;CPU&quot;, &quot;sku&quot;: &quot;cpu&quot;},    {&quot;name&quot;: &quot;Nvidia T4 GPU&quot;, &quot;sku&quot;: &quot;gpu-t4&quot;},    {&quot;name&quot;: &quot;Nvidia A40 GPU&quot;, &quot;sku&quot;: &quot;gpu-a40-small&quot;},    {&quot;name&quot;: &quot;Nvidia A40 (Large) GPU&quot;, &quot;sku&quot;: &quot;gpu-a40-large&quot;},]```
         /// </summary>
         /// <returns>A List&lt;global::Soenneker.Replicate.OpenApiClient.Models.HardwareList200ResponseSchemaItem&gt;</returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -53,7 +53,7 @@ namespace Soenneker.Replicate.OpenApiClient.Hardware
             return collectionResult?.AsList();
         }
         /// <summary>
-        /// &quot;Example cURL request:```consolecurl -s \  -H \&quot;Authorization: Bearer $REPLICATE_API_TOKEN\&quot; \  https://api.replicate.com/v1/hardware```The response will be a JSON array of hardware objects:```json[    {\&quot;name\&quot;: \&quot;CPU\&quot;, \&quot;sku\&quot;: \&quot;cpu\&quot;},    {\&quot;name\&quot;: \&quot;Nvidia T4 GPU\&quot;, \&quot;sku\&quot;: \&quot;gpu-t4\&quot;},    {\&quot;name\&quot;: \&quot;Nvidia A40 GPU\&quot;, \&quot;sku\&quot;: \&quot;gpu-a40-small\&quot;},    {\&quot;name\&quot;: \&quot;Nvidia A40 (Large) GPU\&quot;, \&quot;sku\&quot;: \&quot;gpu-a40-large\&quot;},]```&quot;
+        /// Example cURL request:```consolecurl -s \  -H &quot;Authorization: Bearer $REPLICATE_API_TOKEN&quot; \  https://api.replicate.com/v1/hardware```The response will be a JSON array of hardware objects:```json[    {&quot;name&quot;: &quot;CPU&quot;, &quot;sku&quot;: &quot;cpu&quot;},    {&quot;name&quot;: &quot;Nvidia T4 GPU&quot;, &quot;sku&quot;: &quot;gpu-t4&quot;},    {&quot;name&quot;: &quot;Nvidia A40 GPU&quot;, &quot;sku&quot;: &quot;gpu-a40-small&quot;},    {&quot;name&quot;: &quot;Nvidia A40 (Large) GPU&quot;, &quot;sku&quot;: &quot;gpu-a40-large&quot;},]```
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

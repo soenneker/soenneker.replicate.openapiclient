@@ -15,7 +15,7 @@ namespace Soenneker.Replicate.OpenApiClient.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The model does not support versions, used by official models.</summary>
-        public global::Soenneker.Replicate.OpenApiClient.Models.SchemasPredictionResponseVersionWrapperValue? Value { get; set; }
+        public global::Soenneker.Replicate.OpenApiClient.Models.HiddenValue? Value { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Replicate.OpenApiClient.Models.SchemasPredictionResponseVersionWrapper"/> and sets the default values.
         /// </summary>
@@ -41,7 +41,7 @@ namespace Soenneker.Replicate.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "value", n => { Value = n.GetEnumValue<global::Soenneker.Replicate.OpenApiClient.Models.SchemasPredictionResponseVersionWrapperValue>(); } },
+                { "value", n => { Value = n.GetEnumValue<global::Soenneker.Replicate.OpenApiClient.Models.HiddenValue>(); } },
             };
         }
         /// <summary>
@@ -51,7 +51,7 @@ namespace Soenneker.Replicate.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.Replicate.OpenApiClient.Models.SchemasPredictionResponseVersionWrapperValue>("value", Value);
+            writer.WriteEnumValue<global::Soenneker.Replicate.OpenApiClient.Models.HiddenValue>("value", Value);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

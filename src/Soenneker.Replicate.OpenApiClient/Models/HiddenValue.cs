@@ -3,14 +3,13 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.Replicate.OpenApiClient.Models
 {
+    /// <summary>The model does not support versions, used by official models.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    #pragma warning disable CS1591
-    public enum PredictionsListSourceParameter
-    #pragma warning restore CS1591
+    public enum HiddenValue
     {
-        [EnumMember(Value = "web")]
+        [EnumMember(Value = "hidden")]
         #pragma warning disable CS1591
-        Web,
+        Hidden,
         #pragma warning restore CS1591
     }
 }
