@@ -326,7 +326,8 @@
               }
             }
           }
-        }
+        },
+        "x-feature-flag": "show-files-api-docs"
       },
       "post": {
         "summary": "Create a file",
@@ -362,7 +363,8 @@
               }
             }
           }
-        }
+        },
+        "x-feature-flag": "show-files-api-docs"
       }
     },
     "/files/{fileId}": {
@@ -395,7 +397,8 @@
               }
             }
           }
-        }
+        },
+        "x-feature-flag": "show-files-api-docs"
       },
       "get": {
         "summary": "Get a file",
@@ -433,7 +436,8 @@
               }
             }
           }
-        }
+        },
+        "x-feature-flag": "show-files-api-docs"
       }
     },
     "/files/{fileId}/download": {
@@ -501,7 +505,8 @@
               }
             }
           }
-        }
+        },
+        "x-feature-flag": "show-files-api-docs"
       }
     },
     "/hardware": {
