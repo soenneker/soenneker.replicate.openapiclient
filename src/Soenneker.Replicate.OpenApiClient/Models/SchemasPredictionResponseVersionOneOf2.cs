@@ -5,7 +5,7 @@ namespace Soenneker.Replicate.OpenApiClient.Models
 {
     /// <summary>The model does not support versions, used by official models.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public enum HiddenValue
+    public enum SchemasPredictionResponseVersionOneOf2
     {
         [EnumMember(Value = "hidden")]
         #pragma warning disable CS1591

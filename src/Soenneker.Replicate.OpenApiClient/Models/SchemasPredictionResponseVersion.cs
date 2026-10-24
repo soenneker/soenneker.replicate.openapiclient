@@ -8,26 +8,20 @@ using System;
 namespace Soenneker.Replicate.OpenApiClient.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Soenneker.Replicate.OpenApiClient.Models.SchemasPredictionResponseVersionBranch1"/>, <see cref="global::Soenneker.Replicate.OpenApiClient.Models.SchemasPredictionResponseVersionWrapper"/>
+    /// Composed type wrapper for classes <see cref="global::Soenneker.Replicate.OpenApiClient.Models.SchemasPredictionResponseVersionOneOf2"/>, <see cref="string"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class SchemasPredictionResponseVersion : IComposedTypeWrapper, IParsable
     {
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.Replicate.OpenApiClient.Models.SchemasPredictionResponseVersionBranch1"/></summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Replicate.OpenApiClient.Models.SchemasPredictionResponseVersionOneOf2"/></summary>
+        public global::Soenneker.Replicate.OpenApiClient.Models.SchemasPredictionResponseVersionOneOf2? SchemasPredictionResponseVersionOneOf2 { get; set; }
+        /// <summary>Composed type representation for type <see cref="string"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Replicate.OpenApiClient.Models.SchemasPredictionResponseVersionBranch1? SchemasPredictionResponseVersionBranch1 { get; set; }
+        public string? String { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Replicate.OpenApiClient.Models.SchemasPredictionResponseVersionBranch1 SchemasPredictionResponseVersionBranch1 { get; set; }
-#endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.Replicate.OpenApiClient.Models.SchemasPredictionResponseVersionWrapper"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.Replicate.OpenApiClient.Models.SchemasPredictionResponseVersionWrapper? SchemasPredictionResponseVersionWrapper { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.Replicate.OpenApiClient.Models.SchemasPredictionResponseVersionWrapper SchemasPredictionResponseVersionWrapper { get; set; }
+        public string String { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -39,13 +33,13 @@ namespace Soenneker.Replicate.OpenApiClient.Models
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
             var result = new global::Soenneker.Replicate.OpenApiClient.Models.SchemasPredictionResponseVersion();
-            if("SchemasPredictionResponseVersionBranch1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if(parseNode.GetEnumValue<global::Soenneker.Replicate.OpenApiClient.Models.SchemasPredictionResponseVersionOneOf2>() is global::Soenneker.Replicate.OpenApiClient.Models.SchemasPredictionResponseVersionOneOf2 schemasPredictionResponseVersionOneOf2Value)
             {
-                result.SchemasPredictionResponseVersionBranch1 = new global::Soenneker.Replicate.OpenApiClient.Models.SchemasPredictionResponseVersionBranch1();
+                result.SchemasPredictionResponseVersionOneOf2 = schemasPredictionResponseVersionOneOf2Value;
             }
-            else if("SchemasPredictionResponseVersionWrapper".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if(parseNode.GetStringValue() is string stringValue)
             {
-                result.SchemasPredictionResponseVersionWrapper = new global::Soenneker.Replicate.OpenApiClient.Models.SchemasPredictionResponseVersionWrapper();
+                result.String = stringValue;
             }
             return result;
         }
@@ -55,14 +49,6 @@ namespace Soenneker.Replicate.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            if(SchemasPredictionResponseVersionBranch1 != null)
-            {
-                return SchemasPredictionResponseVersionBranch1.GetFieldDeserializers();
-            }
-            else if(SchemasPredictionResponseVersionWrapper != null)
-            {
-                return SchemasPredictionResponseVersionWrapper.GetFieldDeserializers();
-            }
             return new Dictionary<string, Action<IParseNode>>();
         }
         /// <summary>
@@ -72,13 +58,13 @@ namespace Soenneker.Replicate.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            if(SchemasPredictionResponseVersionBranch1 != null)
+            if(SchemasPredictionResponseVersionOneOf2 != null)
             {
-                writer.WriteObjectValue<global::Soenneker.Replicate.OpenApiClient.Models.SchemasPredictionResponseVersionBranch1>(null, SchemasPredictionResponseVersionBranch1);
+                writer.WriteEnumValue<global::Soenneker.Replicate.OpenApiClient.Models.SchemasPredictionResponseVersionOneOf2>(null, SchemasPredictionResponseVersionOneOf2);
             }
-            else if(SchemasPredictionResponseVersionWrapper != null)
+            else if(String != null)
             {
-                writer.WriteObjectValue<global::Soenneker.Replicate.OpenApiClient.Models.SchemasPredictionResponseVersionWrapper>(null, SchemasPredictionResponseVersionWrapper);
+                writer.WriteStringValue(null, String);
             }
         }
     }

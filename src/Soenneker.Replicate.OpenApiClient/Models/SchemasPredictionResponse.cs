@@ -81,10 +81,10 @@ namespace Soenneker.Replicate.OpenApiClient.Models
         /// <summary>The prediction output, which can be any JSON-serializable value, depending on the model</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Replicate.OpenApiClient.Models.SchemasPredictionResponseOutput? Output { get; set; }
+        public UntypedNode? Output { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Replicate.OpenApiClient.Models.SchemasPredictionResponseOutput Output { get; set; }
+        public UntypedNode Output { get; set; }
 #endif
         /// <summary>Indicates how the prediction was created</summary>
         public global::Soenneker.Replicate.OpenApiClient.Models.SchemasPredictionResponseSource? Source { get; set; }
@@ -144,7 +144,7 @@ namespace Soenneker.Replicate.OpenApiClient.Models
                 { "logs", n => { Logs = n.GetStringValue(); } },
                 { "metrics", n => { Metrics = n.GetObjectValue<global::Soenneker.Replicate.OpenApiClient.Models.SchemasPredictionResponseMetrics>(global::Soenneker.Replicate.OpenApiClient.Models.SchemasPredictionResponseMetrics.CreateFromDiscriminatorValue); } },
                 { "model", n => { Model = n.GetStringValue(); } },
-                { "output", n => { Output = n.GetObjectValue<global::Soenneker.Replicate.OpenApiClient.Models.SchemasPredictionResponseOutput>(global::Soenneker.Replicate.OpenApiClient.Models.SchemasPredictionResponseOutput.CreateFromDiscriminatorValue); } },
+                { "output", n => { Output = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
                 { "source", n => { Source = n.GetEnumValue<global::Soenneker.Replicate.OpenApiClient.Models.SchemasPredictionResponseSource>(); } },
                 { "started_at", n => { StartedAt = n.GetDateTimeOffsetValue(); } },
                 { "status", n => { Status = n.GetEnumValue<global::Soenneker.Replicate.OpenApiClient.Models.SchemasPredictionResponseStatus>(); } },
@@ -170,7 +170,7 @@ namespace Soenneker.Replicate.OpenApiClient.Models
             writer.WriteStringValue("logs", Logs);
             writer.WriteObjectValue<global::Soenneker.Replicate.OpenApiClient.Models.SchemasPredictionResponseMetrics>("metrics", Metrics);
             writer.WriteStringValue("model", Model);
-            writer.WriteObjectValue<global::Soenneker.Replicate.OpenApiClient.Models.SchemasPredictionResponseOutput>("output", Output);
+            writer.WriteObjectValue<UntypedNode>("output", Output);
             writer.WriteEnumValue<global::Soenneker.Replicate.OpenApiClient.Models.SchemasPredictionResponseSource>("source", Source);
             writer.WriteDateTimeOffsetValue("started_at", StartedAt);
             writer.WriteEnumValue<global::Soenneker.Replicate.OpenApiClient.Models.SchemasPredictionResponseStatus>("status", Status);
