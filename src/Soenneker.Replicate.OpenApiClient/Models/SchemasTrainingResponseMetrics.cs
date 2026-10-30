@@ -18,17 +18,19 @@ namespace Soenneker.Replicate.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("predict_time") is { } nullNodePredictTime && nullNodePredictTime.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PredictTime = null;
-            if (parseNode.GetChildNode("total_time") is { } nullNodeTotalTime && nullNodeTotalTime.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TotalTime = null;
+            if (parseNode.GetChildNode("predict_time") is null) { _explicitNullValuePredictTime = default!; _explicitNullProperties?.Remove("predict_time"); }
+            else if (parseNode.GetChildNode("predict_time") is { } nullNodePredictTime && nullNodePredictTime.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PredictTime = null;
+            if (parseNode.GetChildNode("total_time") is null) { _explicitNullValueTotalTime = default!; _explicitNullProperties?.Remove("total_time"); }
+            else if (parseNode.GetChildNode("total_time") is { } nullNodeTotalTime && nullNodeTotalTime.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TotalTime = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The amount of CPU or GPU time, in seconds, that the training used while running</summary>
-        public double? PredictTime { get => _explicitNullValuePredictTime; set { _explicitNullValuePredictTime = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("predict_time"); else _explicitNullProperties?.Remove("predict_time"); } }
+        public double? PredictTime { get => _explicitNullValuePredictTime; set { _explicitNullValuePredictTime = value; AdditionalData?.Remove("predict_time"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("predict_time"); else _explicitNullProperties?.Remove("predict_time"); } }
         private double? _explicitNullValuePredictTime = default!;
         /// <summary>The total time, in seconds, that the training took to complete</summary>
-        public double? TotalTime { get => _explicitNullValueTotalTime; set { _explicitNullValueTotalTime = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("total_time"); else _explicitNullProperties?.Remove("total_time"); } }
+        public double? TotalTime { get => _explicitNullValueTotalTime; set { _explicitNullValueTotalTime = value; AdditionalData?.Remove("total_time"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("total_time"); else _explicitNullProperties?.Remove("total_time"); } }
         private double? _explicitNullValueTotalTime = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Replicate.OpenApiClient.Models.SchemasTrainingResponseMetrics"/> and sets the default values.

@@ -18,7 +18,8 @@ namespace Soenneker.Replicate.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("get") is { } nullNodeGet && nullNodeGet.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Get = null;
+            if (parseNode.GetChildNode("get") is null) { _explicitNullValueGet = default!; _explicitNullProperties?.Remove("get"); }
+            else if (parseNode.GetChildNode("get") is { } nullNodeGet && nullNodeGet.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Get = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -26,11 +27,11 @@ namespace Soenneker.Replicate.OpenApiClient.Models
         /// <summary>A URL to the file resource</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Get { get => _explicitNullValueGet; set { _explicitNullValueGet = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("get"); else _explicitNullProperties?.Remove("get"); } }
+        public string? Get { get => _explicitNullValueGet; set { _explicitNullValueGet = value; AdditionalData?.Remove("get"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("get"); else _explicitNullProperties?.Remove("get"); } }
         private string? _explicitNullValueGet = default!;
 #nullable restore
 #else
-        public string Get { get => _explicitNullValueGet; set { _explicitNullValueGet = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("get"); else _explicitNullProperties?.Remove("get"); } }
+        public string Get { get => _explicitNullValueGet; set { _explicitNullValueGet = value; AdditionalData?.Remove("get"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("get"); else _explicitNullProperties?.Remove("get"); } }
         private string _explicitNullValueGet = default!;
 #endif
         /// <summary>

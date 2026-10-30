@@ -17,10 +17,14 @@ namespace Soenneker.Replicate.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("cog_version") is { } nullNodeCogVersion && nullNodeCogVersion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CogVersion = null;
-            if (parseNode.GetChildNode("created_at") is { } nullNodeCreatedAt && nullNodeCreatedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CreatedAt = null;
-            if (parseNode.GetChildNode("id") is { } nullNodeId && nullNodeId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Id = null;
-            if (parseNode.GetChildNode("openapi_schema") is { } nullNodeOpenapiSchema && nullNodeOpenapiSchema.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OpenapiSchema = null;
+            if (parseNode.GetChildNode("cog_version") is null) { _explicitNullValueCogVersion = default!; _explicitNullProperties?.Remove("cog_version"); }
+            else if (parseNode.GetChildNode("cog_version") is { } nullNodeCogVersion && nullNodeCogVersion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CogVersion = null;
+            if (parseNode.GetChildNode("created_at") is null) { _explicitNullValueCreatedAt = default!; _explicitNullProperties?.Remove("created_at"); }
+            else if (parseNode.GetChildNode("created_at") is { } nullNodeCreatedAt && nullNodeCreatedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CreatedAt = null;
+            if (parseNode.GetChildNode("id") is null) { _explicitNullValueId = default!; _explicitNullProperties?.Remove("id"); }
+            else if (parseNode.GetChildNode("id") is { } nullNodeId && nullNodeId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Id = null;
+            if (parseNode.GetChildNode("openapi_schema") is null) { _explicitNullValueOpenapiSchema = default!; _explicitNullProperties?.Remove("openapi_schema"); }
+            else if (parseNode.GetChildNode("openapi_schema") is { } nullNodeOpenapiSchema && nullNodeOpenapiSchema.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OpenapiSchema = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -28,34 +32,34 @@ namespace Soenneker.Replicate.OpenApiClient.Models
         /// <summary>The version of Cog used to create this version</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CogVersion { get => _explicitNullValueCogVersion; set { _explicitNullValueCogVersion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cog_version"); else _explicitNullProperties?.Remove("cog_version"); } }
+        public string? CogVersion { get => _explicitNullValueCogVersion; set { _explicitNullValueCogVersion = value; AdditionalData?.Remove("cog_version"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cog_version"); else _explicitNullProperties?.Remove("cog_version"); } }
         private string? _explicitNullValueCogVersion = default!;
 #nullable restore
 #else
-        public string CogVersion { get => _explicitNullValueCogVersion; set { _explicitNullValueCogVersion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cog_version"); else _explicitNullProperties?.Remove("cog_version"); } }
+        public string CogVersion { get => _explicitNullValueCogVersion; set { _explicitNullValueCogVersion = value; AdditionalData?.Remove("cog_version"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cog_version"); else _explicitNullProperties?.Remove("cog_version"); } }
         private string _explicitNullValueCogVersion = default!;
 #endif
         /// <summary>The date and time the version was created</summary>
-        public DateTimeOffset? CreatedAt { get => _explicitNullValueCreatedAt; set { _explicitNullValueCreatedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("created_at"); else _explicitNullProperties?.Remove("created_at"); } }
+        public DateTimeOffset? CreatedAt { get => _explicitNullValueCreatedAt; set { _explicitNullValueCreatedAt = value; AdditionalData?.Remove("created_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("created_at"); else _explicitNullProperties?.Remove("created_at"); } }
         private DateTimeOffset? _explicitNullValueCreatedAt = default!;
         /// <summary>The ID of the version</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Id { get => _explicitNullValueId; set { _explicitNullValueId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
+        public string? Id { get => _explicitNullValueId; set { _explicitNullValueId = value; AdditionalData?.Remove("id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
         private string? _explicitNullValueId = default!;
 #nullable restore
 #else
-        public string Id { get => _explicitNullValueId; set { _explicitNullValueId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
+        public string Id { get => _explicitNullValueId; set { _explicitNullValueId = value; AdditionalData?.Remove("id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
         private string _explicitNullValueId = default!;
 #endif
         /// <summary>The OpenAPI schema for the model&apos;s inputs and outputs</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Replicate.OpenApiClient.Models.SchemasVersionResponseOpenApiSchemaProperty? OpenapiSchema { get => _explicitNullValueOpenapiSchema; set { _explicitNullValueOpenapiSchema = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("openapi_schema"); else _explicitNullProperties?.Remove("openapi_schema"); } }
+        public global::Soenneker.Replicate.OpenApiClient.Models.SchemasVersionResponseOpenApiSchemaProperty? OpenapiSchema { get => _explicitNullValueOpenapiSchema; set { _explicitNullValueOpenapiSchema = value; AdditionalData?.Remove("openapi_schema"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("openapi_schema"); else _explicitNullProperties?.Remove("openapi_schema"); } }
         private global::Soenneker.Replicate.OpenApiClient.Models.SchemasVersionResponseOpenApiSchemaProperty? _explicitNullValueOpenapiSchema = default!;
 #nullable restore
 #else
-        public global::Soenneker.Replicate.OpenApiClient.Models.SchemasVersionResponseOpenApiSchemaProperty OpenapiSchema { get => _explicitNullValueOpenapiSchema; set { _explicitNullValueOpenapiSchema = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("openapi_schema"); else _explicitNullProperties?.Remove("openapi_schema"); } }
+        public global::Soenneker.Replicate.OpenApiClient.Models.SchemasVersionResponseOpenApiSchemaProperty OpenapiSchema { get => _explicitNullValueOpenapiSchema; set { _explicitNullValueOpenapiSchema = value; AdditionalData?.Remove("openapi_schema"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("openapi_schema"); else _explicitNullProperties?.Remove("openapi_schema"); } }
         private global::Soenneker.Replicate.OpenApiClient.Models.SchemasVersionResponseOpenApiSchemaProperty _explicitNullValueOpenapiSchema = default!;
 #endif
         /// <summary>
