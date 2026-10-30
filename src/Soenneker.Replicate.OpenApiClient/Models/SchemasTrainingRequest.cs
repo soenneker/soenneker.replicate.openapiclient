@@ -11,40 +11,59 @@ namespace Soenneker.Replicate.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class SchemasTrainingRequest : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("destination") is { } nullNodeDestination && nullNodeDestination.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Destination = null;
+            if (parseNode.GetChildNode("input") is { } nullNodeInput && nullNodeInput.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Input = null;
+            if (parseNode.GetChildNode("webhook") is { } nullNodeWebhook && nullNodeWebhook.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Webhook = null;
+            if (parseNode.GetChildNode("webhook_events_filter") is { } nullNodeWebhookEventsFilter && nullNodeWebhookEventsFilter.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WebhookEventsFilter = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>A string representing the desired model to push to in the format `{destination_model_owner}/{destination_model_name}`. This should be an existing model owned by the user or organization making the API request. If the destination is invalid, the server will return an appropriate 4XX response.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Destination { get; set; }
+        public string? Destination { get => _explicitNullValueDestination; set { _explicitNullValueDestination = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("destination"); else _explicitNullProperties?.Remove("destination"); } }
+        private string? _explicitNullValueDestination = default!;
 #nullable restore
 #else
-        public string Destination { get; set; }
+        public string Destination { get => _explicitNullValueDestination; set { _explicitNullValueDestination = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("destination"); else _explicitNullProperties?.Remove("destination"); } }
+        private string _explicitNullValueDestination = default!;
 #endif
         /// <summary>An object containing inputs to the Cog model&apos;s `train()` function.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Replicate.OpenApiClient.Models.SchemasTrainingRequestInputProperty? Input { get; set; }
+        public global::Soenneker.Replicate.OpenApiClient.Models.SchemasTrainingRequestInputProperty? Input { get => _explicitNullValueInput; set { _explicitNullValueInput = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("input"); else _explicitNullProperties?.Remove("input"); } }
+        private global::Soenneker.Replicate.OpenApiClient.Models.SchemasTrainingRequestInputProperty? _explicitNullValueInput = default!;
 #nullable restore
 #else
-        public global::Soenneker.Replicate.OpenApiClient.Models.SchemasTrainingRequestInputProperty Input { get; set; }
+        public global::Soenneker.Replicate.OpenApiClient.Models.SchemasTrainingRequestInputProperty Input { get => _explicitNullValueInput; set { _explicitNullValueInput = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("input"); else _explicitNullProperties?.Remove("input"); } }
+        private global::Soenneker.Replicate.OpenApiClient.Models.SchemasTrainingRequestInputProperty _explicitNullValueInput = default!;
 #endif
         /// <summary>An HTTPS URL for receiving a webhook when the training completes. The webhook will be a POST request where the request body is the same as the response body of the [get training](#trainings.get) operation. If there are network problems, we will retry the webhook a few times, so make sure it can be safely called more than once. Replicate will not follow redirects when sending webhook requests to your service, so be sure to specify a URL that will resolve without redirecting.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Webhook { get; set; }
+        public string? Webhook { get => _explicitNullValueWebhook; set { _explicitNullValueWebhook = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("webhook"); else _explicitNullProperties?.Remove("webhook"); } }
+        private string? _explicitNullValueWebhook = default!;
 #nullable restore
 #else
-        public string Webhook { get; set; }
+        public string Webhook { get => _explicitNullValueWebhook; set { _explicitNullValueWebhook = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("webhook"); else _explicitNullProperties?.Remove("webhook"); } }
+        private string _explicitNullValueWebhook = default!;
 #endif
         /// <summary>By default, we will send requests to your webhook URL whenever there are new outputs or the training has finished. You can change which events trigger webhook requests by specifying `webhook_events_filter` in the training request:- `start`: immediately on training start- `output`: each time a training generates an output (note that trainings can generate multiple outputs)- `logs`: each time log output is generated by a training- `completed`: when the training reaches a terminal state (succeeded/canceled/failed)For example, if you only wanted requests to be sent at the start and end of the training, you would provide:```json{  &quot;destination&quot;: &quot;my-organization/my-model&quot;,  &quot;input&quot;: {    &quot;text&quot;: &quot;Alice&quot;  },  &quot;webhook&quot;: &quot;https://example.com/my-webhook&quot;,  &quot;webhook_events_filter&quot;: [&quot;start&quot;, &quot;completed&quot;]}```Requests for event types `output` and `logs` will be sent at most once every 500ms. If you request `start` and `completed` webhooks, then they&apos;ll always be sent regardless of throttling.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Replicate.OpenApiClient.Models.SchemasTrainingRequestWebhookEventsFilterItem?>? WebhookEventsFilter { get; set; }
+        public List<global::Soenneker.Replicate.OpenApiClient.Models.SchemasTrainingRequestWebhookEventsFilterItem?>? WebhookEventsFilter { get => _explicitNullValueWebhookEventsFilter; set { _explicitNullValueWebhookEventsFilter = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("webhook_events_filter"); else _explicitNullProperties?.Remove("webhook_events_filter"); } }
+        private List<global::Soenneker.Replicate.OpenApiClient.Models.SchemasTrainingRequestWebhookEventsFilterItem?>? _explicitNullValueWebhookEventsFilter = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Replicate.OpenApiClient.Models.SchemasTrainingRequestWebhookEventsFilterItem?> WebhookEventsFilter { get; set; }
+        public List<global::Soenneker.Replicate.OpenApiClient.Models.SchemasTrainingRequestWebhookEventsFilterItem?> WebhookEventsFilter { get => _explicitNullValueWebhookEventsFilter; set { _explicitNullValueWebhookEventsFilter = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("webhook_events_filter"); else _explicitNullProperties?.Remove("webhook_events_filter"); } }
+        private List<global::Soenneker.Replicate.OpenApiClient.Models.SchemasTrainingRequestWebhookEventsFilterItem?> _explicitNullValueWebhookEventsFilter = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Replicate.OpenApiClient.Models.SchemasTrainingRequest"/> and sets the default values.
@@ -61,7 +80,7 @@ namespace Soenneker.Replicate.OpenApiClient.Models
         public static global::Soenneker.Replicate.OpenApiClient.Models.SchemasTrainingRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Replicate.OpenApiClient.Models.SchemasTrainingRequest();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Replicate.OpenApiClient.Models.SchemasTrainingRequest(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -88,6 +107,7 @@ namespace Soenneker.Replicate.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Replicate.OpenApiClient.Models.SchemasTrainingRequestInputProperty>("input", Input);
             writer.WriteStringValue("webhook", Webhook);
             writer.WriteCollectionOfEnumValues<global::Soenneker.Replicate.OpenApiClient.Models.SchemasTrainingRequestWebhookEventsFilterItem>("webhook_events_filter", WebhookEventsFilter);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

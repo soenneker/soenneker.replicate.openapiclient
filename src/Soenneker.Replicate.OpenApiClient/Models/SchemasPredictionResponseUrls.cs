@@ -12,40 +12,59 @@ namespace Soenneker.Replicate.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class SchemasPredictionResponseUrls : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("cancel") is { } nullNodeCancel && nullNodeCancel.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Cancel = null;
+            if (parseNode.GetChildNode("get") is { } nullNodeGet && nullNodeGet.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Get = null;
+            if (parseNode.GetChildNode("stream") is { } nullNodeStream && nullNodeStream.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Stream = null;
+            if (parseNode.GetChildNode("web") is { } nullNodeWeb && nullNodeWeb.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Web = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Cancel the prediction via API</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Cancel { get; set; }
+        public string? Cancel { get => _explicitNullValueCancel; set { _explicitNullValueCancel = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cancel"); else _explicitNullProperties?.Remove("cancel"); } }
+        private string? _explicitNullValueCancel = default!;
 #nullable restore
 #else
-        public string Cancel { get; set; }
+        public string Cancel { get => _explicitNullValueCancel; set { _explicitNullValueCancel = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cancel"); else _explicitNullProperties?.Remove("cancel"); } }
+        private string _explicitNullValueCancel = default!;
 #endif
         /// <summary>Retrieve the latest state of the prediction via API</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Get { get; set; }
+        public string? Get { get => _explicitNullValueGet; set { _explicitNullValueGet = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("get"); else _explicitNullProperties?.Remove("get"); } }
+        private string? _explicitNullValueGet = default!;
 #nullable restore
 #else
-        public string Get { get; set; }
+        public string Get { get => _explicitNullValueGet; set { _explicitNullValueGet = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("get"); else _explicitNullProperties?.Remove("get"); } }
+        private string _explicitNullValueGet = default!;
 #endif
         /// <summary>An event source to stream the output of the prediction via API</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Stream { get; set; }
+        public string? Stream { get => _explicitNullValueStream; set { _explicitNullValueStream = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("stream"); else _explicitNullProperties?.Remove("stream"); } }
+        private string? _explicitNullValueStream = default!;
 #nullable restore
 #else
-        public string Stream { get; set; }
+        public string Stream { get => _explicitNullValueStream; set { _explicitNullValueStream = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("stream"); else _explicitNullProperties?.Remove("stream"); } }
+        private string _explicitNullValueStream = default!;
 #endif
         /// <summary>View the prediction in a browser</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Web { get; set; }
+        public string? Web { get => _explicitNullValueWeb; set { _explicitNullValueWeb = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("web"); else _explicitNullProperties?.Remove("web"); } }
+        private string? _explicitNullValueWeb = default!;
 #nullable restore
 #else
-        public string Web { get; set; }
+        public string Web { get => _explicitNullValueWeb; set { _explicitNullValueWeb = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("web"); else _explicitNullProperties?.Remove("web"); } }
+        private string _explicitNullValueWeb = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Replicate.OpenApiClient.Models.SchemasPredictionResponseUrls"/> and sets the default values.
@@ -62,7 +81,7 @@ namespace Soenneker.Replicate.OpenApiClient.Models
         public static global::Soenneker.Replicate.OpenApiClient.Models.SchemasPredictionResponseUrls CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Replicate.OpenApiClient.Models.SchemasPredictionResponseUrls();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Replicate.OpenApiClient.Models.SchemasPredictionResponseUrls(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -89,6 +108,7 @@ namespace Soenneker.Replicate.OpenApiClient.Models
             writer.WriteStringValue("get", Get);
             writer.WriteStringValue("stream", Stream);
             writer.WriteStringValue("web", Web);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

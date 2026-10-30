@@ -49,7 +49,7 @@ namespace Soenneker.Replicate.OpenApiClient.Webhooks.Default.Secret
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Replicate.OpenApiClient.Models.WebhooksDefaultSecretGet200Response>(requestInfo, global::Soenneker.Replicate.OpenApiClient.Models.WebhooksDefaultSecretGet200Response.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Replicate.OpenApiClient.Models.WebhooksDefaultSecretGet200Response>(requestInfo, global::Soenneker.Replicate.OpenApiClient.Models.WebhooksDefaultSecretGet200Response.CreateFromDiscriminatorValue, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Get the signing secret for the default webhook endpoint. This is used to verify that webhook requests are coming from Replicate.Example cURL request:```consolecurl -s \  -H &quot;Authorization: Bearer $REPLICATE_API_TOKEN&quot; \  https://api.replicate.com/v1/webhooks/default/secret```The response will be a JSON object with a `key` property:```json{  &quot;key&quot;: &quot;...&quot;}```

@@ -55,6 +55,8 @@ namespace Soenneker.Replicate.OpenApiClient.Search
             {
                 { "400", global::Soenneker.Replicate.OpenApiClient.Models.Search400Response.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Replicate.OpenApiClient.Models.Search500Response.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Replicate.OpenApiClient.Models.SchemasSearchResponse>(requestInfo, global::Soenneker.Replicate.OpenApiClient.Models.SchemasSearchResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

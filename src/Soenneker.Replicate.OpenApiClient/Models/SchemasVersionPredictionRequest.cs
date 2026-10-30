@@ -11,40 +11,61 @@ namespace Soenneker.Replicate.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class SchemasVersionPredictionRequest : IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("input") is { } nullNodeInput && nullNodeInput.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Input = null;
+            if (parseNode.GetChildNode("stream") is { } nullNodeStream && nullNodeStream.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Stream = null;
+            if (parseNode.GetChildNode("version") is { } nullNodeVersion && nullNodeVersion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Version = null;
+            if (parseNode.GetChildNode("webhook") is { } nullNodeWebhook && nullNodeWebhook.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Webhook = null;
+            if (parseNode.GetChildNode("webhook_events_filter") is { } nullNodeWebhookEventsFilter && nullNodeWebhookEventsFilter.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WebhookEventsFilter = null;
+        }
+
         /// <summary>The model&apos;s input as a JSON object. The input schema depends on what model you are running. To see the available inputs, click the &quot;API&quot; tab on the model you are running or [get the model version](#models.versions.get) and look at its `openapi_schema` property. For example, [stability-ai/sdxl](https://replicate.com/stability-ai/sdxl) takes `prompt` as an input.Files should be passed as HTTP URLs or data URLs.Use an HTTP URL when:- you have a large file &gt; 256kb- you want to be able to use the file multiple times- you want your prediction metadata to be associable with your input filesUse a data URL when:- you have a small file &lt;= 256kb- you don&apos;t want to upload and host the file somewhere- you don&apos;t need to use the file again (Replicate will not store it)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Replicate.OpenApiClient.Models.SchemasVersionPredictionRequestInputProperty? Input { get; set; }
+        public global::Soenneker.Replicate.OpenApiClient.Models.SchemasVersionPredictionRequestInputProperty? Input { get => _explicitNullValueInput; set { _explicitNullValueInput = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("input"); else _explicitNullProperties?.Remove("input"); } }
+        private global::Soenneker.Replicate.OpenApiClient.Models.SchemasVersionPredictionRequestInputProperty? _explicitNullValueInput = default!;
 #nullable restore
 #else
-        public global::Soenneker.Replicate.OpenApiClient.Models.SchemasVersionPredictionRequestInputProperty Input { get; set; }
+        public global::Soenneker.Replicate.OpenApiClient.Models.SchemasVersionPredictionRequestInputProperty Input { get => _explicitNullValueInput; set { _explicitNullValueInput = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("input"); else _explicitNullProperties?.Remove("input"); } }
+        private global::Soenneker.Replicate.OpenApiClient.Models.SchemasVersionPredictionRequestInputProperty _explicitNullValueInput = default!;
 #endif
         /// <summary>**This field is deprecated.**Request a URL to receive streaming output using [server-sent events (SSE)](https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events).This field is no longer needed as the returned prediction will always have a `stream` entry in its `urls` property if the model supports streaming.</summary>
-        public bool? Stream { get; set; }
+        public bool? Stream { get => _explicitNullValueStream; set { _explicitNullValueStream = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("stream"); else _explicitNullProperties?.Remove("stream"); } }
+        private bool? _explicitNullValueStream = default!;
         /// <summary>The identifier for the model or model version that you want to run. This can be specified in a few different formats:- `{owner_name}/{model_name}` - Use this format for [official models](https://replicate.com/docs/topics/models/official-models). For example, `black-forest-labs/flux-schnell`. For all other models, the specific version is required.- `{owner_name}/{model_name}:{version_id}` - The owner and model name, plus the full 64-character version ID. For example, `replicate/hello-world:9dcd6d78e7c6560c340d916fe32e9f24aabfa331e5cce95fe31f77fb03121426`.- `{version_id}` - Just the 64-character version ID. For example, `9dcd6d78e7c6560c340d916fe32e9f24aabfa331e5cce95fe31f77fb03121426`</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Version { get; set; }
+        public string? Version { get => _explicitNullValueVersion; set { _explicitNullValueVersion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("version"); else _explicitNullProperties?.Remove("version"); } }
+        private string? _explicitNullValueVersion = default!;
 #nullable restore
 #else
-        public string Version { get; set; }
+        public string Version { get => _explicitNullValueVersion; set { _explicitNullValueVersion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("version"); else _explicitNullProperties?.Remove("version"); } }
+        private string _explicitNullValueVersion = default!;
 #endif
         /// <summary>An HTTPS URL for receiving a webhook when the prediction has new output. The webhook will be a POST request where the request body is the same as the response body of the [get prediction](#predictions.get) operation. If there are network problems, we will retry the webhook a few times, so make sure it can be safely called more than once. Replicate will not follow redirects when sending webhook requests to your service, so be sure to specify a URL that will resolve without redirecting.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Webhook { get; set; }
+        public string? Webhook { get => _explicitNullValueWebhook; set { _explicitNullValueWebhook = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("webhook"); else _explicitNullProperties?.Remove("webhook"); } }
+        private string? _explicitNullValueWebhook = default!;
 #nullable restore
 #else
-        public string Webhook { get; set; }
+        public string Webhook { get => _explicitNullValueWebhook; set { _explicitNullValueWebhook = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("webhook"); else _explicitNullProperties?.Remove("webhook"); } }
+        private string _explicitNullValueWebhook = default!;
 #endif
         /// <summary>By default, we will send requests to your webhook URL whenever there are new outputs or the prediction has finished. You can change which events trigger webhook requests by specifying `webhook_events_filter` in the prediction request:- `start`: immediately on prediction start- `output`: each time a prediction generates an output (note that predictions can generate multiple outputs)- `logs`: each time log output is generated by a prediction- `completed`: when the prediction reaches a terminal state (succeeded/canceled/failed)For example, if you only wanted requests to be sent at the start and end of the prediction, you would provide:```json{  &quot;version&quot;: &quot;5c7d5dc6dd8bf75c1acaa8565735e7986bc5b66206b55cca93cb72c9bf15ccaa&quot;,  &quot;input&quot;: {    &quot;text&quot;: &quot;Alice&quot;  },  &quot;webhook&quot;: &quot;https://example.com/my-webhook&quot;,  &quot;webhook_events_filter&quot;: [&quot;start&quot;, &quot;completed&quot;]}```Requests for event types `output` and `logs` will be sent at most once every 500ms. If you request `start` and `completed` webhooks, then they&apos;ll always be sent regardless of throttling.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Replicate.OpenApiClient.Models.SchemasVersionPredictionRequestWebhookEventsFilterItem?>? WebhookEventsFilter { get; set; }
+        public List<global::Soenneker.Replicate.OpenApiClient.Models.SchemasVersionPredictionRequestWebhookEventsFilterItem?>? WebhookEventsFilter { get => _explicitNullValueWebhookEventsFilter; set { _explicitNullValueWebhookEventsFilter = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("webhook_events_filter"); else _explicitNullProperties?.Remove("webhook_events_filter"); } }
+        private List<global::Soenneker.Replicate.OpenApiClient.Models.SchemasVersionPredictionRequestWebhookEventsFilterItem?>? _explicitNullValueWebhookEventsFilter = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Replicate.OpenApiClient.Models.SchemasVersionPredictionRequestWebhookEventsFilterItem?> WebhookEventsFilter { get; set; }
+        public List<global::Soenneker.Replicate.OpenApiClient.Models.SchemasVersionPredictionRequestWebhookEventsFilterItem?> WebhookEventsFilter { get => _explicitNullValueWebhookEventsFilter; set { _explicitNullValueWebhookEventsFilter = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("webhook_events_filter"); else _explicitNullProperties?.Remove("webhook_events_filter"); } }
+        private List<global::Soenneker.Replicate.OpenApiClient.Models.SchemasVersionPredictionRequestWebhookEventsFilterItem?> _explicitNullValueWebhookEventsFilter = default!;
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -54,7 +75,7 @@ namespace Soenneker.Replicate.OpenApiClient.Models
         public static global::Soenneker.Replicate.OpenApiClient.Models.SchemasVersionPredictionRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Replicate.OpenApiClient.Models.SchemasVersionPredictionRequest();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Replicate.OpenApiClient.Models.SchemasVersionPredictionRequest(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -82,7 +103,8 @@ namespace Soenneker.Replicate.OpenApiClient.Models
             writer.WriteBoolValue("stream", Stream);
             writer.WriteStringValue("version", Version);
             writer.WriteStringValue("webhook", Webhook);
-            writer.WriteCollectionOfEnumValues<global::Soenneker.Replicate.OpenApiClient.Models.SchemasVersionPredictionRequestWebhookEventsFilterItem>("webhook_events_filter", WebhookEventsFilter);
+            writer.WriteCollectionOfEnumValues<global::Soenneker.Replicate.OpenApiClient.Models.SchemasVersionPredictionRequestWebhookEventsFilterItem>("webhook_events_filter", WebhookEventsFilter);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

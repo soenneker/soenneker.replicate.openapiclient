@@ -11,21 +11,35 @@ namespace Soenneker.Replicate.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class SchemasDeploymentResponseCurrentReleaseConfiguration : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("hardware") is { } nullNodeHardware && nullNodeHardware.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Hardware = null;
+            if (parseNode.GetChildNode("max_instances") is { } nullNodeMaxInstances && nullNodeMaxInstances.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxInstances = null;
+            if (parseNode.GetChildNode("min_instances") is { } nullNodeMinInstances && nullNodeMinInstances.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MinInstances = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The SKU for the hardware used to run the model.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Hardware { get; set; }
+        public string? Hardware { get => _explicitNullValueHardware; set { _explicitNullValueHardware = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("hardware"); else _explicitNullProperties?.Remove("hardware"); } }
+        private string? _explicitNullValueHardware = default!;
 #nullable restore
 #else
-        public string Hardware { get; set; }
+        public string Hardware { get => _explicitNullValueHardware; set { _explicitNullValueHardware = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("hardware"); else _explicitNullProperties?.Remove("hardware"); } }
+        private string _explicitNullValueHardware = default!;
 #endif
         /// <summary>The maximum number of instances for scaling.</summary>
-        public int? MaxInstances { get; set; }
+        public int? MaxInstances { get => _explicitNullValueMaxInstances; set { _explicitNullValueMaxInstances = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_instances"); else _explicitNullProperties?.Remove("max_instances"); } }
+        private int? _explicitNullValueMaxInstances = default!;
         /// <summary>The minimum number of instances for scaling.</summary>
-        public int? MinInstances { get; set; }
+        public int? MinInstances { get => _explicitNullValueMinInstances; set { _explicitNullValueMinInstances = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("min_instances"); else _explicitNullProperties?.Remove("min_instances"); } }
+        private int? _explicitNullValueMinInstances = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Replicate.OpenApiClient.Models.SchemasDeploymentResponseCurrentReleaseConfiguration"/> and sets the default values.
         /// </summary>
@@ -41,7 +55,7 @@ namespace Soenneker.Replicate.OpenApiClient.Models
         public static global::Soenneker.Replicate.OpenApiClient.Models.SchemasDeploymentResponseCurrentReleaseConfiguration CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Replicate.OpenApiClient.Models.SchemasDeploymentResponseCurrentReleaseConfiguration();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Replicate.OpenApiClient.Models.SchemasDeploymentResponseCurrentReleaseConfiguration(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -66,6 +80,7 @@ namespace Soenneker.Replicate.OpenApiClient.Models
             writer.WriteStringValue("hardware", Hardware);
             writer.WriteIntValue("max_instances", MaxInstances);
             writer.WriteIntValue("min_instances", MinInstances);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -11,40 +11,59 @@ namespace Soenneker.Replicate.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class SchemasSearchResponse : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("collections") is { } nullNodeCollections && nullNodeCollections.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Collections = null;
+            if (parseNode.GetChildNode("models") is { } nullNodeModels && nullNodeModels.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Models = null;
+            if (parseNode.GetChildNode("pages") is { } nullNodePages && nullNodePages.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Pages = null;
+            if (parseNode.GetChildNode("query") is { } nullNodeQuery && nullNodeQuery.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Query = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Array of collections that match the search query</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Replicate.OpenApiClient.Models.SchemasSearchCollectionResponse>? Collections { get; set; }
+        public List<global::Soenneker.Replicate.OpenApiClient.Models.SchemasSearchCollectionResponse>? Collections { get => _explicitNullValueCollections; set { _explicitNullValueCollections = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("collections"); else _explicitNullProperties?.Remove("collections"); } }
+        private List<global::Soenneker.Replicate.OpenApiClient.Models.SchemasSearchCollectionResponse>? _explicitNullValueCollections = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Replicate.OpenApiClient.Models.SchemasSearchCollectionResponse> Collections { get; set; }
+        public List<global::Soenneker.Replicate.OpenApiClient.Models.SchemasSearchCollectionResponse> Collections { get => _explicitNullValueCollections; set { _explicitNullValueCollections = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("collections"); else _explicitNullProperties?.Remove("collections"); } }
+        private List<global::Soenneker.Replicate.OpenApiClient.Models.SchemasSearchCollectionResponse> _explicitNullValueCollections = default!;
 #endif
         /// <summary>Array of models that match the search query, each containing model data and extra metadata</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Replicate.OpenApiClient.Models.SchemasSearchResponseModelsItem>? Models { get; set; }
+        public List<global::Soenneker.Replicate.OpenApiClient.Models.SchemasSearchResponseModelsItem>? Models { get => _explicitNullValueModels; set { _explicitNullValueModels = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("models"); else _explicitNullProperties?.Remove("models"); } }
+        private List<global::Soenneker.Replicate.OpenApiClient.Models.SchemasSearchResponseModelsItem>? _explicitNullValueModels = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Replicate.OpenApiClient.Models.SchemasSearchResponseModelsItem> Models { get; set; }
+        public List<global::Soenneker.Replicate.OpenApiClient.Models.SchemasSearchResponseModelsItem> Models { get => _explicitNullValueModels; set { _explicitNullValueModels = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("models"); else _explicitNullProperties?.Remove("models"); } }
+        private List<global::Soenneker.Replicate.OpenApiClient.Models.SchemasSearchResponseModelsItem> _explicitNullValueModels = default!;
 #endif
         /// <summary>Array of Replicate documentation pages that match the search query</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Replicate.OpenApiClient.Models.SchemasPageResponse>? Pages { get; set; }
+        public List<global::Soenneker.Replicate.OpenApiClient.Models.SchemasPageResponse>? Pages { get => _explicitNullValuePages; set { _explicitNullValuePages = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pages"); else _explicitNullProperties?.Remove("pages"); } }
+        private List<global::Soenneker.Replicate.OpenApiClient.Models.SchemasPageResponse>? _explicitNullValuePages = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Replicate.OpenApiClient.Models.SchemasPageResponse> Pages { get; set; }
+        public List<global::Soenneker.Replicate.OpenApiClient.Models.SchemasPageResponse> Pages { get => _explicitNullValuePages; set { _explicitNullValuePages = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pages"); else _explicitNullProperties?.Remove("pages"); } }
+        private List<global::Soenneker.Replicate.OpenApiClient.Models.SchemasPageResponse> _explicitNullValuePages = default!;
 #endif
         /// <summary>The search term that was evaluated</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Query { get; set; }
+        public string? Query { get => _explicitNullValueQuery; set { _explicitNullValueQuery = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("query"); else _explicitNullProperties?.Remove("query"); } }
+        private string? _explicitNullValueQuery = default!;
 #nullable restore
 #else
-        public string Query { get; set; }
+        public string Query { get => _explicitNullValueQuery; set { _explicitNullValueQuery = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("query"); else _explicitNullProperties?.Remove("query"); } }
+        private string _explicitNullValueQuery = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Replicate.OpenApiClient.Models.SchemasSearchResponse"/> and sets the default values.
@@ -61,7 +80,7 @@ namespace Soenneker.Replicate.OpenApiClient.Models
         public static global::Soenneker.Replicate.OpenApiClient.Models.SchemasSearchResponse CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Replicate.OpenApiClient.Models.SchemasSearchResponse();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Replicate.OpenApiClient.Models.SchemasSearchResponse(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -88,6 +107,7 @@ namespace Soenneker.Replicate.OpenApiClient.Models
             writer.WriteCollectionOfObjectValues<global::Soenneker.Replicate.OpenApiClient.Models.SchemasSearchResponseModelsItem>("models", Models);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Replicate.OpenApiClient.Models.SchemasPageResponse>("pages", Pages);
             writer.WriteStringValue("query", Query);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

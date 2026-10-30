@@ -62,7 +62,7 @@ namespace Soenneker.Replicate.OpenApiClient.Collections
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Replicate.OpenApiClient.Models.SchemasPaginatedCollectionResponse>(requestInfo, global::Soenneker.Replicate.OpenApiClient.Models.SchemasPaginatedCollectionResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Replicate.OpenApiClient.Models.SchemasPaginatedCollectionResponse>(requestInfo, global::Soenneker.Replicate.OpenApiClient.Models.SchemasPaginatedCollectionResponse.CreateFromDiscriminatorValue, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Example cURL request:```consolecurl -s \  -H &quot;Authorization: Bearer $REPLICATE_API_TOKEN&quot; \  https://api.replicate.com/v1/collections```The response will be a paginated JSON list of collection objects:```json{  &quot;next&quot;: &quot;null&quot;,  &quot;previous&quot;: null,  &quot;results&quot;: [    {      &quot;name&quot;: &quot;Super resolution&quot;,      &quot;slug&quot;: &quot;super-resolution&quot;,      &quot;description&quot;: &quot;Upscaling models that create high-quality images from low-quality images.&quot;    }  ]}```
