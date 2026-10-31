@@ -72,7 +72,7 @@ namespace Soenneker.Replicate.OpenApiClient.Files.Item.Download
         public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Replicate.OpenApiClient.Files.Item.Download.DownloadRequestBuilder.DownloadRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.GET, global::Soenneker.OpenApi.Generated.OpenApiServiceRoutes.Resolve(UrlTemplate, RequestAdapter.BaseUrl, "https://api.replicate.com/v1", "/files/{fileId}/download", PathParameters.ContainsKey("request-raw-url")), PathParameters);
+            var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/octet-stream, application/problem+json");
             return requestInfo;
