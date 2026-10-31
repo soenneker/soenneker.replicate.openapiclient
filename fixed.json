@@ -306,6 +306,17 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "Prediction has been created. If the \u0060Prefer: wait\u0060 header is provided it will contain the final output.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SchemasPredictionResponse"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         }
       }
@@ -362,6 +373,17 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "File has been created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SchemasFileResponse"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-feature-flag": "show-files-api-docs"
@@ -588,6 +610,17 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SchemasModelResponse"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         }
       }
@@ -808,6 +841,17 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "Prediction has been created. If the \u0060Prefer: wait\u0060 header is provided it will contain the final output.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SchemasPredictionResponse"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         }
       }
@@ -1033,6 +1077,17 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SchemasTrainingResponse"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         }
       }
@@ -1128,6 +1183,17 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "Prediction has been created. If the \u0060Prefer: wait\u0060 header is provided it will contain the final output.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SchemasPredictionResponse"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         }
       }
