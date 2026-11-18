@@ -92,7 +92,7 @@ namespace Soenneker.Replicate.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(4)
             {
                 { "collections", n => { Collections = n.GetCollectionOfObjectValues<global::Soenneker.Replicate.OpenApiClient.Models.SchemasSearchCollectionResponse>(global::Soenneker.Replicate.OpenApiClient.Models.SchemasSearchCollectionResponse.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "models", n => { Models = n.GetCollectionOfObjectValues<global::Soenneker.Replicate.OpenApiClient.Models.SchemasSearchResponseModelsItem>(global::Soenneker.Replicate.OpenApiClient.Models.SchemasSearchResponseModelsItem.CreateFromDiscriminatorValue)?.AsList(); } },
